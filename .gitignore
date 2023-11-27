@@ -1,0 +1,7 @@
+.vs/
+.vsconfig
+Library/
+Logs/
+Packages/
+Test to DrakAndLight.sln
+obj/
