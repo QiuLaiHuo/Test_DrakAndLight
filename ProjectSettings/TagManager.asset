@@ -42,3 +42,30 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground_Back_1
+    uniqueID: 288739607
+    locked: 0
+  - name: Ground_Back_Fog_1
+    uniqueID: 1867983257
+    locked: 0
+  - name: Ground_Back_2
+    uniqueID: 2868764821
+    locked: 0
+  - name: Ground_Mid_1
+    uniqueID: 319246447
+    locked: 0
+  - name: Player
+    uniqueID: 3478932783
+    locked: 0
+  - name: Ground_Mid_2
+    uniqueID: 914181725
+    locked: 0
+  - name: Ground_Front_1
+    uniqueID: 864157751
+    locked: 0
+  - name: Ground_Front_2
+    uniqueID: 1998639023
+    locked: 0
+  - name: Ground_Front_Fog_1
+    uniqueID: 314965327
+    locked: 0
