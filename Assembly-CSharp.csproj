@@ -591,7 +591,9 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Conditionals\Reflection\CompareFieldValue.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\FireWing\Shader\Wing_Main.shader" />
     <None Include="Assets\Behavior Designer\Runtime\BehaviorDesigner.Runtime.dll" />
+    <None Include="Assets\FireWing\Shader\Wing_Sub.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
