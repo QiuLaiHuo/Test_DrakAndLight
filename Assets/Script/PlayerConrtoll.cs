@@ -117,7 +117,7 @@ public class PlayerConrtoll: MonoBehaviour
     #endregion
 
 
-
+    
 
     #region Åö×²¼ì²â·½·¨
     private void OnTriggerEnter2D (Collider2D col)
@@ -158,6 +158,9 @@ public class PlayerConrtoll: MonoBehaviour
     public void Weapon()
     {
         WeaponAnimator.GetComponent<SpriteRenderer>().flipX = sprit.flipX;
-        WeaponAnimator.GetComponent<Animator> ().SetTrigger ("Attack");
+        if(sprit.flipX==true)
+             WeaponAnimator.GetComponent<Animator> ().SetTrigger ("Attack_R");
+        else
+            WeaponAnimator.GetComponent<Animator> ().SetTrigger ("Attack_L");
     }
 }
