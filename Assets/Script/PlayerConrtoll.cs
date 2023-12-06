@@ -1,7 +1,6 @@
-using BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator;
-
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerConrtoll: MonoBehaviour
 {
@@ -20,8 +19,10 @@ public class PlayerConrtoll: MonoBehaviour
     public float DoubleJumpForce;
     [SerializeField]
     private Vector2 SpeedValue;
-    private bool IsDoubleJump = false;
-    private bool IsGround = true;
+    public bool IsDoubleJump = false;
+    public bool IsGround = true;
+    public bool IsJump = false;
+    public bool IsAttack = false;
 
 
     //private EdgeCollider2D GroundCheck;
@@ -32,7 +33,7 @@ public class PlayerConrtoll: MonoBehaviour
         rd = GetComponent<Rigidbody2D> ();
         sprit = GetComponent<SpriteRenderer> ();
         anim = GetComponent<Animator> ();
-       
+
         // GroundCheck = GetComponent<EdgeCollider2D> ();
     }
     void Start ()
@@ -54,7 +55,8 @@ public class PlayerConrtoll: MonoBehaviour
 
     private void FixedUpdate ()
     {
-        Move ();
+        if(!IsAttack) { Move (); }
+       
 
     }
     #endregion
@@ -72,19 +74,19 @@ public class PlayerConrtoll: MonoBehaviour
         //TOOD：动画设置
         if (IsGround)
         {
-            anim.SetTrigger ("Jump");
+            IsJump = true;
             rd.AddForce (Vector2.up * JumpForce,ForceMode2D.Impulse);
-            IsDoubleJump = false;
+           // IsDoubleJump = false;
         }
         else if (!IsGround && !IsDoubleJump)
         {
-
+            IsDoubleJump = true;
             rd.velocity = new Vector2 (rd.velocity.x,0);
             anim.SetTrigger ("DoubleJump");
-            WingAnimator.GetComponent<Animator>() .SetTrigger ("Wing");
-           
+            WingAnimator.GetComponent<Animator> ().SetTrigger ("Wing");
+
             rd.AddForce (Vector2.up * DoubleJumpForce,ForceMode2D.Impulse);
-            IsDoubleJump = true;
+
         }
         else if (IsDoubleJump)
             return;
@@ -94,7 +96,15 @@ public class PlayerConrtoll: MonoBehaviour
 
     private void Attack (InputAction.CallbackContext obj)
     {
-        anim.SetTrigger ("Attack");
+        if (IsGround)
+        { rd.velocity = new Vector2(0,rd.velocity.y);
+        IsAttack  = true;
+
+        }else if(!IsGround)
+        {
+            IsAttack = true;
+        }
+       
     }
 
     private void Move ()
@@ -117,23 +127,22 @@ public class PlayerConrtoll: MonoBehaviour
     #endregion
 
 
-    
+
 
     #region 碰撞检测方法
-    private void OnTriggerEnter2D (Collider2D col)
+    private void OnCollisionEnter2D (Collision2D col)
     {
-        if (col.CompareTag ("Ground"))
+        if (col.collider.CompareTag("Ground"))
         {
             IsGround = true;
+            IsJump = false;
+            IsDoubleJump = false;
             anim.SetBool ("IsGround",IsGround);
         }
     }
-    private void OnTriggerExit2D (Collider2D col)
+    private void OnCollisionExit2D(Collision2D col)
     {
-
-
-
-        if (col.CompareTag ("Ground"))
+        if (col.collider.CompareTag ("Ground"))
         {
             IsGround = false;
             anim.SetBool ("IsGround",IsGround);
@@ -155,11 +164,11 @@ public class PlayerConrtoll: MonoBehaviour
     #endregion
 
 
-    public void Weapon()
+    public void Weapon ()
     {
-        WeaponAnimator.GetComponent<SpriteRenderer>().flipX = sprit.flipX;
-        if(sprit.flipX==true)
-             WeaponAnimator.GetComponent<Animator> ().SetTrigger ("Attack_R");
+        WeaponAnimator.GetComponent<SpriteRenderer> ().flipX = sprit.flipX;
+        if (sprit.flipX == true)
+            WeaponAnimator.GetComponent<Animator> ().SetTrigger ("Attack_R");
         else
             WeaponAnimator.GetComponent<Animator> ().SetTrigger ("Attack_L");
     }

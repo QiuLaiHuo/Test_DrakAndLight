@@ -11185,6 +11185,7 @@ GameObject:
   - component: {fileID: 1879657546}
   - component: {fileID: 1879657547}
   - component: {fileID: 1879657548}
+  - component: {fileID: 1879657549}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -11354,6 +11355,10 @@ MonoBehaviour:
   JumpForce: 17
   DoubleJumpForce: 15
   SpeedValue: {x: 0, y: 0}
+  IsDoubleJump: 0
+  IsGround: 1
+  IsJump: 0
+  IsAttack: 0
 --- !u!68 &1879657547
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -11390,7 +11395,7 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: 0.017189503, y: -0.93484753}
-  - {x: 0.016716719, y: -1.1625047}
+  - {x: 0.016716719, y: -1.5362732}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -11416,6 +11421,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1879657549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879657541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed59616250a8e048b92790a9c3e1c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1898151666
 GameObject:
   m_ObjectHideFlags: 0
