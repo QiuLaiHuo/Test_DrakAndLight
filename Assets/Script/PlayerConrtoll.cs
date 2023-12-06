@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class PlayerConrtoll: MonoBehaviour
 {
@@ -55,8 +54,8 @@ public class PlayerConrtoll: MonoBehaviour
 
     private void FixedUpdate ()
     {
-        if(!IsAttack) { Move (); }
-       
+        if (!IsAttack) { Move (); }
+
 
     }
     #endregion
@@ -76,7 +75,7 @@ public class PlayerConrtoll: MonoBehaviour
         {
             IsJump = true;
             rd.AddForce (Vector2.up * JumpForce,ForceMode2D.Impulse);
-           // IsDoubleJump = false;
+            // IsDoubleJump = false;
         }
         else if (!IsGround && !IsDoubleJump)
         {
@@ -97,14 +96,11 @@ public class PlayerConrtoll: MonoBehaviour
     private void Attack (InputAction.CallbackContext obj)
     {
         if (IsGround)
-        { rd.velocity = new Vector2(0,rd.velocity.y);
-        IsAttack  = true;
-
-        }else if(!IsGround)
         {
-            IsAttack = true;
+            rd.velocity = new Vector2 (0,rd.velocity.y);
+
         }
-       
+        IsAttack = true;
     }
 
     private void Move ()
@@ -121,8 +117,8 @@ public class PlayerConrtoll: MonoBehaviour
         rd.velocity = new Vector2 (SpeedValue.x * MoveSpeed,rd.velocity.y);
         anim.SetFloat ("Move",Mathf.Abs (SpeedValue.x));
 
-        if (IsGround && SpeedValue == Vector2.zero)
-            anim.SetTrigger ("Idle");
+        //if (IsGround && SpeedValue == Vector2.zero)
+        //    anim.SetTrigger ("Idle");
     }
     #endregion
 
@@ -132,7 +128,7 @@ public class PlayerConrtoll: MonoBehaviour
     #region Åö×²¼ì²â·½·¨
     private void OnCollisionEnter2D (Collision2D col)
     {
-        if (col.collider.CompareTag("Ground"))
+        if (col.collider.CompareTag ("Ground"))
         {
             IsGround = true;
             IsJump = false;
@@ -140,7 +136,7 @@ public class PlayerConrtoll: MonoBehaviour
             anim.SetBool ("IsGround",IsGround);
         }
     }
-    private void OnCollisionExit2D(Collision2D col)
+    private void OnCollisionExit2D (Collision2D col)
     {
         if (col.collider.CompareTag ("Ground"))
         {
