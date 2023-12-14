@@ -22,6 +22,7 @@ public class PlayerConrtoll: MonoBehaviour
     public bool IsGround = true;
     public bool IsJump = false;
     public bool IsAttack = false;
+    public bool IsDefence = false;
 
 
     //private EdgeCollider2D GroundCheck;
@@ -54,7 +55,7 @@ public class PlayerConrtoll: MonoBehaviour
 
     private void FixedUpdate ()
     {
-        if (!IsAttack) { Move (); }
+        if (!IsAttack&&!IsDefence) { Move (); }
 
 
     }
@@ -64,7 +65,12 @@ public class PlayerConrtoll: MonoBehaviour
     #region 角色操作方法
     private void Defence (InputAction.CallbackContext obj)
     {
-
+        if (!IsDefence&&IsGround&&!IsAttack)
+        {
+            IsDefence = true;
+            rd.velocity = new Vector2 (0,rd.velocity.y);
+            
+        }
     }
 
     private void Jump (InputAction.CallbackContext obj)
@@ -79,6 +85,7 @@ public class PlayerConrtoll: MonoBehaviour
         }
         else if (!IsGround && !IsDoubleJump)
         {
+            IsJump = true;
             IsDoubleJump = true;
             rd.velocity = new Vector2 (rd.velocity.x,0);
             anim.SetTrigger ("DoubleJump");
@@ -95,7 +102,7 @@ public class PlayerConrtoll: MonoBehaviour
 
     private void Attack (InputAction.CallbackContext obj)
     {
-        if (IsGround)
+        if (IsGround&&!IsDefence)
         {
             rd.velocity = new Vector2 (0,rd.velocity.y);
 
@@ -162,11 +169,16 @@ public class PlayerConrtoll: MonoBehaviour
 
     public void Weapon ()
     {
-        
+
         WeaponAnimator.GetComponent<SpriteRenderer> ().flipX = sprit.flipX;
         if (sprit.flipX == true)
             WeaponAnimator.GetComponent<Animator> ().SetTrigger ("Attack_R");
         else
             WeaponAnimator.GetComponent<Animator> ().SetTrigger ("Attack_L");
+    }
+
+    public void Death()
+    {
+        inputs.GamePlay.Disable ();
     }
 }
