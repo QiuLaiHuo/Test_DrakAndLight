@@ -1,16 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-
-using Unity.VisualScripting;
-
 using UnityEngine;
+using UnityEngine.Events;
 
-public class DefenceController : MonoBehaviour
+public class DefenceController: MonoBehaviour
 {
-    public  float DefenceTimeCD;
+    public float DefenceTimeCD;
     [SerializeField]
     private float CurrentDefenceTime;
     bool IsDefence;
+
+    public UnityEvent Defence;
 
     private void Start ()
     {
@@ -20,8 +18,8 @@ public class DefenceController : MonoBehaviour
     {
         if (IsDefence)
         {
-            CurrentDefenceTime = DefenceTimeCD;
-            CurrentDefenceTime-=Time.deltaTime;
+
+            CurrentDefenceTime -= Time.deltaTime;
             if (CurrentDefenceTime <= 0)
             {
                 CurrentDefenceTime = 0;
@@ -29,5 +27,17 @@ public class DefenceController : MonoBehaviour
             }
 
         }
+    }
+
+    public void OnDefence (AttackControll attack)
+    {
+        if (!IsDefence)
+        {
+            IsDefence = true;
+            CurrentDefenceTime = DefenceTimeCD;
+            Defence?.Invoke ();
+        }
+       // Debug.Log (1);
+
     }
 }

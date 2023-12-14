@@ -1163,11 +1163,11 @@ GameObject:
   - component: {fileID: 430845139}
   m_Layer: 10
   m_Name: Defence
-  m_TagString: Untagged
+  m_TagString: Defence
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &430845138
 Transform:
   m_ObjectHideFlags: 0
@@ -1197,6 +1197,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefenceTimeCD: 2
   CurrentDefenceTime: 0
+  Defence:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &430845140
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5727,11 +5730,11 @@ GameObject:
   - component: {fileID: 1677944979}
   m_Layer: 11
   m_Name: Defence
-  m_TagString: Untagged
+  m_TagString: Defence
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1677944978
 Transform:
   m_ObjectHideFlags: 0
@@ -5761,6 +5764,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefenceTimeCD: 1
   CurrentDefenceTime: 0
+  Defence:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &1677944980
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11192,8 +11198,11 @@ MonoBehaviour:
   CurrentHealth: 0
   Shield: 20
   CurrentShield: 0
+  RecoverTime: 3
+  CurrentRecoverTime: 0
   InvincibleTime: 0.5
   CurrntInvincible: 0
+  Multiply: 2
   Isinvincible: 0
   IsBreak: 0
   IsDeath: 0
@@ -11201,6 +11210,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   Ondeath:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBreak:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1818747354
@@ -11780,7 +11792,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.03125, y: 2.0625}
+    oldSize: {x: 1.53125, y: 1.921875}
     newSize: {x: 1.03125, y: 2.0625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -11860,12 +11872,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0e3a209395de3f4aa790409147b574b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 2
+  Health: 50
   CurrentHealth: 0
-  Shield: 0
+  Shield: 10
   CurrentShield: 0
+  RecoverTime: 2
+  CurrentRecoverTime: 0
   InvincibleTime: 1
   CurrntInvincible: 0
+  Multiply: 1
   Isinvincible: 0
   IsBreak: 0
   IsDeath: 0
@@ -11899,6 +11914,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnBreak:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &1879657551
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11935,7 +11953,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.03125, y: 2.0625}
+    oldSize: {x: 1.53125, y: 1.921875}
     newSize: {x: 1.03125, y: 2.0625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

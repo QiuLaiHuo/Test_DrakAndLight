@@ -8,19 +8,32 @@ public class Character: MonoBehaviour
     public int CurrentHealth;
     public int Shield;
     public int CurrentShield;
+    public float RecoverTime;
+    public float CurrentRecoverTime;
     public float InvincibleTime;
     public float CurrntInvincible;
+    public int Multiply;
     public bool Isinvincible;
     public bool IsBreak;
     public bool IsDeath;
+    
+
+
+    //[SerializeField]
+
 
     public UnityEvent OnDamage;
     public UnityEvent Ondeath;
+    public UnityEvent OnBreak;
+
+    private AttackControll attacker;
 
     private void Start ()
     {
+        attacker = null;
         CurrentHealth = Health;
         CurrentShield = Shield;
+        CurrentRecoverTime = 0;
     }
 
     private void Update ()
@@ -34,29 +47,33 @@ public class Character: MonoBehaviour
                 Isinvincible = false;
             }
         }
-    }
-    public void OnTakeDamage (AttackControll attcker)
-    {
-        if (Isinvincible||IsDeath)
-            return;
 
+        if (IsBreak)
+        {
+            CurrentRecoverTime -= Time.deltaTime;
+            if (CurrentRecoverTime <= 0)
+            {
+                CurrentRecoverTime = 0;
+                IsBreak = false;
+                CurrentShield = Shield;
+            }
+
+        }
+    }
+    public void OnTakeDamage (AttackControll attack)
+    {
+        if (Isinvincible || IsDeath)
+            return;
+        this.attacker = attack;
         TriggerInvincible ();
         //护盾系统判定
+        DamageShield ();
 
         //伤害判定
-        if (CurrentHealth - attcker.Damage > 0)
-        {
-            CurrentHealth -= attcker.Damage;
-            OnDamage?.Invoke ();
-        }
+        if (IsBreak)
+            Damage (attacker.Damage * Multiply);
         else
-        {
-            CurrentHealth = 0;
-            IsDeath = true;
-            Ondeath?.Invoke ();
-        }
-
-
+            Damage (attacker.Damage);
     }
 
 
@@ -71,9 +88,42 @@ public class Character: MonoBehaviour
 
     }
 
-    public void TriggerShield ()
+    private void Damage (int Damage)
     {
+        if (CurrentHealth - Damage > 0)
+        {
+            CurrentHealth -= Damage;
+            OnDamage?.Invoke ();
+        }
+        else
+        {
+            CurrentHealth = 0;
+            IsDeath = true;
+            Ondeath?.Invoke ();
+        }
+    }
+
+
+
+    private void DamageShield ()
+    {
+        if (attacker == null||CurrentShield<=0)
+            return;
+        if (CurrentShield - attacker.Damage <= 0)
+        {
+            //进入Break，包括动画
+            OnBreak?.Invoke ();
+            CurrentShield = 0;
+            CurrentRecoverTime = RecoverTime;
+            IsBreak = true;
+
+        }
+        else
+        {
+            CurrentShield -= attacker.Damage;
+        }
 
     }
+
 
 }
