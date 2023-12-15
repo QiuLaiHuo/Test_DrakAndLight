@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Ground
   - Defence
+  - PerfectDefence
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - PlayerAttack
   - EnemyDefence
   - PlayerDefence
-  - 
+  - PlayerPefect
   - 
   - 
   - 

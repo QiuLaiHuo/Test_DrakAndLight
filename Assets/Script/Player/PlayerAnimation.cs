@@ -31,6 +31,8 @@ public class PlayerAnimation : MonoBehaviour
         anim.SetBool ("Attack",player.IsAttack);
         anim.SetBool ("Defence",player.IsDefence);
         anim.SetBool ("Death",chara.IsDeath);
+        anim.SetBool ("PorfectDefence",player.IsPorfect);
+        anim.SetBool ("Dodge",player.IsDodge);
     }
 
     public void Hurt()

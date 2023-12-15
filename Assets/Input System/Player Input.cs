@@ -62,6 +62,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PorfectDefence"",
+                    ""type"": ""Button"",
+                    ""id"": ""62f92dc4-cc83-44d0-861c-b7cc23d5a1c9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dodge"",
+                    ""type"": ""Button"",
+                    ""id"": ""2312527e-ed31-478d-8891-4a030643383f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -177,9 +195,20 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6020553e-f137-4970-982a-43c0e5ca01a8"",
+                    ""id"": ""8db7e56b-8d09-4bb7-bedb-f3663734ecfe"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": ""Hold(duration=0.1)"",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Defence"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d944faa8-67a9-48af-abdd-15c6a87bb7bd"",
                     ""path"": ""<Keyboard>/h"",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold(duration=0.1)"",
                     ""processors"": """",
                     ""groups"": ""Key"",
                     ""action"": ""Defence"",
@@ -193,7 +222,29 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Defence"",
+                    ""action"": ""PorfectDefence"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6020553e-f137-4970-982a-43c0e5ca01a8"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Key"",
+                    ""action"": ""PorfectDefence"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""384b1beb-8441-4beb-88f6-899d132dcb47"",
+                    ""path"": ""<Keyboard>/u"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Dodge"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -259,6 +310,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_GamePlay_Jump = m_GamePlay.FindAction("Jump", throwIfNotFound: true);
         m_GamePlay_Attack = m_GamePlay.FindAction("Attack", throwIfNotFound: true);
         m_GamePlay_Defence = m_GamePlay.FindAction("Defence", throwIfNotFound: true);
+        m_GamePlay_PorfectDefence = m_GamePlay.FindAction("PorfectDefence", throwIfNotFound: true);
+        m_GamePlay_Dodge = m_GamePlay.FindAction("Dodge", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Newaction = m_UI.FindAction("New action", throwIfNotFound: true);
@@ -327,6 +380,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_GamePlay_Jump;
     private readonly InputAction m_GamePlay_Attack;
     private readonly InputAction m_GamePlay_Defence;
+    private readonly InputAction m_GamePlay_PorfectDefence;
+    private readonly InputAction m_GamePlay_Dodge;
     public struct GamePlayActions
     {
         private @PlayerInput m_Wrapper;
@@ -335,6 +390,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_GamePlay_Jump;
         public InputAction @Attack => m_Wrapper.m_GamePlay_Attack;
         public InputAction @Defence => m_Wrapper.m_GamePlay_Defence;
+        public InputAction @PorfectDefence => m_Wrapper.m_GamePlay_PorfectDefence;
+        public InputAction @Dodge => m_Wrapper.m_GamePlay_Dodge;
         public InputActionMap Get() { return m_Wrapper.m_GamePlay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -356,6 +413,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Defence.started += instance.OnDefence;
             @Defence.performed += instance.OnDefence;
             @Defence.canceled += instance.OnDefence;
+            @PorfectDefence.started += instance.OnPorfectDefence;
+            @PorfectDefence.performed += instance.OnPorfectDefence;
+            @PorfectDefence.canceled += instance.OnPorfectDefence;
+            @Dodge.started += instance.OnDodge;
+            @Dodge.performed += instance.OnDodge;
+            @Dodge.canceled += instance.OnDodge;
         }
 
         private void UnregisterCallbacks(IGamePlayActions instance)
@@ -372,6 +435,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Defence.started -= instance.OnDefence;
             @Defence.performed -= instance.OnDefence;
             @Defence.canceled -= instance.OnDefence;
+            @PorfectDefence.started -= instance.OnPorfectDefence;
+            @PorfectDefence.performed -= instance.OnPorfectDefence;
+            @PorfectDefence.canceled -= instance.OnPorfectDefence;
+            @Dodge.started -= instance.OnDodge;
+            @Dodge.performed -= instance.OnDodge;
+            @Dodge.canceled -= instance.OnDodge;
         }
 
         public void RemoveCallbacks(IGamePlayActions instance)
@@ -459,6 +528,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnDefence(InputAction.CallbackContext context);
+        void OnPorfectDefence(InputAction.CallbackContext context);
+        void OnDodge(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

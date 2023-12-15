@@ -751,6 +751,96 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &245564199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 245564200}
+  - component: {fileID: 245564202}
+  - component: {fileID: 245564201}
+  m_Layer: 12
+  m_Name: PerfectDefence
+  m_TagString: PerfectDefence
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &245564200
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245564199}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1879657543}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &245564201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245564199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dff8b98eeeb995479130301ea6be7c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &245564202
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245564199}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 7935
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.4670353, y: 0.018681407}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.934071}
+  m_EdgeRadius: 0
 --- !u!1 &292505015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,8 +1285,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e17cb849d1c4bf40986cddcb6f1e3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefenceTimeCD: 2
-  CurrentDefenceTime: 0
   Defence:
     m_PersistentCalls:
       m_Calls: []
@@ -4393,6 +4481,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1253263554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1253263555}
+  m_Layer: 0
+  m_Name: Dodge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1253263555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253263554}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1879657543}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1295086172
 GameObject:
   m_ObjectHideFlags: 0
@@ -5762,8 +5881,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e17cb849d1c4bf40986cddcb6f1e3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefenceTimeCD: 1
-  CurrentDefenceTime: 0
   Defence:
     m_PersistentCalls:
       m_Calls: []
@@ -5782,7 +5899,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 3839
+    m_Bits: 7935
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -11727,6 +11844,8 @@ Transform:
   - {fileID: 1550812262}
   - {fileID: 1900108842}
   - {fileID: 1677944978}
+  - {fileID: 245564200}
+  - {fileID: 1253263555}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1879657544
@@ -11792,7 +11911,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.53125, y: 1.921875}
+    oldSize: {x: 1.03125, y: 2.0625}
     newSize: {x: 1.03125, y: 2.0625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -11821,12 +11940,18 @@ MonoBehaviour:
   MoveSpeed: 5
   JumpForce: 17
   DoubleJumpForce: 15
+  DodgeSpeed: 15
+  state: 0
+  DodgeCD: 2
   SpeedValue: {x: 0, y: 0}
   IsDoubleJump: 0
   IsGround: 1
   IsJump: 0
   IsAttack: 0
   IsDefence: 0
+  IsPorfect: 0
+  IsDodge: 0
+  IsDodgeCD: 0
 --- !u!95 &1879657548
 Animator:
   serializedVersion: 5
@@ -11953,7 +12078,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.53125, y: 1.921875}
+    oldSize: {x: 1.03125, y: 2.0625}
     newSize: {x: 1.03125, y: 2.0625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -12096,7 +12221,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 3007
+    m_Bits: 7103
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

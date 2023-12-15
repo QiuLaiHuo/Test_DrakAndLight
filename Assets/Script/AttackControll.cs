@@ -8,6 +8,7 @@ public class AttackControll: MonoBehaviour
     private void OnTriggerStay2D (Collider2D other)
     {
         //Debug.Log (other.name);
+        Debug.Log (other.tag);
         if (other.CompareTag ("Defence"))
         {
             other.GetComponent<DefenceController> ()?.OnDefence (this);

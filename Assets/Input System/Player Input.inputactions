@@ -40,6 +40,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "PorfectDefence",
+                    "type": "Button",
+                    "id": "62f92dc4-cc83-44d0-861c-b7cc23d5a1c9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Dodge",
+                    "type": "Button",
+                    "id": "2312527e-ed31-478d-8891-4a030643383f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -155,9 +173,20 @@
                 },
                 {
                     "name": "",
-                    "id": "6020553e-f137-4970-982a-43c0e5ca01a8",
+                    "id": "8db7e56b-8d09-4bb7-bedb-f3663734ecfe",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "Hold(duration=0.1)",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Defence",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d944faa8-67a9-48af-abdd-15c6a87bb7bd",
                     "path": "<Keyboard>/h",
-                    "interactions": "",
+                    "interactions": "Hold(duration=0.1)",
                     "processors": "",
                     "groups": "Key",
                     "action": "Defence",
@@ -171,7 +200,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Defence",
+                    "action": "PorfectDefence",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6020553e-f137-4970-982a-43c0e5ca01a8",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Key",
+                    "action": "PorfectDefence",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "384b1beb-8441-4beb-88f6-899d132dcb47",
+                    "path": "<Keyboard>/u",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Dodge",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
