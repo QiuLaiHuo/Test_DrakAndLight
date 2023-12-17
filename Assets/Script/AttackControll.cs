@@ -5,20 +5,29 @@ public class AttackControll: MonoBehaviour
     [Header ("¹¥»÷ÊôÐÔ")]
     public int Damage;
 
-    private void OnTriggerStay2D (Collider2D other)
+
+    public Controller controller;
+
+
+
+
+
+
+    private void OnTriggerEnter2D (Collider2D other)
     {
-        //Debug.Log (other.name);
-        Debug.Log (other.tag);
-        if (other.CompareTag ("Defence"))
-        {
-            other.GetComponent<DefenceController> ()?.OnDefence (this);
-            return;
-        }
-        else if (other.CompareTag ("Player") || other.CompareTag ("Enemy"))
-        { other.GetComponent<Character> ()?.OnTakeDamage (this); return; }
+       
+            Debug.Log (other.name + "¹¥»÷Õß£º" + gameObject.name);
+
+            if (other.CompareTag ("Player") || other.CompareTag ("Enemy"))
+                other.GetComponent<Character> ()?.OnTakeDamage (this);
+           
+
     }
 
-
-
-
+    public void PassivityDamage ()
+    {
+        Debug.Log ("±»µ¯µ¶");
+        controller.anim.StopPlayback ();
+        controller.anim.SetTrigger ("Passivity");
+    }
 }

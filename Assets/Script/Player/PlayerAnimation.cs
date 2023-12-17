@@ -9,6 +9,7 @@ public class PlayerAnimation : MonoBehaviour
     private PlayerConrtoll player;
     private Character chara;
     private DefenceController defence;
+    public GameObject Dodge;
 
     private void Awake ()
     {
@@ -28,7 +29,7 @@ public class PlayerAnimation : MonoBehaviour
         anim.SetBool ("Jump",player.IsJump);
         anim.SetBool ("IsGround",player.IsGround);
         anim.SetBool ("DoubleJump",player.IsDoubleJump);
-        anim.SetBool ("Attack",player.IsAttack);
+        //anim.SetBool ("Attack",player.IsAttack);
         anim.SetBool ("Defence",player.IsDefence);
         anim.SetBool ("Death",chara.IsDeath);
         anim.SetBool ("PorfectDefence",player.IsPorfect);
@@ -40,5 +41,12 @@ public class PlayerAnimation : MonoBehaviour
         anim.SetTrigger ("Hurt");
     }
 
-    
+    public void Attack()
+    {
+        anim.SetTrigger ("Attack");
+    }
+    public void DodgeOK()
+    {
+        Dodge.GetComponent<Animator> ()?.SetTrigger ("DodgeOK");
+    }
 }

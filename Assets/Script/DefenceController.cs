@@ -3,23 +3,21 @@ using UnityEngine.Events;
 
 public class DefenceController: MonoBehaviour
 {
-    
-    
-    
+   
+    public Character character;
 
-    public UnityEvent Defence;
-
-    private void Start ()
+    private void OnEnable ()
     {
-        
-    }
-    private void Update ()
-    {
+        character.state = State.Defence;
     }
 
-    public void OnDefence (AttackControll attack)
+    private void FixedUpdate ()
     {
-       
-      
+        character.state = State.Defence;
+    }
+
+    private void OnDisable ()
+    {
+        character.state = State.Default;
     }
 }

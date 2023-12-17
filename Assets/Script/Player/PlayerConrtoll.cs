@@ -3,17 +3,19 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public enum State { Porfect, Normal, Default }
-public class PlayerConrtoll: MonoBehaviour
+
+public class PlayerConrtoll: Controller
 {
     [Header ("必要组件")]
     public PlayerInput inputs;
     public Rigidbody2D rd;
     public SpriteRenderer sprit;
-    public Animator anim;
+    //public Animator anim;
+    public Character chara;
     public GameObject WingAnimator;
     public GameObject WeaponAnimator;
-
+    private PlayerAnimation planim;
+    public WeaponPosition weaponPosition;
 
     [Header ("行动参数")]
     public float MoveSpeed;
@@ -24,11 +26,15 @@ public class PlayerConrtoll: MonoBehaviour
 
     [Header ("动作冷却")]
     public float DodgeCD;
+    public float DodgeTime;
+    public float AttackCD;
+    private float CurrentAttack;
     //public float AttackTimeCD;
 
     [SerializeField]
     private Vector2 SpeedValue;
     private float CurrentDodgeTime;
+    private float DodgeLife;
 
     //private float CurrentDefenceTime;
     //    private float CurrentAttackTime;
@@ -55,20 +61,23 @@ public class PlayerConrtoll: MonoBehaviour
         rd = GetComponent<Rigidbody2D> ();
         sprit = GetComponent<SpriteRenderer> ();
         anim = GetComponent<Animator> ();
+        chara = GetComponent<Character> ();
+        planim = GetComponent<PlayerAnimation> ();
 
         // GroundCheck = GetComponent<EdgeCollider2D> ();
     }
     void Start ()
     {
+        state = chara.state;
         //inputs.GamePlay.Move.started += Move;
         inputs.GamePlay.Attack.started += Attack;
         inputs.GamePlay.Jump.started += Jump;
         inputs.GamePlay.PorfectDefence.started += PorfectBlock;
         inputs.GamePlay.Defence.performed += Defence;
         inputs.GamePlay.Defence.canceled += DefenceOver;
-        inputs.GamePlay.Dodge.started += Dodge;
+        inputs.GamePlay.Dodge.started += DodgeToReady;
         sprit.flipX = true;
-        state = State.Default;
+
     }
 
 
@@ -86,16 +95,17 @@ public class PlayerConrtoll: MonoBehaviour
     {
         SpeedValue = inputs.GamePlay.Move.ReadValue<Vector2> ();
         anim.SetFloat ("JumpVelocity",rd.velocity.y);
-        Debug.Log (state);
+        // Debug.Log (state);
         DodgeTimer ();
         //AttackTimer ();
-
+        AttackTimer ();
     }
 
     private void FixedUpdate ()
     {
-        if (!IsAttack && !IsDefence && !IsPorfect) { Move (); }
-
+        chara.state = state;
+        if (!IsAttack && !IsDefence && !IsPorfect && !IsDodge) { Move (); }
+        Dodge ();
 
     }
     #endregion
@@ -103,7 +113,7 @@ public class PlayerConrtoll: MonoBehaviour
 
     #region 角色操作方法
 
-    private void Dodge (InputAction.CallbackContext context)
+    private void DodgeToReady (InputAction.CallbackContext context)
     {
         if (IsDodgeCD)
             return;
@@ -111,17 +121,34 @@ public class PlayerConrtoll: MonoBehaviour
         IsDodge = true;
         IsDodgeCD = true;
         CurrentDodgeTime = DodgeCD;
-        if (sprit.flipX)
+        DodgeLife = DodgeTime;
+    }
+
+    private void Dodge ()
+    {
+        if (IsDodge)
         {
-            rd.AddForce (Vector2.right*DodgeSpeed,ForceMode2D.Impulse);
-        }else
-            rd.AddForce (Vector2.left * DodgeSpeed,ForceMode2D.Impulse);
+            if (DodgeLife > 0)
+            {
+                chara.DodgeInvincible (DodgeTime);
+                if (sprit.flipX)
+                {
+                    rd.AddForce (Vector2.right * DodgeSpeed,ForceMode2D.Impulse);
+                }
+                else
+                    rd.AddForce (Vector2.left * DodgeSpeed,ForceMode2D.Impulse);
+
+                DodgeLife -= Time.deltaTime;
+            }
+            if (DodgeLife <= 0)
+                IsDodge = false;
+        }
     }
     private void Defence (InputAction.CallbackContext obj)
     {
         if (IsGround && !IsAttack)
         {
-            state = State.Normal;
+            state = State.Defence;
             IsDefence = true;
             //DefenceCD = true;
             // CurrentDefenceTime = DefenceTimeCD;
@@ -132,7 +159,7 @@ public class PlayerConrtoll: MonoBehaviour
 
     private void PorfectBlock (InputAction.CallbackContext context)
     {
-        if (state != State.Porfect && IsGround && !IsAttack)
+        if (IsGround && !IsAttack)
         {
             //CurrentDefenceTime = DefenceCD;
             //PorfectCD = true;
@@ -147,7 +174,7 @@ public class PlayerConrtoll: MonoBehaviour
     private IEnumerator PorfectDefence ()
     {
         //yield return new WaitForFixedUpdate ();
-        yield return new WaitForSeconds (0.05f);
+        yield return new WaitForSeconds (0.2f);
         IsPorfect = false;
         // IsDefence = true;
         state = State.Default;
@@ -185,16 +212,19 @@ public class PlayerConrtoll: MonoBehaviour
     {
         if (!IsDefence && !IsAttack)
         {
+            CurrentAttack = AttackCD;
             rd.velocity = new Vector2 (0,rd.velocity.y);
-
+            IsAttack = true;
+            planim.Attack ();
         }
         else
             return;
-        IsAttack = true;
+
         // AttackCD = true;
         // CurrentAttackTime = AttackTimeCD;
-
     }
+
+
 
     private void Move ()
     {
@@ -202,10 +232,10 @@ public class PlayerConrtoll: MonoBehaviour
         if (SpeedValue.x < -0.1f)
         {
             sprit.flipX = false;
-
+            weaponPosition.ToLeft ();
 
         }
-        else if (SpeedValue.x > 0.1f) { sprit.flipX = true; }
+        else if (SpeedValue.x > 0.1f) { sprit.flipX = true; weaponPosition.ToRight (); }
 
         rd.velocity = new Vector2 (SpeedValue.x * MoveSpeed,rd.velocity.y);
         anim.SetFloat ("Move",Mathf.Abs (SpeedValue.x));
@@ -238,12 +268,7 @@ public class PlayerConrtoll: MonoBehaviour
         }
     }
 
-    public void DetectionState ()
-    {
 
-
-
-    }
 
     #endregion
 
@@ -263,17 +288,14 @@ public class PlayerConrtoll: MonoBehaviour
     #region 辅助函数
     public void Weapon ()
     {
-
         WeaponAnimator.GetComponent<SpriteRenderer> ().flipX = sprit.flipX;
-        if (sprit.flipX == true)
-            WeaponAnimator.GetComponent<Animator> ().SetTrigger ("Attack_R");
-        else
-            WeaponAnimator.GetComponent<Animator> ().SetTrigger ("Attack_L");
+        WeaponAnimator.GetComponent<Animator> ().SetTrigger ("Attack");
     }
 
     public void Death ()
     {
         inputs.GamePlay.Disable ();
+
     }
 
 
@@ -286,23 +308,23 @@ public class PlayerConrtoll: MonoBehaviour
             {
                 CurrentDodgeTime = 0;
                 IsDodgeCD = false;
-
+                planim.DodgeOK ();
             }
         }
     }
 
-    //private void AttackTimer ()
-    //{
-    //    if (AttackCD)
-    //    {
-    //        CurrentAttackTime -= Time.deltaTime;
-    //        if (CurrentAttackTime <= 0)
-    //        {
-    //            CurrentAttackTime = 0;
-    //            AttackCD = false;
-    //        }
-    //    }
+    private void AttackTimer ()
+    {
+        if (IsAttack)
+        {
+            CurrentAttack -= Time.deltaTime;
+            if (CurrentAttack <= 0)
+            {
+                CurrentAttack = 0;
+                IsAttack = false;
+            }
+        }
 
-    //}
+    }
     #endregion
 }
