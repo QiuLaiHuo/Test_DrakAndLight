@@ -12,6 +12,7 @@ namespace Core.AI
         protected Rigidbody2D rd;
         protected AttackControll attack;
         protected Animator anim;
+        public SharedGameObject Target;
 
 
         public void Awake()

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 using BehaviorDesigner.Runtime.Tasks;
 
+using BehaviorDesigner.Runtime;
 using UnityEngine;
-
-
+using Cinemachine;
 
 namespace Core.AI
 {
@@ -14,15 +14,22 @@ namespace Core.AI
         protected Rigidbody2D rd;
         protected AttackControll attack;
         protected Animator anim;
+        public SharedGameObject Target;
+        protected SpriteRenderer sprit;
 
 
-        public void Awake ()
+        //protected CinemachineImpulseSource camera;
+        public override void OnAwake ()
         {
-            rd = GetComponent<Rigidbody2D> ();
-            attack = GetComponent<AttackControll> ();
-            anim = GetComponent<Animator> ();
+            
+            rd = gameObject.GetComponent<Rigidbody2D> ();
+            attack = gameObject.GetComponent<AttackControll> ();
+            anim = gameObject.GetComponent<Animator> ();
+            sprit = gameObject.GetComponent<SpriteRenderer> ();
+          //  camera = gameObject.GetComponent <CinemachineImpulseSource> (); 
         }
 
+       
 
 
     }
