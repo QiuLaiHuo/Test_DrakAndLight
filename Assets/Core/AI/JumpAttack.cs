@@ -9,35 +9,40 @@ using UnityEngine;
 public class JumpAttack: EnemyAction
 {
     public float DownForce;
-    private bool IsGound;
+    private bool IsGound = false;
     public float JumpDownTime;
     public string AnimName;
-    public string AttackOverName;
+    // public string AttackOverName;
 
     private Tween tween;
     public override void OnStart ()
     {
-        anim.SetTrigger (AnimName);
-        rd.AddForce (new Vector2 (rd.velocity.x,DownForce),ForceMode2D.Impulse);
+        
+
+        tween = DOVirtual.DelayedCall (JumpDownTime,() =>
+                {
+
+                    anim.SetTrigger (AnimName);
+                    rd.AddForce (new Vector2 (rd.velocity.x,rd.velocity.y * DownForce),ForceMode2D.Impulse);
+                    //IsGound = true;
+                    camera.GenerateImpulse ();
+                    IsGound  = true;
+
+                },false);
     }
 
     public override TaskStatus OnUpdate ()
     {
-      tween =   DOVirtual.DelayedCall (JumpDownTime,() =>
-        {
-            IsGound = true;
-            
-
-
-        },false);
-        return TaskStatus.Success;
+        sprit.flipX = Target.Value.transform.position.x > transform.position.x ? true : false;
+        if (IsGound)
+            return TaskStatus.Success;
+        else return TaskStatus.Running;
     }
 
     public override void OnEnd ()
     {
         tween?.Kill ();
-        if (IsGound)
-            anim.SetTrigger (AttackOverName);
+        IsGound = false;
 
     }
 }

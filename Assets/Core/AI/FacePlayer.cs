@@ -8,7 +8,7 @@ public class FacePlayer :EnemyAction
 {
     public override TaskStatus OnUpdate ()
     {
-        sprit.flipX = Target.Value.transform.position.x<transform.position.x?false : true;  
+        sprit.flipX = Target.Value.transform.position.x>transform.position.x?true : false;  
         return TaskStatus.Success;
     }
 }

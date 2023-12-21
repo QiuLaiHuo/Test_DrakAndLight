@@ -18,7 +18,7 @@ namespace Core.AI
         protected SpriteRenderer sprit;
 
 
-        //protected CinemachineImpulseSource camera;
+       protected CinemachineImpulseSource camera;
         public override void OnAwake ()
         {
             
@@ -26,7 +26,7 @@ namespace Core.AI
             attack = gameObject.GetComponent<AttackControll> ();
             anim = gameObject.GetComponent<Animator> ();
             sprit = gameObject.GetComponent<SpriteRenderer> ();
-          //  camera = gameObject.GetComponent <CinemachineImpulseSource> (); 
+            camera = gameObject.GetComponent <CinemachineImpulseSource> (); 
         }
 
        

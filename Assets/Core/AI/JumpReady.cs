@@ -18,7 +18,7 @@ public class JumpReady : EnemyAction
 
     public override void  OnStart()
     {
-        Debug.Log(anim.name);
+        //Debug.Log(anim.name);
         tween=  DOVirtual.DelayedCall (ReadyTime,JumpToReady,false);
         anim.SetTrigger (AnimName);
     }
@@ -26,13 +26,15 @@ public class JumpReady : EnemyAction
 
     private void JumpToReady()
     {
-        var dir = Target.Value.transform.position.x < transform.position.x ? -1 : 1;
-        rd.AddForce (new Vector2 (dir * HorizontalForce,JumpForce),ForceMode2D.Impulse);
+       // var dir = Target.Value.transform.position.x < transform.position.x ? -1 : 1;
+        var dis =   Target.Value.transform.position.x -transform.position.x ;
+        rd.AddForce (new Vector2 (dis,JumpForce),ForceMode2D.Impulse);
 
     }
 
     public override TaskStatus OnUpdate ()
     {
+        sprit.flipX = Target.Value.transform.position.x > transform.position.x ? true : false;
         if (rd.velocity.y < 0)
             return TaskStatus.Success;
         else return TaskStatus.Running;

@@ -13,6 +13,7 @@ namespace Core.AI
         protected AttackControll attack;
         protected Animator anim;
         public SharedGameObject Target;
+        protected Character character;
 
 
         public void Awake()
@@ -20,6 +21,7 @@ namespace Core.AI
             rd = GetComponent<Rigidbody2D> ();
             attack = GetComponent<AttackControll> ();
             anim = GetComponent<Animator> ();
+            character = GetComponent<Character> ();
         }
 
     }
