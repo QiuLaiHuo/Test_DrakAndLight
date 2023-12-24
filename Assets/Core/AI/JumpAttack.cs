@@ -9,6 +9,7 @@ using UnityEngine;
 public class JumpAttack: EnemyAction
 {
     public float DownForce;
+    public float Force;
     private bool IsGound = false;
     public float JumpDownTime;
     public string AnimName;
@@ -41,6 +42,8 @@ public class JumpAttack: EnemyAction
 
     public override void OnEnd ()
     {
+        var dir = Target.Value.transform.position.x < transform.position.x ? -1 : 1;
+        rd.AddForce (new Vector2 (dir * Force,0),ForceMode2D.Impulse);
         tween?.Kill ();
         IsGound = false;
 

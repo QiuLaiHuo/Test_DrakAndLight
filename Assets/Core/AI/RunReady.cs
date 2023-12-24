@@ -1,14 +1,14 @@
-using BehaviorDesigner.Runtime.Tasks;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Core.AI;
-
 using DG.Tweening;
+using BehaviorDesigner.Runtime.Tasks;
 
-public class Attack1: EnemyAction
+public class RunReady : EnemyAction
 {
     public string AnimaName;
     public float AttackOverTime;
-    public float Force;
     private bool Over = false;
     private Tween Tween;
     public override void OnStart ()
@@ -16,11 +16,9 @@ public class Attack1: EnemyAction
         anim.SetTrigger (AnimaName);
 
         Tween = DOVirtual.DelayedCall (AttackOverTime,() =>
-          {
-              var dir = Target.Value.transform.position.x < transform.position.x ? -1 : 1;
-              rd.AddForce (new Vector2 (dir* Force,0),ForceMode2D.Impulse);
-              Over = true;
-          }
+        {
+            Over = true;
+        }
               ,false);
     }
 
@@ -29,7 +27,7 @@ public class Attack1: EnemyAction
     {
         if (Over)
         {
-           
+            
             return TaskStatus.Success;
         }
 

@@ -8,7 +8,7 @@ using UnityEditor.Experimental.GraphView;
 
 public class JumpReady : EnemyAction
 {
-    public float HorizontalForce = 5.0f;
+   // public float HorizontalForce = 5.0f;
     public float JumpForce = 10f;
     public float ReadyTime;
     
