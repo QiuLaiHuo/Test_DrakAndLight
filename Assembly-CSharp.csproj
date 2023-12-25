@@ -3,18 +3,20 @@
   <!-- Generated file, do not modify, your changes will be overwritten (use AssetPostprocessor.OnGeneratedCSProject) -->
   <PropertyGroup>
     <LangVersion>9.0</LangVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{C93EBF24-B64E-9D68-9F38-00F8A05EF59B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
   </PropertyGroup>
@@ -55,7 +57,7 @@
     <UnityVersion>2022.3.13f1c1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="F:\VS核心\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="E:\VS核心\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="E:\unity IDE\2022.3.13f1c1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="E:\unity IDE\2022.3.13f1c1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
@@ -63,23 +65,22 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\String\GetRandomString.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Behaviour\IsEnabled.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody2D\GetIsKinematic.cs" />
-    <Compile Include="Assets\Core\AI\EnemyAction.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Animation\Play.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\AudioSource\SetVolume.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody\SetConstraints.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\AudioSource\GetMute.cs" />
-    <Compile Include="Assets\Core\AI\FacePlayer.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Animation\Blend.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody\SetPosition.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\GameObject\SendMessage.cs" />
+    <Compile Include="Assets\Script\Core\AI\RunReady.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\PlayerPrefs\DeleteKey.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\AudioSource\GetTimeSamples.cs" />
+    <Compile Include="Assets\Script\Core\AI\Attack2.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Animator\GetStringToHash.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\ParticleSystem\Play.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Transform\GetLocalEulerAngles.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Math\IntClamp.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Decorators\TaskGuard.cs" />
-    <Compile Include="Assets\Core\AI\JumpAttack.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\AudioSource\Pause.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\SharedVariables\SetSharedVector4.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Vector3\GetUpVector.cs" />
@@ -127,6 +128,7 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Vector2\GetRightVector.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Light\GetSpotAngle.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Object Drawers\FloatSliderAttribute.cs" />
+    <Compile Include="Assets\Script\Core\AI\Die.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Animator\GetDeltaRotation.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody\UseGravity.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\ParticleSystem\SetStartLifetime.cs" />
@@ -134,7 +136,6 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\SharedVariables\CompareSharedFloat.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\SharedVariables\SetSharedBool.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Animator\StartRecording.cs" />
-    <Compile Include="Assets\Core\AI\AttackScopeConditionals.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\SharedVariables\SetSharedGameObject.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Object Drawers\IntSliderAttribute.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Variables\SharedFloat.cs" />
@@ -201,6 +202,7 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Quaternion\AngleAxis.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\CapsuleCollider\SetDirection.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Vector3\Lerp.cs" />
+    <Compile Include="Assets\Script\Core\AI\EnemyAction.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Animation\PlayQueued.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Variables\SharedHumanBodyBones.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody2D\GetVelocity.cs" />
@@ -210,6 +212,7 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\String\GetSubstring.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody2D\SetAngularVelocity.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\AudioSource\GetTime.cs" />
+    <Compile Include="Assets\Script\Core\AI\FacePlayer.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\PlayerPrefs\GetFloat.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody\GetAngularVelocity.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\ParticleSystem\GetEnableEmission.cs" />
@@ -231,6 +234,7 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Behaviour\SetEnabled.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\SharedVariables\SetSharedQuaternion.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody2D\MovePosition.cs" />
+    <Compile Include="Assets\Script\Core\AI\RunAttack.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Input\IsButtonDown.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Vector2\GetXY.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody\GetIsKinematic.cs" />
@@ -262,9 +266,7 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Transform\GetChildCount.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\ParticleSystem\SetStartSpeed.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Animator\MatchTarget.cs" />
-    <Compile Include="Assets\Core\AI\Attack1.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\AudioSource\GetPitch.cs" />
-    <Compile Include="Assets\Core\AI\RunReady.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody\MovePosition.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Physics\Raycast.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Variables\SharedQuaternion.cs" />
@@ -292,7 +294,6 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Vector2\GetVector3.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Animator\SetLayerWeight.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Transform\GetEulerAngles.cs" />
-    <Compile Include="Assets\Core\AI\EnemyConditionals.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\AudioSource\IsPlaying.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Vector2\GetSqrMagnitude.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody\SetCenterOfMass.cs" />
@@ -337,7 +338,6 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody2D\GetAngularVelocity.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\String\CompareTo.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Composites\PrioritySelector.cs" />
-    <Compile Include="Assets\Core\AI\RunLoop.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\AudioSource\Play.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody\GetUseGravity.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\ParticleSystem\SetEnableEmission.cs" />
@@ -360,7 +360,6 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\NavMeshAgent\SetAngularSpeed.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Animator\IsName.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\CharacterController\GetRadius.cs" />
-    <Compile Include="Assets\Core\AI\JumpReady.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Variables\SharedObjectList.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\NavMeshAgent\GetAcceleration.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Conditionals\Physics\HasExitedTrigger2D.cs" />
@@ -402,7 +401,6 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Composites\RandomSelector.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Vector2\ClampMagnitude.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\SharedVariables\SetSharedFloat.cs" />
-    <Compile Include="Assets\Core\AI\RunAttack.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Light\SetShadowStrength.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Transform\GetChild.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\NavMeshAgent\SetAcceleration.cs" />
@@ -410,6 +408,7 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Light\GetShadowBias.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Vector2\Distance.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Input\GetAxisRaw.cs" />
+    <Compile Include="Assets\Script\Core\AI\Attack1.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Time\GetTime.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Input\IsKeyDown.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Actions\StopBehaviorTree.cs" />
@@ -457,6 +456,7 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Animator\SetLookAtPosition.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Vector2\Normalize.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\AudioSource\SetIgnoreListenerVolume.cs" />
+    <Compile Include="Assets\Script\Enemy\EnemyCharacter.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\CharacterController\GetVelocity.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\AudioSource\SetScheduledStartTime.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Variables\SharedGameObjectList.cs" />
@@ -483,6 +483,7 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\SharedVariables\CompareSharedVector3.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\AudioSource\GetIgnoreListenerPause.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody\SetVelocity.cs" />
+    <Compile Include="Assets\Script\Core\AI\Phase Two.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\String\BuildString.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\EntryTask.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Variables\SharedVector2Int.cs" />
@@ -501,6 +502,7 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Animator\GetApplyRootMotion.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\AudioSource\GetLoop.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Composites\ParallelSelector.cs" />
+    <Compile Include="Assets\Script\Core\AI\AttackScopeConditionals.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Vector3\GetXYZ.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\CharacterController\GetHeight.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Input\IsMouseUp.cs" />
@@ -523,9 +525,9 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody2D\GetAngularDrag.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\CircleCollider2D\GetRadius.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody\WakeUp.cs" />
+    <Compile Include="Assets\Script\Core\AI\RunLoop.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Transform\SetForwardVector.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\AudioSource\SetPriority.cs" />
-    <Compile Include="Assets\Core\AI\Attack2.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody\MoveRotation.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Input\IsButtonUp.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\ParticleSystem\SetLoop.cs" />
@@ -541,6 +543,7 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Transform\SetRotation.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Vector2\SetValue.cs" />
     <Compile Include="Assets\Script\Player\WeaponPosition.cs" />
+    <Compile Include="Assets\Script\Core\AI\JumpReady.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\ParticleSystem\GetPlaybackSpeed.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody2D\IsSleeping.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody\SetAngularDrag.cs" />
@@ -560,12 +563,14 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\AudioSource\GetVolume.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Transform\SetLocalScale.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Actions\SendEvent.cs" />
+    <Compile Include="Assets\Script\Core\AI\HitBack.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Input\IsMouseDown.cs" />
     <Compile Include="Assets\Animator\Player\DodgeSFM.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody2D\GetPosition.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody2D\Sleep.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody\AddForce.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\CharacterController\GetSlopeLimit.cs" />
+    <Compile Include="Assets\Script\Core\AI\EnemyConditionals.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\AudioSource\SetVelocityUpdateMode.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Math\FloatAbs.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Rigidbody2D\AddTorque.cs" />
@@ -587,6 +592,7 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Transform\Rotate.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Math\FloatComparison.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Animator\IsParameterControlledByCurve.cs" />
+    <Compile Include="Assets\Script\Core\AI\JumpAttack.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\SharedVariables\CompareSharedGameObjectList.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Animator\SetLookAtWeight.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Tasks\Unity\Renderer\IsVisible.cs" />

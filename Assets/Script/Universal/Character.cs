@@ -1,3 +1,5 @@
+using BehaviorDesigner.Runtime;
+
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -23,15 +25,16 @@ public class Character: MonoBehaviour
     //public bool IsPorfectDefence;
     public ParticleSystem Effects;
     //private Controller controller;
-   // public bool Flip = true;
+    // public bool Flip = true;
     //[SerializeField]
-
+   
 
     public UnityEvent OnDamage;
     public UnityEvent Ondeath;
     public UnityEvent OnBreak;
+   // public UnityEvent OnPorfect;
 
-    private AttackControll attacker;
+    protected AttackControll attacker;
 
     private void Start ()
     {
@@ -69,7 +72,7 @@ public class Character: MonoBehaviour
 
         }
     }
-    public void OnTakeDamage (AttackControll attack)
+    public virtual void OnTakeDamage (AttackControll attack)
     {
         if (Isinvincible || IsDeath)
             return;
@@ -80,6 +83,7 @@ public class Character: MonoBehaviour
         {
             case State.Porfect:
             //调用攻击者被弹刀
+            //OnPorfect?.Invoke();
             if (Effects != null)
                 Effects.Play ();
             TriggerInvincible ();
@@ -104,7 +108,7 @@ public class Character: MonoBehaviour
 
 
     //触发无敌时间
-    private void TriggerInvincible ()
+    protected void TriggerInvincible ()
     {
         if (!Isinvincible)
         {
@@ -119,7 +123,7 @@ public class Character: MonoBehaviour
         Isinvincible = true;
         CurrntInvincible = Time;
     }
-    private void Damage (int Damage)
+    protected void Damage (int Damage)
     {
         if (!Isinvincible)
         {
@@ -130,6 +134,7 @@ public class Character: MonoBehaviour
             }
             else
             {
+                
                 CurrentHealth = 0;
                 IsDeath = true;
                 Ondeath?.Invoke ();
@@ -139,7 +144,7 @@ public class Character: MonoBehaviour
 
 
 
-    private void DamageShield ()
+    protected void DamageShield ()
     {
         if (attacker == null || CurrentShield <= 0)
             return;
