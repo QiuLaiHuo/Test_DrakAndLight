@@ -9,11 +9,7 @@ public class AttackScopeConditionals : EnemyConditionals
 {
     public float Scope = 0f;
 
-    public override void OnStart ()
-    {
-
-       
-    }
+    
     public override TaskStatus OnUpdate ()
     {
      // Debug.Log(math.abs (Target.Value.transform.position.x-transform.position.x));

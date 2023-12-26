@@ -16,12 +16,14 @@ namespace Core.AI
         protected Character character;
 
 
-        public void Awake()
+        public override void OnAwake ()
         {
-            rd = GetComponent<Rigidbody2D> ();
-            attack = GetComponent<AttackControll> ();
-            anim = GetComponent<Animator> ();
-            character = GetComponent<Character> ();
+           
+        
+            rd = gameObject.GetComponent<Rigidbody2D> ();
+            attack = gameObject.GetComponent<AttackControll> ();
+            anim = gameObject.GetComponent<Animator> ();
+            character = gameObject.GetComponent<Character> ();
         }
 
     }
