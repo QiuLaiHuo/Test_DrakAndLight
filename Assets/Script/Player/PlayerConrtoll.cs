@@ -15,7 +15,7 @@ public class PlayerConrtoll: Controller
     public GameObject WingAnimator;
     public GameObject WeaponAnimator;
     private PlayerAnimation planim;
-   public AttackData AttackData;
+    public AttackData AttackData;
     public CharacterData CharacterData;
     public AttackDetailed AttackDetailed;
     public Transform AttackPosition;
@@ -67,11 +67,17 @@ public class PlayerConrtoll: Controller
         anim = GetComponent<Animator> ();
         chara = GetComponent<Character> ();
         planim = GetComponent<PlayerAnimation> ();
-
+        AttackDetailed = new AttackDetailed ();
         // GroundCheck = GetComponent<EdgeCollider2D> ();
     }
     void Start ()
     {
+        facingDirection = 1;
+        AttackDetailed.whoIsAttacker = gameObject;
+        AttackDetailed.damage = AttackData.Damage;
+        AttackDetailed.shieldDamage = AttackData.ShieldDamage;
+        AttackDetailed.attackDirection = transform.position;
+
         state = chara.state;
         //inputs.GamePlay.Move.started += Move;
         inputs.GamePlay.Attack.started += Attack;
@@ -81,7 +87,7 @@ public class PlayerConrtoll: Controller
         inputs.GamePlay.Defence.canceled += DefenceOver;
         inputs.GamePlay.Dodge.started += DodgeToReady;
         //sprit.flipX = true;
-        facingDirection = 1;
+
     }
 
 
@@ -90,7 +96,7 @@ public class PlayerConrtoll: Controller
     {
         IsDefence = false;
         state = State.Default;
-
+        //TODO:»ÃÓ°¶ÜÅÆÔ¤ÖÆÌå²¥·Å
     }
 
 
@@ -136,7 +142,7 @@ public class PlayerConrtoll: Controller
             if (DodgeLife > 0)
             {
                 chara.DodgeInvincible (DodgeTime);
-                if (facingDirection==1)
+                if (facingDirection == 1)
                 {
                     rd.AddForce (Vector2.right * DodgeSpeed,ForceMode2D.Impulse);
                 }
@@ -234,33 +240,20 @@ public class PlayerConrtoll: Controller
     private void Move ()
     {
 
-        //if (SpeedValue.x < -0.1f)
-        //{
-        //   // sprit.flipX = false;
-        //    //weaponPosition.ToLeft ();
-
-        //}
-        //else if (SpeedValue.x > 0.1f) { //sprit.flipX = true;
-        //                                weaponPosition.ToRight (); }
-
         rd.velocity = new Vector2 (SpeedValue.x * MoveSpeed,rd.velocity.y);
         anim.SetFloat ("Move",Mathf.Abs (SpeedValue.x));
 
-        //if (IsGround && SpeedValue == Vector2.zero)
-        //    anim.SetTrigger ("Idle");
+ 
     }
     #endregion
 
-    private void CheckShouldFlip()
-    {
-       // Debug.Log (facingDirection);
-        if (SpeedValue.x != 0f&&SpeedValue.x!=facingDirection)
+    private void CheckShouldFlip ()
+    {     
+        if (SpeedValue.x != 0f && SpeedValue.x != facingDirection)
             Flip ();
-        
-
     }
 
-    private void Flip()
+    private void Flip ()
     {
         facingDirection *= -1;
         rd.transform.Rotate (0f,180f,0f);
@@ -286,7 +279,10 @@ public class PlayerConrtoll: Controller
         }
     }
 
-
+    //private void bool AttackPyhsicCheck()
+    //{
+    //    return true;
+    //}
 
     #endregion
 
@@ -306,7 +302,7 @@ public class PlayerConrtoll: Controller
     #region ¸¨Öúº¯Êý
     public void Weapon ()
     {
-       // WeaponAnimator.GetComponent<SpriteRenderer> ().flipX = sprit.flipX;
+        // WeaponAnimator.GetComponent<SpriteRenderer> ().flipX = sprit.flipX;
         WeaponAnimator.GetComponent<Animator> ().SetTrigger ("Attack");
     }
 
