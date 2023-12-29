@@ -15,7 +15,10 @@ public class PlayerConrtoll: Controller
     public GameObject WingAnimator;
     public GameObject WeaponAnimator;
     private PlayerAnimation planim;
-    public WeaponPosition weaponPosition;
+   public AttackData AttackData;
+    public CharacterData CharacterData;
+    public AttackDetailed AttackDetailed;
+    public Transform AttackPosition;
 
     [Header ("行动参数")]
     public float MoveSpeed;
@@ -23,6 +26,7 @@ public class PlayerConrtoll: Controller
     public float DoubleJumpForce;
     public float DodgeSpeed;
     public State state;
+    public int facingDirection;
 
     [Header ("动作冷却")]
     public float DodgeCD;
@@ -76,8 +80,8 @@ public class PlayerConrtoll: Controller
         inputs.GamePlay.Defence.performed += Defence;
         inputs.GamePlay.Defence.canceled += DefenceOver;
         inputs.GamePlay.Dodge.started += DodgeToReady;
-        sprit.flipX = true;
-
+        //sprit.flipX = true;
+        facingDirection = 1;
     }
 
 
@@ -99,6 +103,7 @@ public class PlayerConrtoll: Controller
         DodgeTimer ();
         //AttackTimer ();
         AttackTimer ();
+        CheckShouldFlip ();
     }
 
     private void FixedUpdate ()
@@ -131,7 +136,7 @@ public class PlayerConrtoll: Controller
             if (DodgeLife > 0)
             {
                 chara.DodgeInvincible (DodgeTime);
-                if (sprit.flipX)
+                if (facingDirection==1)
                 {
                     rd.AddForce (Vector2.right * DodgeSpeed,ForceMode2D.Impulse);
                 }
@@ -229,13 +234,14 @@ public class PlayerConrtoll: Controller
     private void Move ()
     {
 
-        if (SpeedValue.x < -0.1f)
-        {
-            sprit.flipX = false;
-            weaponPosition.ToLeft ();
+        //if (SpeedValue.x < -0.1f)
+        //{
+        //   // sprit.flipX = false;
+        //    //weaponPosition.ToLeft ();
 
-        }
-        else if (SpeedValue.x > 0.1f) { sprit.flipX = true; weaponPosition.ToRight (); }
+        //}
+        //else if (SpeedValue.x > 0.1f) { //sprit.flipX = true;
+        //                                weaponPosition.ToRight (); }
 
         rd.velocity = new Vector2 (SpeedValue.x * MoveSpeed,rd.velocity.y);
         anim.SetFloat ("Move",Mathf.Abs (SpeedValue.x));
@@ -245,8 +251,20 @@ public class PlayerConrtoll: Controller
     }
     #endregion
 
+    private void CheckShouldFlip()
+    {
+       // Debug.Log (facingDirection);
+        if (SpeedValue.x != 0f&&SpeedValue.x!=facingDirection)
+            Flip ();
+        
 
+    }
 
+    private void Flip()
+    {
+        facingDirection *= -1;
+        rd.transform.Rotate (0f,180f,0f);
+    }
 
     #region 碰撞状态检测方法
     private void OnCollisionEnter2D (Collision2D col)
@@ -288,7 +306,7 @@ public class PlayerConrtoll: Controller
     #region 辅助函数
     public void Weapon ()
     {
-        WeaponAnimator.GetComponent<SpriteRenderer> ().flipX = sprit.flipX;
+       // WeaponAnimator.GetComponent<SpriteRenderer> ().flipX = sprit.flipX;
         WeaponAnimator.GetComponent<Animator> ().SetTrigger ("Attack");
     }
 

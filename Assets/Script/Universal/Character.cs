@@ -13,7 +13,7 @@ public class Character: MonoBehaviour
     public int CurrentShield;
     public float RecoverTime;
     public float CurrentRecoverTime;
-    public float InvincibleTime;
+    public float  InvincibleTime;
     public float CurrntInvincible;
     public int Multiply;
     public bool Isinvincible;

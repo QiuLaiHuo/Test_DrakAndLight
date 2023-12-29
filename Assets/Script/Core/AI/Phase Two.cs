@@ -8,11 +8,6 @@ public class PhaseTwo : EnemyConditionals
 {
     private bool transiPhase;
 
-    public override void OnStart ()
-    {
-        Debug.Log (character.CurrentHealth);
-    }
-
     public override TaskStatus OnUpdate ()
     {
         transiPhase = character.CurrentHealth <= (character.Health / 2);
