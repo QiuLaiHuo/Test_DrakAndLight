@@ -34,7 +34,7 @@ public class JumpReady : EnemyAction
 
     public override TaskStatus OnUpdate ()
     {
-        sprit.flipX = Target.Value.transform.position.x > transform.position.x ? true : false;
+        //sprit.flipX = Target.Value.transform.position.x > transform.position.x ? true : false;
         if (rd.velocity.y < 0)
             return TaskStatus.Success;
         else return TaskStatus.Running;

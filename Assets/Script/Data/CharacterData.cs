@@ -15,8 +15,7 @@ public class CharacterData : ScriptableObject
     [Header("¿¹»÷ÊôĞÔ")]
     public float RecoverTime=5f;
     public float InvincibleTime=0.4f;
-
+    public float backDurationTime = 0.5f;
    
-
 }
 

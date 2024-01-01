@@ -18,7 +18,7 @@ public class RunLoop : EnemyAction
     }
     public override TaskStatus OnUpdate ()
     {
-        sprit.flipX = Target.Value.transform.position.x > transform.position.x ? true : false;
+        //sprit.flipX = Target.Value.transform.position.x > transform.position.x ? true : false;
         var dir = Target.Value.transform.position.x < transform.position.x ? -1 : 1;
 
         if (math.abs (Target.Value.transform.position.x - transform.position.x) > Scope)

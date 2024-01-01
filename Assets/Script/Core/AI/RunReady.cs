@@ -25,7 +25,7 @@ public class RunReady : EnemyAction
 
     public override TaskStatus OnUpdate ()
     {
-        sprit.flipX = Target.Value.transform.position.x > transform.position.x ? true : false;
+        //sprit.flipX = Target.Value.transform.position.x > transform.position.x ? true : false;
         if (Over)
         {
             

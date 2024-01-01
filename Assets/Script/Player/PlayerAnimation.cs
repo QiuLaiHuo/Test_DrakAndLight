@@ -7,16 +7,16 @@ public class PlayerAnimation : MonoBehaviour
 {
     private Animator anim;
     private PlayerConrtoll player;
-    private Character chara;
-    private DefenceController defence;
-    public GameObject Dodge;
+    private PlayerCharacter chara;
+    //private DefenceController defence;
+    [SerializeField]private GameObject Dodge;
 
     private void Awake ()
     {
         anim = GetComponent<Animator>(); 
         player = GetComponent<PlayerConrtoll>();
-        chara= GetComponent<Character>();
-        defence = GetComponent<DefenceController>();
+        chara= GetComponent<PlayerCharacter>();
+        //defence = GetComponent<DefenceController>();
     }
 
     void Update()

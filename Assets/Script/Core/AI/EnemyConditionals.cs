@@ -10,10 +10,10 @@ namespace Core.AI
     public class EnemyConditionals: Conditional
     {
         protected Rigidbody2D rd;
-        protected AttackControll attack;
+       // protected AttackControll attack;
         protected Animator anim;
         public SharedGameObject Target;
-        protected Character character;
+        protected EnemyCharacter character;
 
 
         public override void OnAwake ()
@@ -21,9 +21,9 @@ namespace Core.AI
            
         
             rd = gameObject.GetComponent<Rigidbody2D> ();
-            attack = gameObject.GetComponent<AttackControll> ();
+           // attack = gameObject.GetComponent<AttackControll> ();
             anim = gameObject.GetComponent<Animator> ();
-            character = gameObject.GetComponent<Character> ();
+            character = gameObject.GetComponent<EnemyCharacter> ();
         }
 
     }

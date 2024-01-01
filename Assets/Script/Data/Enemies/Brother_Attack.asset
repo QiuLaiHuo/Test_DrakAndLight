@@ -12,10 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a75e57e229c0b4ab75a8d12fca4fc2, type: 3}
   m_Name: Brother_Attack
   m_EditorClassIdentifier: 
-  distance: 0.5
-  WhatIsVictim:
-    serializedVersion: 2
-    m_Bits: 8
   Damage: 1
   ShieldDamage: 2
   DamageMultiply: 2
+  beatForce: {x: 8, y: 5}

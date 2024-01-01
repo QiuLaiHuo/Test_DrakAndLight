@@ -12,11 +12,11 @@ namespace Core.AI
     public class EnemyAction: Action
     {
         protected Rigidbody2D rd;
-        protected AttackControll attack;
+        protected EnemyController enemy;
         protected Animator anim;
         public SharedGameObject Target;
-        protected SpriteRenderer sprit;
-        protected  AttackControll attackControll;
+        //protected SpriteRenderer sprit;
+        //protected  AttackControll attackControll;
 
 
         protected CinemachineImpulseSource camera;
@@ -24,11 +24,11 @@ namespace Core.AI
         {
             
             rd = gameObject.GetComponent<Rigidbody2D> ();
-            attack = gameObject.GetComponent<AttackControll> ();
+            //attack = gameObject.GetComponent<AttackControll> ();
             anim = gameObject.GetComponent<Animator> ();
-            sprit = gameObject.GetComponent<SpriteRenderer> ();
+            //sprit = gameObject.GetComponent<SpriteRenderer> ();
             camera = gameObject.GetComponent <CinemachineImpulseSource> (); 
-            attackControll = gameObject.GetComponent<AttackControll> ();
+            enemy = gameObject.GetComponent<EnemyController> ();
         }
 
        

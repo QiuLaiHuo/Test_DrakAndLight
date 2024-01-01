@@ -13,7 +13,7 @@ public class HitBack : EnemyAction
 
     public override void OnStart()
     {
-        attackControll.PassivityDamage ();
+        enemy.PassivityDamage ();
         tween = DOVirtual.DelayedCall (OverTime,() => { 
         
         Over = true;

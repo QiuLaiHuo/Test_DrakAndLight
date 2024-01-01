@@ -34,7 +34,7 @@ public class JumpAttack: EnemyAction
 
     public override TaskStatus OnUpdate ()
     {
-        sprit.flipX = Target.Value.transform.position.x > transform.position.x ? true : false;
+       // sprit.flipX = Target.Value.transform.position.x > transform.position.x ? true : false;
         if (IsGound)
             return TaskStatus.Success;
         else return TaskStatus.Running;

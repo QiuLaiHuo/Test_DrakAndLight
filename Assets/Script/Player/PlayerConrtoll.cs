@@ -4,20 +4,17 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class PlayerConrtoll: Controller
+public class PlayerConrtoll: MonoBehaviour
 {
-    [Header ("必要组件")]
-    public PlayerInput inputs;
-    public Rigidbody2D rd;
-    public SpriteRenderer sprit;
-    //public Animator anim;
-    public Character chara;
+    private PlayerInput inputs;
+    private Rigidbody2D rd;
+    private Animator anim;
+    //private PlayerCharacter chara;
+    private PlayerAnimation planim;
+
+    
     public GameObject WingAnimator;
     public GameObject WeaponAnimator;
-    private PlayerAnimation planim;
-    public AttackData AttackData;
-    public CharacterData CharacterData;
-    public AttackDetailed AttackDetailed;
     public Transform AttackPosition;
 
     [Header ("行动参数")]
@@ -25,7 +22,6 @@ public class PlayerConrtoll: Controller
     public float JumpForce;
     public float DoubleJumpForce;
     public float DodgeSpeed;
-    public State state;
     public int facingDirection;
 
     [Header ("动作冷却")]
@@ -33,15 +29,15 @@ public class PlayerConrtoll: Controller
     public float DodgeTime;
     public float AttackCD;
     private float CurrentAttack;
-    //public float AttackTimeCD;
+   
 
     [SerializeField]
     private Vector2 SpeedValue;
     private float CurrentDodgeTime;
     private float DodgeLife;
+    public Vector2 attackpositionoffset;
 
-    //private float CurrentDefenceTime;
-    //    private float CurrentAttackTime;
+   
     [Header ("状态")]
     public bool IsDoubleJump = false;
     public bool IsGround = true;
@@ -52,41 +48,34 @@ public class PlayerConrtoll: Controller
     public bool IsDodge = false;
     public bool IsDodgeCD = false;
 
-    // public bool DefenceCD = false;
-    // public bool AttackCD = false;
+
+    
 
 
 
-    //private EdgeCollider2D GroundCheck;
+    
 
     private void Awake ()
     {
         inputs = new PlayerInput ();
         rd = GetComponent<Rigidbody2D> ();
-        sprit = GetComponent<SpriteRenderer> ();
         anim = GetComponent<Animator> ();
-        chara = GetComponent<Character> ();
         planim = GetComponent<PlayerAnimation> ();
-        AttackDetailed = new AttackDetailed ();
-        // GroundCheck = GetComponent<EdgeCollider2D> ();
+
     }
     void Start ()
     {
         facingDirection = 1;
-        AttackDetailed.whoIsAttacker = gameObject;
-        AttackDetailed.damage = AttackData.Damage;
-        AttackDetailed.shieldDamage = AttackData.ShieldDamage;
-        AttackDetailed.attackDirection = transform.position;
-
-        state = chara.state;
-        //inputs.GamePlay.Move.started += Move;
+       
         inputs.GamePlay.Attack.started += Attack;
         inputs.GamePlay.Jump.started += Jump;
         inputs.GamePlay.PorfectDefence.started += PorfectBlock;
         inputs.GamePlay.Defence.performed += Defence;
         inputs.GamePlay.Defence.canceled += DefenceOver;
         inputs.GamePlay.Dodge.started += DodgeToReady;
-        //sprit.flipX = true;
+        
+        GameManager.Instance.InputEnable += InputEnable;
+        GameManager.Instance.InputDisable += InputDisable;
 
     }
 
@@ -95,8 +84,10 @@ public class PlayerConrtoll: Controller
     private void DefenceOver (InputAction.CallbackContext context)
     {
         IsDefence = false;
-        state = State.Default;
-        //TODO:幻影盾牌预制体播放
+        PlayerCharacter.Instance.state = State.Default;
+        
+        PlayerCharacter.Instance.shield.SetActive (false);
+
     }
 
 
@@ -105,17 +96,19 @@ public class PlayerConrtoll: Controller
     {
         SpeedValue = inputs.GamePlay.Move.ReadValue<Vector2> ();
         anim.SetFloat ("JumpVelocity",rd.velocity.y);
-        // Debug.Log (state);
+        
         DodgeTimer ();
-        //AttackTimer ();
+       
         AttackTimer ();
         CheckShouldFlip ();
+
     }
 
     private void FixedUpdate ()
     {
-        chara.state = state;
-        if (!IsAttack && !IsDefence && !IsPorfect && !IsDodge) { Move (); }
+        
+        if (!IsAttack && !IsDefence && !IsPorfect && !IsDodge&&!PlayerCharacter.Instance.ISBack) { Move (); }
+
         Dodge ();
 
     }
@@ -141,9 +134,10 @@ public class PlayerConrtoll: Controller
         {
             if (DodgeLife > 0)
             {
-                chara.DodgeInvincible (DodgeTime);
+                PlayerCharacter.Instance.DodgeInvincible (DodgeTime);
                 if (facingDirection == 1)
                 {
+                   
                     rd.AddForce (Vector2.right * DodgeSpeed,ForceMode2D.Impulse);
                 }
                 else
@@ -157,12 +151,11 @@ public class PlayerConrtoll: Controller
     }
     private void Defence (InputAction.CallbackContext obj)
     {
-        if (IsGround && !IsAttack)
+        if (IsGround && !IsAttack&& !PlayerCharacter.Instance.ISBack)
         {
-            state = State.Defence;
+            PlayerCharacter.Instance.state = State.Defence;
             IsDefence = true;
-            //DefenceCD = true;
-            // CurrentDefenceTime = DefenceTimeCD;
+            PlayerCharacter.Instance.shield.SetActive (true);
             rd.velocity = new Vector2 (0,rd.velocity.y);
 
         }
@@ -170,13 +163,12 @@ public class PlayerConrtoll: Controller
 
     private void PorfectBlock (InputAction.CallbackContext context)
     {
-        if (IsGround && !IsAttack)
+        if (IsGround && !IsAttack&& !PlayerCharacter.Instance.ISBack)
         {
-            //CurrentDefenceTime = DefenceCD;
-            //PorfectCD = true;
-            // IsDefence = false;
-            state = State.Porfect;
+           
+            PlayerCharacter.Instance.state = State.Porfect;
             IsPorfect = true;
+            PlayerCharacter.Instance.shield.SetActive (true);
             rd.velocity = new Vector2 (0,rd.velocity.y);
             StartCoroutine (PorfectDefence ());
         }
@@ -184,23 +176,23 @@ public class PlayerConrtoll: Controller
 
     private IEnumerator PorfectDefence ()
     {
-        //yield return new WaitForFixedUpdate ();
+        
         yield return new WaitForSeconds (0.2f);
         IsPorfect = false;
-        // IsDefence = true;
-        state = State.Default;
+       
+        PlayerCharacter.Instance.state = State.Defence;
     }
 
 
     private void Jump (InputAction.CallbackContext obj)
     {
 
-        //TOOD：动画设置
+
         if (IsGround)
         {
             IsJump = true;
             rd.AddForce (Vector2.up * JumpForce,ForceMode2D.Impulse);
-            // IsDoubleJump = false;
+            
         }
         else if (!IsGround && !IsDoubleJump)
         {
@@ -231,8 +223,7 @@ public class PlayerConrtoll: Controller
         else
             return;
 
-        // AttackCD = true;
-        // CurrentAttackTime = AttackTimeCD;
+        
     }
 
 
@@ -243,13 +234,14 @@ public class PlayerConrtoll: Controller
         rd.velocity = new Vector2 (SpeedValue.x * MoveSpeed,rd.velocity.y);
         anim.SetFloat ("Move",Mathf.Abs (SpeedValue.x));
 
- 
+
     }
     #endregion
 
     private void CheckShouldFlip ()
-    {     
-        if (SpeedValue.x != 0f && SpeedValue.x != facingDirection)
+    {
+        if (SpeedValue.x != 0f && SpeedValue.x != facingDirection
+            && !PlayerCharacter.Instance.ISBack)
             Flip ();
     }
 
@@ -295,22 +287,25 @@ public class PlayerConrtoll: Controller
     private void OnDisable ()
     {
         inputs.GamePlay.Disable ();
+       
     }
 
     #endregion
 
     #region 辅助函数
     public void Weapon ()
-    {
-        // WeaponAnimator.GetComponent<SpriteRenderer> ().flipX = sprit.flipX;
+    {       
         WeaponAnimator.GetComponent<Animator> ().SetTrigger ("Attack");
     }
 
+
     public void Death ()
     {
-        inputs.GamePlay.Disable ();
 
+        InputDisable ();
     }
+
+
 
 
     private void DodgeTimer ()
@@ -340,5 +335,22 @@ public class PlayerConrtoll: Controller
         }
 
     }
+    #endregion
+
+
+    #region 输入系统的关闭和开启
+    public void InputDisable()
+    {
+        inputs.GamePlay.Disable ();
+       
+    }
+
+    public void InputEnable()
+    {
+        inputs.GamePlay.Enable ();
+       
+    }
+        
+
     #endregion
 }

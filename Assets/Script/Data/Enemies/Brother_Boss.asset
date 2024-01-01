@@ -16,6 +16,4 @@ MonoBehaviour:
   Shield: 20
   RecoverTime: 5
   InvincibleTime: 0.4
-  Damage: 1
-  ShieldDamage: 2
-  DamageMultiply: 1
+  backDurationTime: 0.1
