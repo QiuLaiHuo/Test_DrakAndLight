@@ -11,7 +11,7 @@ public class HitBack : EnemyAction
 
     public override void OnStart()
     {
-        //todo:此处调用函数重合，新建单独动画播放函数
+       
         enemy.PassivityAnim();
         tween = DOVirtual.DelayedCall (OverTime,() => { 
         

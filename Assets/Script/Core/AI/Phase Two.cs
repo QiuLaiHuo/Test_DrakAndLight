@@ -10,7 +10,7 @@ public class PhaseTwo : EnemyConditionals
 
     public override TaskStatus OnUpdate ()
     {
-        transiPhase = character.CurrentHealth <= (character.Health / 2);
+        transiPhase = character.CurrentHealth <= (characterData.Value.Health/ 2);
         return transiPhase == true ? TaskStatus.Success : TaskStatus.Failure;
     }
 }

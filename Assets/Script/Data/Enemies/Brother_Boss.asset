@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 50
   Shield: 20
-  RecoverTime: 5
+  RecoverTime: 3
   InvincibleTime: 0.4
   backDurationTime: 0.1

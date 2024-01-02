@@ -15,6 +15,7 @@ namespace Core.AI
         public SharedGameObject Target;
         protected EnemyCharacter character;
 
+        public SharedCharacterData characterData;
 
         public override void OnAwake ()
         {

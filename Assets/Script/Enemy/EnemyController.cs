@@ -13,7 +13,7 @@ public class EnemyController: MonoBehaviour
     private Animator anim;
     private Rigidbody2D rd;
     private int facingDirection = -1;
-    private int curretfacing;
+   // private int curretfacing;
     
     [SerializeField] private float CheckRange;
     [SerializeField] private LayerMask CheckWhat;

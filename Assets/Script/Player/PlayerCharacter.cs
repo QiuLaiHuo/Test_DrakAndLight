@@ -28,7 +28,7 @@ public class PlayerCharacter: MonoBehaviour
     private Tween tween;
     public GameObject shield;
     public State state;
-    public ParticleSystem Effects;
+  
     [SerializeField] private CharacterData characterData;
 
 
@@ -64,7 +64,15 @@ public class PlayerCharacter: MonoBehaviour
 
     private void Update ()
     {
-       
+        CheckInvincibleTime ();
+        CheckRecoverTime ();
+        CheckBackTime ();
+    }
+
+
+    //无敌计时器
+    private void CheckInvincibleTime ()
+    {
         if (Isinvincible)
         {
             CurrntInvincible -= Time.deltaTime;
@@ -74,9 +82,14 @@ public class PlayerCharacter: MonoBehaviour
                 Isinvincible = false;
             }
         }
+    }
 
+    //恢复计时器
+    private void CheckRecoverTime ()
+    {
         if (IsBreak)
         {
+            
             CurrentRecoverTime -= Time.deltaTime;
             if (CurrentRecoverTime <= 0)
             {
@@ -87,9 +100,7 @@ public class PlayerCharacter: MonoBehaviour
 
         }
 
-        CheckBackTime ();
     }
-
 
     //新受伤函数
     public void GetHurt (DamageData damage)
@@ -102,8 +113,7 @@ public class PlayerCharacter: MonoBehaviour
         switch (state)
         {
             case State.Porfect:
-            if (Effects != null)
-                Effects.Play ();
+           
             TriggerInvincible ();
             damage.WhoIsAttacker.GetComponent<EnemyController> ()?.PassivityToTreeEvent(); 
             break;

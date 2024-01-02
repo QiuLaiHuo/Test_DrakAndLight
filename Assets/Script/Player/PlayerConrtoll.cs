@@ -151,7 +151,7 @@ namespace Script.Player
         }
         private void Defence (InputAction.CallbackContext obj)
         {
-            if (IsGround && !IsAttack&& !PlayerCharacter.Instance.ISBack)
+            if (IsGround && !IsAttack&& !PlayerCharacter.Instance.IsBreak)
             {
                 PlayerCharacter.Instance.state = State.Defence;
                 IsDefence = true;
@@ -163,7 +163,7 @@ namespace Script.Player
 
         private void PorfectBlock (InputAction.CallbackContext context)
         {
-            if (IsGround && !IsAttack&& !PlayerCharacter.Instance.ISBack)
+            if (IsGround && !IsAttack&& !PlayerCharacter.Instance.IsBreak)
             {
            
                 PlayerCharacter.Instance.state = State.Porfect;
