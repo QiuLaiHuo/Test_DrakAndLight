@@ -10,7 +10,7 @@ using UnityEngine.Rendering;
 public class AttackData : ScriptableObject
 {
   
-    [Header ("ÉËº¦ÊôĞÔ")]
+    [Header ("ä¼¤å®³å±æ€§")]
     public int Damage = 1;
     public int ShieldDamage = 2;
     public int DamageMultiply = 2;

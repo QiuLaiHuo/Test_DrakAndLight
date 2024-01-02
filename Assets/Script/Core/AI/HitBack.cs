@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+
 using Core.AI;
 using DG.Tweening;
 using BehaviorDesigner.Runtime.Tasks;
@@ -13,7 +11,8 @@ public class HitBack : EnemyAction
 
     public override void OnStart()
     {
-        enemy.PassivityDamage ();
+        //todo:此处调用函数重合，新建单独动画播放函数
+        enemy.PassivityAnim();
         tween = DOVirtual.DelayedCall (OverTime,() => { 
         
         Over = true;

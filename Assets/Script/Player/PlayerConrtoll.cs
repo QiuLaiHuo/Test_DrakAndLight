@@ -1,52 +1,52 @@
 using System.Collections;
-
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
-public class PlayerConrtoll: MonoBehaviour
+namespace Script.Player
 {
-    private PlayerInput inputs;
-    private Rigidbody2D rd;
-    private Animator anim;
-    //private PlayerCharacter chara;
-    private PlayerAnimation planim;
+    public class PlayerConrtoll: MonoBehaviour
+    {
+        private PlayerInput inputs;
+        private Rigidbody2D rd;
+        private Animator anim;
+    
+        private PlayerAnimation planim;
 
     
-    public GameObject WingAnimator;
-    public GameObject WeaponAnimator;
-    public Transform AttackPosition;
+        public GameObject WingAnimator;
+        public GameObject WeaponAnimator;
+        public Transform AttackPosition;
 
-    [Header ("––∂Ø≤Œ ˝")]
-    public float MoveSpeed;
-    public float JumpForce;
-    public float DoubleJumpForce;
-    public float DodgeSpeed;
-    public int facingDirection;
+        [Header ("Ë°åÂä®ÂèÇÊï∞")]
+        public float MoveSpeed;
+        public float JumpForce;
+        public float DoubleJumpForce;
+        public float DodgeSpeed;
+        public int facingDirection;
 
-    [Header ("∂Ø◊˜¿‰»¥")]
-    public float DodgeCD;
-    public float DodgeTime;
-    public float AttackCD;
-    private float CurrentAttack;
+        [Header ("Âä®‰ΩúÂÜ∑Âç¥")]
+        public float DodgeCD;
+        public float DodgeTime;
+        public float AttackCD;
+        private float CurrentAttack;
    
 
-    [SerializeField]
-    private Vector2 SpeedValue;
-    private float CurrentDodgeTime;
-    private float DodgeLife;
-    public Vector2 attackpositionoffset;
+        [SerializeField]
+        private Vector2 SpeedValue;
+        private float CurrentDodgeTime;
+        private float DodgeLife;
+        public Vector2 attackpositionoffset;
 
    
-    [Header ("◊¥Ã¨")]
-    public bool IsDoubleJump = false;
-    public bool IsGround = true;
-    public bool IsJump = false;
-    public bool IsAttack = false;
-    public bool IsDefence = false;
-    public bool IsPorfect = false;
-    public bool IsDodge = false;
-    public bool IsDodgeCD = false;
+        [Header ("Áä∂ÊÄÅ")]
+        public bool IsDoubleJump = false;
+        public bool IsGround = true;
+        public bool IsJump = false;
+        public bool IsAttack = false;
+        public bool IsDefence = false;
+        public bool IsPorfect = false;
+        public bool IsDodge = false;
+        public bool IsDodgeCD = false;
 
 
     
@@ -55,302 +55,298 @@ public class PlayerConrtoll: MonoBehaviour
 
     
 
-    private void Awake ()
-    {
-        inputs = new PlayerInput ();
-        rd = GetComponent<Rigidbody2D> ();
-        anim = GetComponent<Animator> ();
-        planim = GetComponent<PlayerAnimation> ();
-
-    }
-    void Start ()
-    {
-        facingDirection = 1;
-       
-        inputs.GamePlay.Attack.started += Attack;
-        inputs.GamePlay.Jump.started += Jump;
-        inputs.GamePlay.PorfectDefence.started += PorfectBlock;
-        inputs.GamePlay.Defence.performed += Defence;
-        inputs.GamePlay.Defence.canceled += DefenceOver;
-        inputs.GamePlay.Dodge.started += DodgeToReady;
-        
-        GameManager.Instance.InputEnable += InputEnable;
-        GameManager.Instance.InputDisable += InputDisable;
-
-    }
-
-
-
-    private void DefenceOver (InputAction.CallbackContext context)
-    {
-        IsDefence = false;
-        PlayerCharacter.Instance.state = State.Default;
-        
-        PlayerCharacter.Instance.shield.SetActive (false);
-
-    }
-
-
-    #region ÷°µ˜”√
-    void Update ()
-    {
-        SpeedValue = inputs.GamePlay.Move.ReadValue<Vector2> ();
-        anim.SetFloat ("JumpVelocity",rd.velocity.y);
-        
-        DodgeTimer ();
-       
-        AttackTimer ();
-        CheckShouldFlip ();
-
-    }
-
-    private void FixedUpdate ()
-    {
-        
-        if (!IsAttack && !IsDefence && !IsPorfect && !IsDodge&&!PlayerCharacter.Instance.ISBack) { Move (); }
-
-        Dodge ();
-
-    }
-    #endregion
-
-
-    #region Ω«…´≤Ÿ◊˜∑Ω∑®
-
-    private void DodgeToReady (InputAction.CallbackContext context)
-    {
-        if (IsDodgeCD)
-            return;
-
-        IsDodge = true;
-        IsDodgeCD = true;
-        CurrentDodgeTime = DodgeCD;
-        DodgeLife = DodgeTime;
-    }
-
-    private void Dodge ()
-    {
-        if (IsDodge)
+        private void Awake ()
         {
-            if (DodgeLife > 0)
+            inputs = new PlayerInput ();
+            rd = GetComponent<Rigidbody2D> ();
+            anim = GetComponent<Animator> ();
+            planim = GetComponent<PlayerAnimation> ();
+
+        }
+        void Start ()
+        {
+            facingDirection = 1;
+       
+            inputs.GamePlay.Attack.started += Attack;
+            inputs.GamePlay.Jump.started += Jump;
+            inputs.GamePlay.PorfectDefence.started += PorfectBlock;
+            inputs.GamePlay.Defence.performed += Defence;
+            inputs.GamePlay.Defence.canceled += DefenceOver;
+            inputs.GamePlay.Dodge.started += DodgeToReady;
+        
+            GameManager.Instance.InputEnable += InputEnable;
+            GameManager.Instance.InputDisable += InputDisable;
+
+        }
+
+
+
+        private void DefenceOver (InputAction.CallbackContext context)
+        {
+            IsDefence = false;
+            PlayerCharacter.Instance.state = State.Default;
+        
+            PlayerCharacter.Instance.shield.SetActive (false);
+
+        }
+
+
+        #region Â∏ßË∞ÉÁî®
+        void Update ()
+        {
+            SpeedValue = inputs.GamePlay.Move.ReadValue<Vector2> ();
+            anim.SetFloat ("JumpVelocity",rd.velocity.y);
+        
+            DodgeTimer ();
+       
+            AttackTimer ();
+            CheckShouldFlip ();
+
+        }
+
+        private void FixedUpdate ()
+        {
+        
+            if (!IsAttack && !IsDefence && !IsPorfect && !IsDodge&&!PlayerCharacter.Instance.ISBack) { Move (); }
+
+            Dodge ();
+
+        }
+        #endregion
+
+
+        #region ËßíËâ≤Êìç‰ΩúÊñπÊ≥ï
+
+        private void DodgeToReady (InputAction.CallbackContext context)
+        {
+            if (IsDodgeCD)
+                return;
+
+            IsDodge = true;
+            IsDodgeCD = true;
+            CurrentDodgeTime = DodgeCD;
+            DodgeLife = DodgeTime;
+        }
+
+        private void Dodge ()
+        {
+            if (IsDodge)
             {
-                PlayerCharacter.Instance.DodgeInvincible (DodgeTime);
-                if (facingDirection == 1)
+                if (DodgeLife > 0)
                 {
+                    PlayerCharacter.Instance.DodgeInvincible (DodgeTime);
+                    if (facingDirection == 1)
+                    {
                    
-                    rd.AddForce (Vector2.right * DodgeSpeed,ForceMode2D.Impulse);
+                        rd.AddForce (Vector2.right * DodgeSpeed,ForceMode2D.Impulse);
+                    }
+                    else
+                        rd.AddForce (Vector2.left * DodgeSpeed,ForceMode2D.Impulse);
+
+                    DodgeLife -= Time.deltaTime;
                 }
-                else
-                    rd.AddForce (Vector2.left * DodgeSpeed,ForceMode2D.Impulse);
-
-                DodgeLife -= Time.deltaTime;
+                if (DodgeLife <= 0)
+                    IsDodge = false;
             }
-            if (DodgeLife <= 0)
-                IsDodge = false;
         }
-    }
-    private void Defence (InputAction.CallbackContext obj)
-    {
-        if (IsGround && !IsAttack&& !PlayerCharacter.Instance.ISBack)
+        private void Defence (InputAction.CallbackContext obj)
         {
-            PlayerCharacter.Instance.state = State.Defence;
-            IsDefence = true;
-            PlayerCharacter.Instance.shield.SetActive (true);
-            rd.velocity = new Vector2 (0,rd.velocity.y);
+            if (IsGround && !IsAttack&& !PlayerCharacter.Instance.ISBack)
+            {
+                PlayerCharacter.Instance.state = State.Defence;
+                IsDefence = true;
+                PlayerCharacter.Instance.shield.SetActive (true);
+                rd.velocity = new Vector2 (0,rd.velocity.y);
 
+            }
         }
-    }
 
-    private void PorfectBlock (InputAction.CallbackContext context)
-    {
-        if (IsGround && !IsAttack&& !PlayerCharacter.Instance.ISBack)
+        private void PorfectBlock (InputAction.CallbackContext context)
         {
+            if (IsGround && !IsAttack&& !PlayerCharacter.Instance.ISBack)
+            {
            
-            PlayerCharacter.Instance.state = State.Porfect;
-            IsPorfect = true;
-            PlayerCharacter.Instance.shield.SetActive (true);
-            rd.velocity = new Vector2 (0,rd.velocity.y);
-            StartCoroutine (PorfectDefence ());
+                PlayerCharacter.Instance.state = State.Porfect;
+                IsPorfect = true;
+                PlayerCharacter.Instance.shield.SetActive (true);
+                rd.velocity = new Vector2 (0,rd.velocity.y);
+                StartCoroutine (PorfectDefence ());
+            }
         }
-    }
 
-    private IEnumerator PorfectDefence ()
-    {
-        
-        yield return new WaitForSeconds (0.2f);
-        IsPorfect = false;
-       
-        PlayerCharacter.Instance.state = State.Defence;
-    }
-
-
-    private void Jump (InputAction.CallbackContext obj)
-    {
-
-
-        if (IsGround)
+        private IEnumerator PorfectDefence ()
         {
-            IsJump = true;
-            rd.AddForce (Vector2.up * JumpForce,ForceMode2D.Impulse);
+        
+            yield return new WaitForSeconds (0.2f);
+            IsPorfect = false;
+       
+            PlayerCharacter.Instance.state = State.Defence;
+        }
+
+
+        private void Jump (InputAction.CallbackContext obj)
+        {
+
+
+            if (IsGround)
+            {
+                IsJump = true;
+                rd.AddForce (Vector2.up * JumpForce,ForceMode2D.Impulse);
             
+            }
+            else if (!IsGround && !IsDoubleJump)
+            {
+                IsJump = true;
+                IsDoubleJump = true;
+                rd.velocity = new Vector2 (rd.velocity.x,0);
+                anim.SetTrigger ("DoubleJump");
+                WingAnimator.GetComponent<Animator> ().SetTrigger ("Wing");
+
+                rd.AddForce (Vector2.up * DoubleJumpForce,ForceMode2D.Impulse);
+
+            }
+            
+
+
         }
-        else if (!IsGround && !IsDoubleJump)
+
+        private void Attack (InputAction.CallbackContext obj)
         {
-            IsJump = true;
-            IsDoubleJump = true;
-            rd.velocity = new Vector2 (rd.velocity.x,0);
-            anim.SetTrigger ("DoubleJump");
-            WingAnimator.GetComponent<Animator> ().SetTrigger ("Wing");
-
-            rd.AddForce (Vector2.up * DoubleJumpForce,ForceMode2D.Impulse);
-
-        }
-        else if (IsDoubleJump)
-            return;
-
-
-    }
-
-    private void Attack (InputAction.CallbackContext obj)
-    {
-        if (!IsDefence && !IsAttack)
-        {
-            CurrentAttack = AttackCD;
-            rd.velocity = new Vector2 (0,rd.velocity.y);
-            IsAttack = true;
-            planim.Attack ();
-        }
-        else
-            return;
+            if (!IsDefence && !IsAttack)
+            {
+                CurrentAttack = AttackCD;
+                rd.velocity = new Vector2 (0,rd.velocity.y);
+                IsAttack = true;
+                planim.Attack ();
+            }
+           
 
         
-    }
-
-
-
-    private void Move ()
-    {
-
-        rd.velocity = new Vector2 (SpeedValue.x * MoveSpeed,rd.velocity.y);
-        anim.SetFloat ("Move",Mathf.Abs (SpeedValue.x));
-
-
-    }
-    #endregion
-
-    private void CheckShouldFlip ()
-    {
-        if (SpeedValue.x != 0f && SpeedValue.x != facingDirection
-            && !PlayerCharacter.Instance.ISBack)
-            Flip ();
-    }
-
-    private void Flip ()
-    {
-        facingDirection *= -1;
-        rd.transform.Rotate (0f,180f,0f);
-    }
-
-    #region ≈ˆ◊≤◊¥Ã¨ºÏ≤‚∑Ω∑®
-    private void OnCollisionEnter2D (Collision2D col)
-    {
-        if (col.collider.CompareTag ("Ground"))
-        {
-            IsGround = true;
-            IsJump = false;
-            IsDoubleJump = false;
-            anim.SetBool ("IsGround",IsGround);
         }
-    }
-    private void OnCollisionExit2D (Collision2D col)
-    {
-        if (col.collider.CompareTag ("Ground"))
+
+
+
+        private void Move ()
         {
-            IsGround = false;
-            anim.SetBool ("IsGround",IsGround);
+
+            rd.velocity = new Vector2 (SpeedValue.x * MoveSpeed,rd.velocity.y);
+            anim.SetFloat ("Move",Mathf.Abs (SpeedValue.x));
+
+
         }
-    }
+        #endregion
 
-    //private void bool AttackPyhsicCheck()
-    //{
-    //    return true;
-    //}
-
-    #endregion
-
-    #region ∆Ù”√∫ÕΩ˚”√∑Ω∑®µ˜”√
-    private void OnEnable ()
-    {
-        inputs.GamePlay.Enable ();
-    }
-
-    private void OnDisable ()
-    {
-        inputs.GamePlay.Disable ();
-       
-    }
-
-    #endregion
-
-    #region ∏®÷˙∫Ø ˝
-    public void Weapon ()
-    {       
-        WeaponAnimator.GetComponent<Animator> ().SetTrigger ("Attack");
-    }
-
-
-    public void Death ()
-    {
-
-        InputDisable ();
-    }
-
-
-
-
-    private void DodgeTimer ()
-    {
-        if (IsDodgeCD)
+        private void CheckShouldFlip ()
         {
-            CurrentDodgeTime -= Time.deltaTime;
-            if (CurrentDodgeTime <= 0)
+            if (SpeedValue.x != 0f && SpeedValue.x != facingDirection
+                                   && !PlayerCharacter.Instance.ISBack)
+                Flip ();
+        }
+
+        private void Flip ()
+        {
+            facingDirection *= -1;
+            rd.transform.Rotate (0f,180f,0f);
+        }
+
+        #region Á¢∞ÊíûÁä∂ÊÄÅÊ£ÄÊµãÊñπÊ≥ï
+        private void OnCollisionEnter2D (Collision2D col)
+        {
+            if (col.collider.CompareTag ("Ground"))
             {
-                CurrentDodgeTime = 0;
-                IsDodgeCD = false;
-                planim.DodgeOK ();
+                IsGround = true;
+                IsJump = false;
+                IsDoubleJump = false;
+                anim.SetBool ("IsGround",IsGround);
             }
         }
-    }
-
-    private void AttackTimer ()
-    {
-        if (IsAttack)
+        private void OnCollisionExit2D (Collision2D col)
         {
-            CurrentAttack -= Time.deltaTime;
-            if (CurrentAttack <= 0)
+            if (col.collider.CompareTag ("Ground"))
             {
-                CurrentAttack = 0;
-                IsAttack = false;
+                IsGround = false;
+                anim.SetBool ("IsGround",IsGround);
             }
         }
 
-    }
-    #endregion
+   
 
+        #endregion
 
-    #region  ‰»ÎœµÕ≥µƒπÿ±’∫Õø™∆Ù
-    public void InputDisable()
-    {
-        inputs.GamePlay.Disable ();
+        #region ÂêØÁî®ÂíåÁ¶ÅÁî®ÊñπÊ≥ïË∞ÉÁî®
+        private void OnEnable ()
+        {
+            inputs.GamePlay.Enable ();
+        }
+
+        private void OnDisable ()
+        {
+            inputs.GamePlay.Disable ();
        
-    }
+        }
 
-    public void InputEnable()
-    {
-        inputs.GamePlay.Enable ();
+        #endregion
+
+        #region ËæÖÂä©ÂáΩÊï∞
+        public void Weapon ()
+        {       
+            WeaponAnimator.GetComponent<Animator> ().SetTrigger ("Attack");
+        }
+
+
+        public void Death ()
+        {
+
+            InputDisable ();
+        }
+
+
+
+
+        private void DodgeTimer ()
+        {
+            if (IsDodgeCD)
+            {
+                CurrentDodgeTime -= Time.deltaTime;
+                if (CurrentDodgeTime <= 0)
+                {
+                    CurrentDodgeTime = 0;
+                    IsDodgeCD = false;
+                    planim.DodgeOK ();
+                }
+            }
+        }
+
+        private void AttackTimer ()
+        {
+            if (IsAttack)
+            {
+                CurrentAttack -= Time.deltaTime;
+                if (CurrentAttack <= 0)
+                {
+                    CurrentAttack = 0;
+                    IsAttack = false;
+                }
+            }
+
+        }
+        #endregion
+
+
+        #region ËæìÂÖ•Á≥ªÁªüÁöÑÂÖ≥Èó≠ÂíåÂºÄÂêØ
+        public void InputDisable()
+        {
+            inputs.GamePlay.Disable ();
        
-    }
+        }
+
+        public void InputEnable()
+        {
+            inputs.GamePlay.Enable ();
+       
+        }
         
 
-    #endregion
+        #endregion
+    }
 }

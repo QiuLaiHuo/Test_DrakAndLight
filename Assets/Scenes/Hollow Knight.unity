@@ -12544,7 +12544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0e3a209395de3f4aa790409147b574b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentHealth: 10
+  CurrentHealth: 0
   CurrentShield: 0
   CurrentRecoverTime: 0
   CurrntInvincible: 0
@@ -12554,38 +12554,14 @@ MonoBehaviour:
   ISBack: 0
   shield: {fileID: 961159428}
   state: 2
-  Effects: {fileID: 1900108848}
+  Effects: {fileID: 0}
   characterData: {fileID: 11400000, guid: 4592ed41bc3e89c4fa2c50c33b0fbd34, type: 2}
   OnDamage:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1879657549}
-        m_TargetAssemblyTypeName: PlayerAnimation, Assembly-CSharp
-        m_MethodName: Hurt
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   Ondeath:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1879657546}
-        m_TargetAssemblyTypeName: PlayerConrtoll, Assembly-CSharp
-        m_MethodName: Death
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnBreak:
     m_PersistentCalls:
       m_Calls: []

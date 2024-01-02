@@ -1,63 +1,67 @@
+using Script.Player;
 using UnityEngine;
 
-public class AttackHit: MonoBehaviour
+namespace Script.Universal
 {
-    public enum AttacksWhat { Enemy, Player };
-    [SerializeField] private AttacksWhat attacksWhat;
-    [SerializeField] private int TargetSide;
-    [SerializeField] private GameObject OBBase;
-
-
-    //AttackData ÓÃÓÚÊı¾İ·ÖÀë£¬DamageData ÓÃÓÚ´«µİÉËº¦²ÎÊı
-    public AttackData attackData;
-    private DamageData damageData;
-
-
-    private void Start ()
+    public class AttackHit: MonoBehaviour
     {
-        damageData = new DamageData ();
+        public enum AttacksWhat { Enemy, Player };
+        [SerializeField] private AttacksWhat attacksWhat;
+        [SerializeField] private int TargetSide;
+        [SerializeField] private GameObject OBBase;
+
+
+        //AttackData ç”¨äºæ•°æ®åˆ†ç¦»ï¼ŒDamageData ç”¨äºä¼ é€’ä¼¤å®³å‚æ•°
+        public AttackData attackData;
+        private DamageData damageData;
+
+
+        private void Start ()
+        {
+            damageData = new DamageData ();
       
-    }
-
-
-    private void OnTriggerStay2D (Collider2D col)
-    {
-        Debug.Log (3);
-        if (col.transform.position.x < OBBase.transform.position.x)
-        {
-            TargetSide = -1;
-        }
-        else
-        {
-            TargetSide = 1;
         }
 
-        damageData.TargetSide = TargetSide;
-        damageData.Damage = attackData.Damage;
-        damageData.ShieldDamage = attackData.ShieldDamage;
-        damageData.DamageMultiply = attackData.DamageMultiply;
-        damageData.WhoIsAttacker = OBBase;
-        damageData.beatForce = attackData.beatForce;
 
-        //ÅĞ¶ÏÊÜÉËÕßÊÇË­
-        if (attacksWhat == AttacksWhat.Player)
+        private void OnTriggerStay2D (Collider2D col)
         {
-            if (col.GetComponent<PlayerCharacter> () != null)
+            Debug.Log (3);
+            if (col.transform.position.x < OBBase.transform.position.x)
             {
-                PlayerCharacter.Instance.GetHurt (damageData);
-                //Èç¹ûÓĞ×ÔÉ±ĞÍµĞÈË£¬Ôò´Ë´¦Ó¦¸Ãµ÷ÓÃ×ÔÉ±º¯Êı
+                TargetSide = -1;
             }
+            else
+            {
+                TargetSide = 1;
+            }
+
+            damageData.TargetSide = TargetSide;
+            damageData.Damage = attackData.Damage;
+            damageData.ShieldDamage = attackData.ShieldDamage;
+            damageData.DamageMultiply = attackData.DamageMultiply;
+            damageData.WhoIsAttacker = OBBase;
+            damageData.beatForce = attackData.beatForce;
+
+            //åˆ¤æ–­å—ä¼¤è€…æ˜¯è°
+            if (attacksWhat == AttacksWhat.Player)
+            {
+                if (col.GetComponent<PlayerCharacter> () != null)
+                {
+                    PlayerCharacter.Instance.GetHurt (damageData);
+                    //å¦‚æœæœ‰è‡ªæ€å‹æ•Œäººï¼Œåˆ™æ­¤å¤„åº”è¯¥è°ƒç”¨è‡ªæ€å‡½æ•°
+                }
+            }
+
+            else if (attacksWhat == AttacksWhat.Enemy && col.GetComponent<EnemyCharacter> () != null)
+            {
+                col.GetComponent<EnemyCharacter>().GetHurt (damageData);
+            }
+
+            //todo:å¦‚æœæ˜¯å¯ç ´åç±»å‹ï¼ˆè‰ï¼Œç®±å­ç­‰ç­‰ï¼‰åˆ™åº”è¯¥è°ƒç”¨ç ´åçŠ¶æ€å‡½æ•°
+            //todo:å¦‚æœæ˜¯è‡ªæ€ç±»å‹çš„æ•Œäººï¼Œåˆ™æ­¤å¤„åº”è¯¥è°ƒç”¨å…¶å—ä¼¤ç›´æ¥æ­»äº¡å‡½æ•°
+
         }
 
-        else if (attacksWhat == AttacksWhat.Enemy && col.GetComponent<EnemyCharacter> () != null)
-        {
-            col.GetComponent<EnemyCharacter>().GetHurt (damageData);
-        }
-
-        //todo:Èç¹ûÊÇ¿ÉÆÆ»µÀàĞÍ£¨²İ£¬Ïä×ÓµÈµÈ£©ÔòÓ¦¸Ãµ÷ÓÃÆÆ»µ×´Ì¬º¯Êı
-        //todo:Èç¹ûÊÇ×ÔÉ±ÀàĞÍµÄµĞÈË£¬Ôò´Ë´¦Ó¦¸Ãµ÷ÓÃÆäÊÜÉËÖ±½ÓËÀÍöº¯Êı
 
     }
-
-
 }

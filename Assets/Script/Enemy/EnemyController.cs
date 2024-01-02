@@ -8,13 +8,13 @@ public class EnemyController: MonoBehaviour
 {
 
     private BehaviorTree tree;
-    //private SpriteRenderer sprite;
+   
     private CinemachineImpulseSource cinema;
     private Animator anim;
     private Rigidbody2D rd;
     private int facingDirection = -1;
     private int curretfacing;
-    //[SerializeField]private Transform CheckPosition ;
+    
     [SerializeField] private float CheckRange;
     [SerializeField] private LayerMask CheckWhat;
 
@@ -26,7 +26,7 @@ public class EnemyController: MonoBehaviour
         rd = GetComponent<Rigidbody2D> ();
         tree = GetComponent<BehaviorTree> ();
         anim = GetComponent<Animator> ();
-        //sprite = GetComponent<SpriteRenderer> ();
+        
         cinema = GetComponent<CinemachineImpulseSource> ();
     }
 
@@ -35,20 +35,27 @@ public class EnemyController: MonoBehaviour
         CheckPlayer ();
     }
 
-    //ÉãÏñ»úÕğ¶¯·½·¨
+    //æ‘„åƒæœºéœ‡åŠ¨æ–¹æ³•
     private void OnImpulseSource ()
     {
         cinema.GenerateImpulse (new Vector3 (Random.Range (-0.3f,0.3f),0f,0f));
     }
 
 
-    public void PassivityDamage ()
+    public void PassivityToTreeEvent ()
     {
         tree?.SendEvent ("Onporfect");
-        Debug.Log ("±»µ¯µ¶");
-        anim.StopPlayback ();
-        anim.SetTrigger ("Passivity");
+       
+        //anim.StopPlayback ();
+       
     }
+
+    public void PassivityAnim()
+    { Debug.Log ("è¢«å¼¹åˆ€");
+         anim.SetTrigger ("Passivity");
+        
+    }
+    
 
     public void Die ()
     {

@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public enum State { Porfect, Defence, Default }
 public class PlayerCharacter: MonoBehaviour
 {
-    [Header ("»ù´¡ÊôĞÔ")]
+    [Header ("åŸºç¡€å±æ€§")]
     public int CurrentHealth;
     public int CurrentShield;
     public float CurrentRecoverTime;
@@ -21,7 +21,7 @@ public class PlayerCharacter: MonoBehaviour
     private float BackStartTime;
     private float BackDuration;
     private Vector2 backvector;
-    //todo:ÊÜÉËÊ±±»»÷·É£¨ĞèÒª½ûÓÃMove·½·¨£©£¬ÒÔ¼°ºÚÓ°ÌØĞ§
+    //todo:å—ä¼¤æ—¶è¢«å‡»çš„é»‘å½±ç‰¹æ•ˆ
 
     private Rigidbody2D rd;
 
@@ -53,18 +53,18 @@ public class PlayerCharacter: MonoBehaviour
     private void Start ()
     {
         rd = GetComponent<Rigidbody2D> ();
-        //attacker = null;
+      
         CurrentHealth = characterData.Health;
         CurrentShield = characterData.Shield;
         BackDuration = characterData.backDurationTime;
         CurrentRecoverTime = 0;
         state = State.Default;
-        //controller = GetComponent<Controller> ();
+       
     }
 
     private void Update ()
     {
-        // Debug.Log (state);
+       
         if (Isinvincible)
         {
             CurrntInvincible -= Time.deltaTime;
@@ -91,7 +91,7 @@ public class PlayerCharacter: MonoBehaviour
     }
 
 
-    //ĞÂÊÜÉËº¯Êı
+    //æ–°å—ä¼¤å‡½æ•°
     public void GetHurt (DamageData damage)
     {
         if (Isinvincible || IsDeath)
@@ -105,12 +105,12 @@ public class PlayerCharacter: MonoBehaviour
             if (Effects != null)
                 Effects.Play ();
             TriggerInvincible ();
-            damage.WhoIsAttacker.GetComponent<EnemyController> ()?.PassivityDamage ();
+            damage.WhoIsAttacker.GetComponent<EnemyController> ()?.PassivityToTreeEvent(); 
             break;
 
 
             case State.Defence:
-            //µ÷ÓÃ·ÀÓùº¯Êı,¼õÉÙ»¤¶Ü
+            //è°ƒç”¨é˜²å¾¡å‡½æ•°,å‡å°‘æŠ¤ç›¾
             DamageShield (damage.ShieldDamage);
             TriggerInvincible ();
             ISBack = true;
@@ -118,7 +118,7 @@ public class PlayerCharacter: MonoBehaviour
             rd.AddForce (backvector,ForceMode2D.Impulse);
             break;
             case State.Default:
-            //ÊÜÉËº¯Êı
+            //å—ä¼¤å‡½æ•°
             if (IsBreak)
                 Damage (damage.Damage * damage.DamageMultiply);
 
@@ -146,8 +146,8 @@ public class PlayerCharacter: MonoBehaviour
     }
 
 
-    //´¥·¢ÎŞµĞÊ±¼ä
-    protected void TriggerInvincible ()
+    //è§¦å‘æ— æ•Œæ—¶é—´
+    private void TriggerInvincible ()
     {
         if (!Isinvincible)
         {
@@ -162,7 +162,7 @@ public class PlayerCharacter: MonoBehaviour
         Isinvincible = true;
         CurrntInvincible = Time;
     }
-    protected void Damage (int Damage)
+   private void Damage (int Damage)
     {
         if (!Isinvincible)
         {
@@ -183,12 +183,12 @@ public class PlayerCharacter: MonoBehaviour
 
 
 
-    protected void DamageShield (int damage)
+    private void DamageShield (int damage)
     {
 
         if (CurrentShield - damage <= 0)
         {
-            //½øÈëBreak£¬°üÀ¨¶¯»­
+            //todo:è¿›å…¥Breakï¼ŒåŒ…æ‹¬åŠ¨ç”»
             OnBreak?.Invoke ();
             CurrentShield = 0;
             CurrentRecoverTime = characterData.RecoverTime;

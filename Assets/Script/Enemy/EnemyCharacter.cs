@@ -1,4 +1,3 @@
-using BehaviorDesigner.Runtime;
 
 using UnityEngine;
 using UnityEngine.Events;
@@ -6,7 +5,7 @@ using UnityEngine.Events;
 public enum EnemieState {  Defence, Default }
 public class EnemyCharacter: MonoBehaviour
 {
-    [Header ("»ù´¡ÊôĞÔ")]
+    [Header ("åŸºç¡€å±æ€§")]
     public int Health;
     public int CurrentHealth;
     public int Shield;
@@ -21,36 +20,31 @@ public class EnemyCharacter: MonoBehaviour
     public bool IsDeath;
     public bool IsPassivity = false;
     public EnemieState state;
-    //public bool IsDefence;
-    //public bool IsPorfectDefence;
+   
     public ParticleSystem Effects;
-    //private Controller controller;
-    // public bool Flip = true;
-    //[SerializeField]
+   
 
 
     public UnityEvent OnDamage;
     public UnityEvent Ondeath;
     public UnityEvent OnBreak;
-    // public UnityEvent OnPorfect;
-
-   // protected AttackControll attacker;
+   
 
 
     private void Start ()
     {
 
-        //attacker = null;
+        
         CurrentHealth = Health;
         CurrentShield = Shield;
         CurrentRecoverTime = 0;
         state = EnemieState.Default;
-        //controller = GetComponent<Controller> ();
+       
     }
 
     private void Update ()
     {
-        // Debug.Log (state);
+       
         if (Isinvincible)
         {
             CurrntInvincible -= Time.deltaTime;
@@ -75,7 +69,7 @@ public class EnemyCharacter: MonoBehaviour
     }
 
 
-    //ĞÂÊÜÉËº¯Êı
+    //æ–°å—ä¼¤å‡½æ•°
     public void GetHurt (DamageData damage)
     {
         if (Isinvincible || IsDeath)
@@ -85,12 +79,12 @@ public class EnemyCharacter: MonoBehaviour
         {
             
             case EnemieState.Defence:
-            //µ÷ÓÃ·ÀÓùº¯Êı
+            //è°ƒç”¨é˜²å¾¡å‡½æ•°
 
             DamageShield (damage.ShieldDamage);
             break;
             case EnemieState.Default:
-            //ÊÜÉËº¯Êı
+            //å—ä¼¤å‡½æ•°
 
             if (IsBreak)
                 Damage (damage.Damage * Multiply);
@@ -102,44 +96,10 @@ public class EnemyCharacter: MonoBehaviour
     }
 
 
-    //¾ÃÊÜÉËº¯Êı
-    //public virtual void OnTakeDamage (AttackControll attack)
-    //{
-    //    if (Isinvincible || IsDeath)
-    //        return;
-    //    this.attacker = attack;
+  
 
-
-    //    switch (state)
-    //    {
-    //        case State.Porfect:
-    //        //µ÷ÓÃ¹¥»÷Õß±»µ¯µ¶
-    //        //OnPorfect?.Invoke();
-    //        if (Effects != null)
-    //            Effects.Play ();
-    //        TriggerInvincible ();
-    //        damage.WhoIsAttacker.GetComponent<EnemyController> ()?.PassivityDamage ();
-    //        break;
-    //        case State.Defence:
-    //        //µ÷ÓÃ·ÀÓùº¯Êı
-
-    //        DamageShield ();
-    //        break;
-    //        case State.Default:
-    //        //ÊÜÉËº¯Êı
-
-    //        if (IsBreak)
-    //            Damage (attacker.Damage * Multiply);
-    //        else
-    //            Damage (attacker.Damage);
-    //        TriggerInvincible ();
-    //        break;
-    //    }
-    //}
-
-
-    //´¥·¢ÎŞµĞÊ±¼ä
-    protected void TriggerInvincible ()
+    //è§¦å‘æ— æ•Œæ—¶é—´
+    private void TriggerInvincible ()
     {
         if (!Isinvincible)
         {
@@ -154,7 +114,7 @@ public class EnemyCharacter: MonoBehaviour
         Isinvincible = true;
         CurrntInvincible = Time;
     }
-    protected void Damage (int Damage)
+    private void Damage (int Damage)
     {
         if (!Isinvincible)
         {
@@ -175,13 +135,13 @@ public class EnemyCharacter: MonoBehaviour
 
 
 
-    protected void DamageShield (int damage)
+    private void DamageShield (int damage)
     {
         if ( CurrentShield <= 0)
             return;
         if (CurrentShield - damage <= 0)
         {
-            //½øÈëBreak£¬°üÀ¨¶¯»­
+            //è¿›å…¥Breakï¼ŒåŒ…æ‹¬åŠ¨ç”»
             OnBreak?.Invoke ();
             CurrentShield = 0;
             CurrentRecoverTime = RecoverTime;

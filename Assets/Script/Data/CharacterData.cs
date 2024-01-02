@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
+
 
 using UnityEngine;
 
@@ -8,11 +6,11 @@ using UnityEngine;
 public class CharacterData : ScriptableObject
 {
 
-    [Header("»ù±¾ÊôÐÔ")]
+    [Header("åŸºæœ¬å±žæ€§")]
     public int Health=50;
     public int Shield=20;
 
-    [Header("¿¹»÷ÊôÐÔ")]
+    [Header("æŠ—å‡»å±žæ€§")]
     public float RecoverTime=5f;
     public float InvincibleTime=0.4f;
     public float backDurationTime = 0.5f;
