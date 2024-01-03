@@ -6,6 +6,9 @@ using DG.Tweening;
 using BehaviorDesigner.Runtime.Tasks;
 using UnityEditor.Experimental.GraphView;
 
+
+[TaskCategory("BrotherAction")]
+
 public class JumpReady : EnemyAction
 {
    // public float HorizontalForce = 5.0f;

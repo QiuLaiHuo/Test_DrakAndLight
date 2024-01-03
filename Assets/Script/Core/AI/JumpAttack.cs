@@ -6,6 +6,9 @@ using DG.Tweening;
 
 using UnityEngine;
 
+
+
+[TaskCategory("BrotherAction")]
 public class JumpAttack: EnemyAction
 {
     public float DownForce;

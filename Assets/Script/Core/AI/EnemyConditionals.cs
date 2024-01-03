@@ -7,6 +7,8 @@ using BehaviorDesigner.Runtime.Tasks;
 
 namespace Core.AI
 {
+    
+    [TaskCategory("BrotherConditional/Basic")]
     public class EnemyConditionals: Conditional
     {
         protected Rigidbody2D rd;

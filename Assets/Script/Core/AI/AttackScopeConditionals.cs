@@ -5,6 +5,9 @@ using Core.AI;
 using BehaviorDesigner.Runtime.Tasks;
 using Unity.Mathematics;
 
+
+[TaskCategory("BrotherConditional")]
+[TaskDescription("检测目标距离")]
 public class AttackScopeConditionals : EnemyConditionals
 {
     public float Scope = 0f;

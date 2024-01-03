@@ -6,6 +6,9 @@ using BehaviorDesigner.Runtime.Tasks;
 using Unity.Mathematics;
 using UnityEngine.UI;
 
+
+
+[TaskCategory("BrotherAction")]
 public class RunLoop : EnemyAction
 {
     public string AnimaName;

@@ -35,7 +35,7 @@ namespace Script.Player
         private Vector2 SpeedValue;
         private float CurrentDodgeTime;
         private float DodgeLife;
-        public Vector2 attackpositionoffset;
+       
 
    
         [Header ("状态")]

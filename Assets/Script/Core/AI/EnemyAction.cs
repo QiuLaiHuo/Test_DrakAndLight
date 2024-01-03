@@ -9,12 +9,15 @@ using Cinemachine;
 
 namespace Core.AI
 {
+    [TaskCategory("BrotherAction/Basic")]
     public class EnemyAction: Action
     {
         protected Rigidbody2D rd;
         protected EnemyController enemy;
         protected Animator anim;
         public SharedGameObject Target;
+
+        public SharedCharacterData CharacterData;
         //protected SpriteRenderer sprit;
         //protected  AttackControll attackControll;
 

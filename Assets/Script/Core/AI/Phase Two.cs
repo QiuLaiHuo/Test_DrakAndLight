@@ -4,6 +4,9 @@ using UnityEngine;
 using Core.AI;
 using BehaviorDesigner.Runtime.Tasks;
 
+
+[TaskCategory("BrotherConditional")]
+[TaskDescription("检测自身血量进行转阶段判定")]
 public class PhaseTwo : EnemyConditionals
 {
     private bool transiPhase;

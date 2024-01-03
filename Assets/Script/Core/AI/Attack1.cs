@@ -4,6 +4,8 @@ using Core.AI;
 
 using DG.Tweening;
 
+
+[TaskCategory("BrotherAction")]
 public class Attack1: EnemyAction
 {
     public string AnimaName;

@@ -5,6 +5,7 @@ using Core.AI;
 using DG.Tweening;
 using BehaviorDesigner.Runtime.Tasks;
 
+[TaskCategory("BrotherAction")]
 public class Attack2 : EnemyAction
 {
     public string AnimaName;

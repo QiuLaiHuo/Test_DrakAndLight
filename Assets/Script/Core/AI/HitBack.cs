@@ -3,6 +3,7 @@ using Core.AI;
 using DG.Tweening;
 using BehaviorDesigner.Runtime.Tasks;
 
+[TaskCategory("BrotherAction")]
 public class HitBack : EnemyAction
 {
     private bool Over =false;

@@ -1,4 +1,4 @@
-using Script.Player;
+
 using UnityEngine;
 
 namespace Script.Universal
@@ -51,7 +51,6 @@ namespace Script.Universal
                     //如果有自杀型敌人，则此处应该调用自杀函数
                 }
             }
-
             else if (attacksWhat == AttacksWhat.Enemy && col.GetComponent<EnemyCharacter> () != null)
             {
                 col.GetComponent<EnemyCharacter>().GetHurt (damageData);
