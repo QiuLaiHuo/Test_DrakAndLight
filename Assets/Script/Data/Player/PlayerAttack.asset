@@ -15,4 +15,4 @@ MonoBehaviour:
   Damage: 1
   ShieldDamage: 2
   DamageMultiply: 2
-  beatForce: 2
+  beatForce: {x: 8, y: 5}

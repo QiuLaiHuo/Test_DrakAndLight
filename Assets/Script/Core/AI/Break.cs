@@ -2,6 +2,8 @@ using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 using DG.Tweening;
 
+using UnityEngine;
+
 namespace Core.AI
 {
     [TaskCategory("BrotherAction")]
@@ -12,10 +14,15 @@ namespace Core.AI
         private Tween tween;
         public float OverTime;
         private bool Over;
+       
         public override void OnStart()
         {
-            anim.SetBool(AnimaName,true);
 
+
+
+            TimeManager.Instance.SlowTime ();
+            anim.SetTrigger (AnimaName);
+           
             tween = DOVirtual.DelayedCall(OverTime, () =>
                 {
                     Over = true;

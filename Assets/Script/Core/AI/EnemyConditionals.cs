@@ -16,6 +16,8 @@ namespace Core.AI
         protected Animator anim;
         public SharedGameObject Target;
         protected EnemyCharacter character;
+        protected int TargetDirecter;
+
 
         public SharedCharacterData characterData;
 

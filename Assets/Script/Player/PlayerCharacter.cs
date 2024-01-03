@@ -28,7 +28,7 @@ public class PlayerCharacter: MonoBehaviour
     private Tween tween;
     public GameObject shield;
     public State state;
-  
+
     [SerializeField] private CharacterData characterData;
 
 
@@ -53,13 +53,13 @@ public class PlayerCharacter: MonoBehaviour
     private void Start ()
     {
         rd = GetComponent<Rigidbody2D> ();
-      
+
         CurrentHealth = characterData.Health;
         CurrentShield = characterData.Shield;
         BackDuration = characterData.backDurationTime;
         CurrentRecoverTime = 0;
         state = State.Default;
-       
+
     }
 
     private void Update ()
@@ -89,7 +89,7 @@ public class PlayerCharacter: MonoBehaviour
     {
         if (IsBreak)
         {
-            
+
             CurrentRecoverTime -= Time.deltaTime;
             if (CurrentRecoverTime <= 0)
             {
@@ -113,9 +113,11 @@ public class PlayerCharacter: MonoBehaviour
         switch (state)
         {
             case State.Porfect:
-           
+
             TriggerInvincible ();
-            damage.WhoIsAttacker.GetComponent<EnemyController> ()?.PassivityToTreeEvent(); 
+            damage.WhoIsAttacker.GetComponent<EnemyController> ()?.PassivityToTreeEvent (damage.ShieldDamage * damage.DamageMultiply);
+            TimeManager.Instance.SlowTime ();
+
             break;
 
 
@@ -123,9 +125,11 @@ public class PlayerCharacter: MonoBehaviour
             //调用防御函数,减少护盾
             DamageShield (damage.ShieldDamage);
             TriggerInvincible ();
+
             ISBack = true;
             BackStartTime = Time.time;
             rd.AddForce (backvector,ForceMode2D.Impulse);
+            TimeManager.Instance.SlowTime ();
             break;
             case State.Default:
             //受伤函数
@@ -140,7 +144,7 @@ public class PlayerCharacter: MonoBehaviour
             ISBack = true;
             BackStartTime = Time.time;
             rd.AddForce (backvector,ForceMode2D.Impulse);
-
+            TimeManager.Instance.SlowTime ();
 
 
             break;
@@ -172,7 +176,7 @@ public class PlayerCharacter: MonoBehaviour
         Isinvincible = true;
         CurrntInvincible = Time;
     }
-   private void Damage (int Damage)
+    private void Damage (int Damage)
     {
         if (!Isinvincible)
         {
@@ -230,4 +234,8 @@ public class PlayerCharacter: MonoBehaviour
     {
         tween?.Kill ();
     }
+
+
+
+
 }

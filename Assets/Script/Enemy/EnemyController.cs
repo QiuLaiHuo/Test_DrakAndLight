@@ -3,6 +3,7 @@ using BehaviorDesigner.Runtime;
 using Cinemachine;
 
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyController: MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class EnemyController: MonoBehaviour
 
     private Collider2D CheckCol;
 
+    public static UnityAction<int> ProfectDefence;
     
     private void Awake ()
     {
@@ -42,10 +44,10 @@ public class EnemyController: MonoBehaviour
     }
 
 
-    public void PassivityToTreeEvent ()
+    public void PassivityToTreeEvent (int ShieldDamage)
     {
         tree?.SendEvent ("Onporfect");
-       
+        ProfectDefence?.Invoke (ShieldDamage);
         //anim.StopPlayback ();
        
     }

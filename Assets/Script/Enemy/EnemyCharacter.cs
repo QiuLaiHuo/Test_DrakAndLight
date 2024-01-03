@@ -1,6 +1,8 @@
 
 using System.Collections;
 
+using BehaviorDesigner.Runtime;
+
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -30,29 +32,31 @@ public class EnemyCharacter: MonoBehaviour
     [SerializeField] protected GameObject effects;
     protected Rigidbody2D rd;
     protected EnemieState state;
+    protected BehaviorTree tree;
+    protected Vector2 BackVector;
 
 
 
+    
 
 
-
-
-
-    public UnityEvent OnDamage;
-    public UnityEvent Ondeath;
-    public UnityEvent OnBreak;
+    //public UnityEvent OnDamage;
+    //public UnityEvent Ondeath;
+    //public UnityEvent OnBreak;
 
 
 
     protected virtual void Start ()
     {
-
+        tree = GetComponent<BehaviorTree> ();
         rd = GetComponent<Rigidbody2D> ();
         CurrentHealth = CharacterData.Health;
         CurrentShield = CharacterData.Shield;
         BackDuration = CharacterData.backDurationTime;
         CurrentRecoverTime = 0;
         state = EnemieState.Default;
+       
+        EnemyController.ProfectDefence += DamageShield;
 
     }
 
@@ -74,6 +78,8 @@ public class EnemyCharacter: MonoBehaviour
     {
         if (Isinvincible || IsDeath)
             return;
+
+        BackVector.Set(damage.beatForce.x * damage.TargetSide,damage.beatForce.y);
 
         switch (state)
         {
@@ -109,7 +115,7 @@ public class EnemyCharacter: MonoBehaviour
 
     }
 
-   
+
     protected void Damage (int Damage)
     {
         if (!Isinvincible)
@@ -117,7 +123,7 @@ public class EnemyCharacter: MonoBehaviour
             if (CurrentHealth - Damage > 0)
             {
                 CurrentHealth -= Damage;
-                OnDamage?.Invoke ();
+                //OnDamage?.Invoke ();
                 //todo:Hurt特效
             }
             else
@@ -125,7 +131,9 @@ public class EnemyCharacter: MonoBehaviour
 
                 CurrentHealth = 0;
                 IsDeath = true;
-                Ondeath?.Invoke ();
+                tree?.SendEvent ("OnDie");
+                shield.SetActive (false);
+                //Ondeath?.Invoke ();
             }
         }
     }
@@ -137,12 +145,13 @@ public class EnemyCharacter: MonoBehaviour
         {
             shield.SetActive (false);
             CurrentRecoverTime -= Time.deltaTime;
-            if (CurrentRecoverTime <= 0)
+            if (CurrentRecoverTime <= 0  )
             {
                 CurrentRecoverTime = 0;
                 IsBreak = false;
                 CurrentShield = CharacterData.Shield;
-                shield.SetActive (true);
+                if(!IsDeath)
+                    shield.SetActive (true);
             }
 
 
@@ -151,7 +160,7 @@ public class EnemyCharacter: MonoBehaviour
     }
 
     //无敌计时器
-    protected void CheckInvincibleTime()
+    protected void CheckInvincibleTime ()
     {
         if (Isinvincible)
         {
@@ -169,10 +178,13 @@ public class EnemyCharacter: MonoBehaviour
 
         if (CurrentShield - damage <= 0)
         {
-            //进入Break，包括动画
-            OnBreak?.Invoke ();         
-            CurrentShield = 0;
+            tree?.SendEvent ("OnBreak");
+
+            rd.AddForce (BackVector,ForceMode2D.Impulse);
             CurrentRecoverTime = CharacterData.RecoverTime;
+           
+            CurrentShield = 0;
+
             IsBreak = true;
 
         }

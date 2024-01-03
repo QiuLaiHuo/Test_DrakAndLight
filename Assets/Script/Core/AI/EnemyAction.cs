@@ -15,17 +15,19 @@ namespace Core.AI
         protected Rigidbody2D rd;
         protected EnemyController enemy;
         protected Animator anim;
+        protected EnemyCharacter character;
         public SharedGameObject Target;
 
         public SharedCharacterData CharacterData;
         //protected SpriteRenderer sprit;
         //protected  AttackControll attackControll;
-
+        
 
         protected CinemachineImpulseSource camera;
         public override void OnAwake ()
         {
-            
+
+            character = gameObject.GetComponent<EnemyCharacter> ();
             rd = gameObject.GetComponent<Rigidbody2D> ();
             //attack = gameObject.GetComponent<AttackControll> ();
             anim = gameObject.GetComponent<Animator> ();
