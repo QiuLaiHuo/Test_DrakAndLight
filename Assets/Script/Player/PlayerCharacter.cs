@@ -115,9 +115,13 @@ public class PlayerCharacter: MonoBehaviour
             case State.Porfect:
 
             TriggerInvincible ();
-            damage.WhoIsAttacker.GetComponent<EnemyController> ()?.PassivityToTreeEvent (damage.ShieldDamage * damage.DamageMultiply);
-            TimeManager.Instance.SlowTime ();
+             TimeManager.Instance.SlowTime ();
 
+            backvector.Set(damage.beatForce.x * -damage.TargetSide,damage.beatForce.y);
+            damage.WhoIsAttacker.GetComponent<EnemyController>()?.PassivityToTreeEvent(
+                damage.ShieldDamage * damage.DamageMultiply,
+                backvector);
+           
             break;
 
 

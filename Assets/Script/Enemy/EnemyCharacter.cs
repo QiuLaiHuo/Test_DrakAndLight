@@ -25,10 +25,12 @@ public class EnemyCharacter: MonoBehaviour
     protected float BackStartTime;
     protected float BackDuration;
     protected Vector2 Backvector;
-
-
+    protected int Facing;
+ 
+    
     [SerializeField] protected CharacterData CharacterData;
     [SerializeField] protected GameObject shield;
+    [SerializeField] protected GameObject Audio;
     [SerializeField] protected GameObject effects;
     protected Rigidbody2D rd;
     protected EnemieState state;
@@ -57,7 +59,7 @@ public class EnemyCharacter: MonoBehaviour
         state = EnemieState.Default;
        
         EnemyController.ProfectDefence += DamageShield;
-
+        EnemyController.CurrentFacing += FacingEvent;
     }
 
     protected virtual void Update ()
@@ -71,6 +73,10 @@ public class EnemyCharacter: MonoBehaviour
     }
 
 
+    protected virtual void FacingEvent(int face)
+    {
+        Facing = face;
+    }
 
 
     //新受伤函数
@@ -78,7 +84,7 @@ public class EnemyCharacter: MonoBehaviour
     {
         if (Isinvincible || IsDeath)
             return;
-
+        
         BackVector.Set(damage.beatForce.x * damage.TargetSide,damage.beatForce.y);
 
         switch (state)
@@ -143,6 +149,7 @@ public class EnemyCharacter: MonoBehaviour
     {
         if (IsBreak)
         {
+            //todo:延迟关闭sheild
             shield.SetActive (false);
             CurrentRecoverTime -= Time.deltaTime;
             if (CurrentRecoverTime <= 0  )
@@ -173,32 +180,51 @@ public class EnemyCharacter: MonoBehaviour
         }
     }
 
-    protected void DamageShield (int damage)
+    protected virtual void DamageShield (int damage)
     {
-
         if (CurrentShield - damage <= 0)
         {
             tree?.SendEvent ("OnBreak");
-
+            Audio.GetComponent<AudioSource>()?.Play();
             rd.AddForce (BackVector,ForceMode2D.Impulse);
             CurrentRecoverTime = CharacterData.RecoverTime;
-           
             CurrentShield = 0;
-
             IsBreak = true;
-
         }
         else
         {
             CurrentShield -= damage;
             StartCoroutine (ShieldHurt ());
         }
-
     }
+
+    protected virtual void DamageShield(int damage, Vector2 backirection)
+    {
+        if (CurrentShield - damage <= 0)
+        {
+            tree?.SendEvent ("OnBreak");
+            Audio.GetComponent<AudioSource>()?.Play();
+            rd.AddForce (backirection,ForceMode2D.Impulse);
+            CurrentRecoverTime = CharacterData.RecoverTime;
+            CurrentShield = 0;
+            IsBreak = true;
+        }
+        else
+        {
+            CurrentShield -= damage;
+            StartCoroutine (ShieldHurt ());
+        }
+    }
+
+    // IEnumerator ShieldDisappear()
+    // {
+    //     //
+    //     shield.SetActive (true);
+    // }
 
     IEnumerator ShieldHurt ()
     {
-        shield.SetActive (true);
+       
         shield.GetComponent<SpriteRenderer> ().color = Color.red;
         yield return new WaitForSeconds (0.1f);
         shield.GetComponent<SpriteRenderer> ().color = Color.white;

@@ -13,7 +13,7 @@ public class EnemyController: MonoBehaviour
     private CinemachineImpulseSource cinema;
     private Animator anim;
     private Rigidbody2D rd;
-    private int facingDirection = -1;
+    public int facingDirection = -1;
    // private int curretfacing;
     
     [SerializeField] private float CheckRange;
@@ -21,14 +21,14 @@ public class EnemyController: MonoBehaviour
 
     private Collider2D CheckCol;
 
-    public static UnityAction<int> ProfectDefence;
+    public static UnityAction<int,Vector2> ProfectDefence;
+    public static UnityAction<int> CurrentFacing;
     
     private void Awake ()
     {
         rd = GetComponent<Rigidbody2D> ();
         tree = GetComponent<BehaviorTree> ();
         anim = GetComponent<Animator> ();
-        
         cinema = GetComponent<CinemachineImpulseSource> ();
     }
 
@@ -44,32 +44,26 @@ public class EnemyController: MonoBehaviour
     }
 
 
-    public void PassivityToTreeEvent (int ShieldDamage)
+    public void PassivityToTreeEvent (int ShieldDamage,Vector2 backDirection)
     {
         tree?.SendEvent ("Onporfect");
-        ProfectDefence?.Invoke (ShieldDamage);
-        //anim.StopPlayback ();
+        ProfectDefence?.Invoke (ShieldDamage,backDirection);
+        
        
     }
 
-    public void PassivityAnim()
-    { Debug.Log ("被弹刀");
-         anim.SetTrigger ("Passivity");
-        
-    }
+    // public void PassivityAnim()
+    // { Debug.Log ("被弹刀");
+    //      anim.SetTrigger ("Passivity");
+    //     
+    // }
     
-
-    public void Die ()
-    {
-        tree?.SendEvent ("OnDie");
-    }
-
 
     private void CheckShouldFlip ()
     {
         if (CheckCol.transform.position.x > transform.position.x && facingDirection != 1)
         {
-            //currentface *= -1;
+            
             Flip ();
         }
         if (CheckCol.transform.position.x < transform.position.x && facingDirection != -1)
@@ -79,7 +73,7 @@ public class EnemyController: MonoBehaviour
     private void Flip ()
     {
         facingDirection *= -1;
-        //curretfacing = facingDirection;
+      CurrentFacing?.Invoke(facingDirection);
         rd.transform.Rotate (0f,180f,0f);
     }
 
