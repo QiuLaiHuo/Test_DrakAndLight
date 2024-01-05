@@ -26,7 +26,7 @@ public class EnemyCharacter: MonoBehaviour
     protected float BackDuration;
     protected Vector2 Backvector;
     protected int Facing;
- 
+    
     
     [SerializeField] protected CharacterData CharacterData;
     [SerializeField] protected GameObject shield;
@@ -184,8 +184,13 @@ public class EnemyCharacter: MonoBehaviour
     {
         if (CurrentShield - damage <= 0)
         {
+            var v = transform.TransformPoint (shield.transform.localPosition);
             tree?.SendEvent ("OnBreak");
+         
+            TimeManager.Instance.SlowTime ();
             Audio.GetComponent<AudioSource>()?.Play();
+           var e= Instantiate (effects,v,Quaternion.identity);
+            Destroy (e,1f);
             rd.AddForce (BackVector,ForceMode2D.Impulse);
             CurrentRecoverTime = CharacterData.RecoverTime;
             CurrentShield = 0;
@@ -202,8 +207,11 @@ public class EnemyCharacter: MonoBehaviour
     {
         if (CurrentShield - damage <= 0)
         {
-            tree?.SendEvent ("OnBreak");
+            var v = transform.TransformPoint (shield.transform.localPosition);
+            tree?.SendEvent ("OnBreak");      
             Audio.GetComponent<AudioSource>()?.Play();
+            var e = Instantiate (effects,v,Quaternion.identity);
+            Destroy (e,1f);
             rd.AddForce (backirection,ForceMode2D.Impulse);
             CurrentRecoverTime = CharacterData.RecoverTime;
             CurrentShield = 0;

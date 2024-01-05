@@ -197,7 +197,7 @@ TextureImporter:
       name: Brothers_4
       rect:
         serializedVersion: 2
-        x: 2801
+        x: 2791
         y: 4670
         width: 274
         height: 373
@@ -492,7 +492,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 5596
-        y: 4027
+        y: 4037
         width: 429
         height: 355
       alignment: 7
@@ -512,7 +512,7 @@ TextureImporter:
       name: Brothers_19
       rect:
         serializedVersion: 2
-        x: 6449
+        x: 6439
         y: 4043
         width: 411
         height: 414
@@ -660,7 +660,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4208
-        y: 3387
+        y: 3397
         width: 263
         height: 288
       alignment: 7
@@ -743,7 +743,7 @@ TextureImporter:
       name: Brothers_30
       rect:
         serializedVersion: 2
-        x: 886
+        x: 876
         y: 2518
         width: 421
         height: 520
@@ -1017,7 +1017,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2904
-        y: 1798
+        y: 1808
         width: 488
         height: 321
       alignment: 7
@@ -1227,7 +1227,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3245
-        y: 1094
+        y: 1104
         width: 380
         height: 361
       alignment: 7
@@ -1373,7 +1373,7 @@ TextureImporter:
       name: Brothers_60
       rect:
         serializedVersion: 2
-        x: 1038
+        x: 1048
         y: 233
         width: 402
         height: 327
@@ -1415,7 +1415,7 @@ TextureImporter:
       name: Brothers_62
       rect:
         serializedVersion: 2
-        x: 2423
+        x: 2433
         y: 235
         width: 408
         height: 315
@@ -1591,6 +1591,8 @@ TextureImporter:
       Brothers_64: -441270667
       Brothers_65: 159315663
       Brothers_66: -1768386106
+      Brothers_67: 387803020
+      Brothers_68: -1751223739
       Brothers_7: -2121528182
       Brothers_8: 714027621
       Brothers_9: -1314258864
