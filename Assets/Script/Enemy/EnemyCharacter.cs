@@ -5,6 +5,7 @@ using BehaviorDesigner.Runtime;
 
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public enum EnemieState { Defence, Default }
 public class EnemyCharacter: MonoBehaviour
@@ -30,8 +31,9 @@ public class EnemyCharacter: MonoBehaviour
     
     [SerializeField] protected CharacterData CharacterData;
     [SerializeField] protected GameObject shield;
-    [SerializeField] protected GameObject Audio;
-    [SerializeField] protected GameObject effects;
+     [SerializeField] protected GameObject ShildAudio;
+     [SerializeField] protected GameObject Shieldeffects;
+    
     protected Rigidbody2D rd;
     protected EnemieState state;
     protected BehaviorTree tree;
@@ -184,13 +186,14 @@ public class EnemyCharacter: MonoBehaviour
     {
         if (CurrentShield - damage <= 0)
         {
-            var v = transform.TransformPoint (shield.transform.localPosition);
+           
             tree?.SendEvent ("OnBreak");
+         Shieldeffects.GetComponent<ParticleSystem>().Play();
+         
          
             TimeManager.Instance.SlowTime ();
-            Audio.GetComponent<AudioSource>()?.Play();
-           var e= Instantiate (effects,v,Quaternion.identity);
-            Destroy (e,1f);
+            ShildAudio.GetComponent<AudioSource>()?.Play();
+            
             rd.AddForce (BackVector,ForceMode2D.Impulse);
             CurrentRecoverTime = CharacterData.RecoverTime;
             CurrentShield = 0;
@@ -205,13 +208,16 @@ public class EnemyCharacter: MonoBehaviour
 
     protected virtual void DamageShield(int damage, Vector2 backirection)
     {
+        
+        
         if (CurrentShield - damage <= 0)
         {
-            var v = transform.TransformPoint (shield.transform.localPosition);
-            tree?.SendEvent ("OnBreak");      
-            Audio.GetComponent<AudioSource>()?.Play();
-            var e = Instantiate (effects,v,Quaternion.identity);
-            Destroy (e,1f);
+          
+            tree?.SendEvent ("OnBreak");   
+             Shieldeffects.GetComponent<ParticleSystem>().Play();
+            ShildAudio.GetComponent<AudioSource>()?.Play();
+          
+           
             rd.AddForce (backirection,ForceMode2D.Impulse);
             CurrentRecoverTime = CharacterData.RecoverTime;
             CurrentShield = 0;

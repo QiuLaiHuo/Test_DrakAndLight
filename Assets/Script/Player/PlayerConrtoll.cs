@@ -15,7 +15,7 @@ namespace Script.Player
     
         public GameObject WingAnimator;
         public GameObject WeaponAnimator;
-        public Transform AttackPosition;
+        // public Transform AttackPosition;
 
         [Header ("行动参数")]
         public float MoveSpeed;
@@ -31,11 +31,11 @@ namespace Script.Player
         private float CurrentAttack;
    
 
-        [SerializeField]
-        private Vector2 SpeedValue;
+        [SerializeField]  private Vector2 SpeedValue;
         private float CurrentDodgeTime;
         private float DodgeLife;
-       
+             
+      
 
    
         [Header ("状态")]
@@ -107,7 +107,7 @@ namespace Script.Player
         private void FixedUpdate ()
         {
         
-            if (!IsAttack && !IsDefence && !IsPorfect && !IsDodge&&!PlayerCharacter.Instance.ISBack) { Move (); }
+            if (!IsAttack && !IsDefence && !IsPorfect && !IsDodge&&!PlayerCharacter.Instance.isBack) { Move (); }
 
             Dodge ();
 
@@ -239,7 +239,7 @@ namespace Script.Player
         private void CheckShouldFlip ()
         {
             if (SpeedValue.x != 0f && SpeedValue.x != facingDirection
-                                   && !PlayerCharacter.Instance.ISBack)
+                                   && !PlayerCharacter.Instance.isBack)
                 Flip ();
         }
 

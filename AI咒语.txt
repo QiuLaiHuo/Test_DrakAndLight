@@ -1,0 +1,9 @@
+咒语（正向）：(masterpiece:1.2, top quality, best quality, beautiful face, 8k, )
+(反向）：((wrong fingers, extra feet, extra hands)),(worst quality:2),
+(low quality:2),(normal quality:2),lowres,normal quality,((monochrome)),skin spots, acnes, skin blemishes, age spot, fewer fingers
+
+
+
+
+
+不生成人物添加  no human

@@ -4,6 +4,7 @@ using DG.Tweening;
 
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public enum State { Porfect, Defence, Default }
 public class PlayerCharacter: MonoBehaviour
@@ -16,7 +17,7 @@ public class PlayerCharacter: MonoBehaviour
     public bool Isinvincible;
     public bool IsBreak;
     public bool IsDeath;
-    public bool ISBack;
+    [FormerlySerializedAs("ISBack")] public bool isBack;
 
     private float BackStartTime;
     private float BackDuration;
@@ -30,7 +31,7 @@ public class PlayerCharacter: MonoBehaviour
     public State state;
 
     [SerializeField] private CharacterData characterData;
-
+    [SerializeField] private ParticleSystem ProfectDefence;
 
     public UnityEvent OnDamage;
     public UnityEvent Ondeath;
@@ -115,6 +116,7 @@ public class PlayerCharacter: MonoBehaviour
             case State.Porfect:
 
             TriggerInvincible ();
+            ProfectDefence.Play();
              TimeManager.Instance.SlowTime ();
 
             backvector.Set(damage.beatForce.x * -damage.TargetSide,damage.beatForce.y);
@@ -130,7 +132,7 @@ public class PlayerCharacter: MonoBehaviour
             DamageShield (damage.ShieldDamage);
             TriggerInvincible ();
 
-            ISBack = true;
+            isBack = true;
             BackStartTime = Time.time;
             rd.AddForce (backvector,ForceMode2D.Impulse);
             TimeManager.Instance.SlowTime ();
@@ -145,7 +147,7 @@ public class PlayerCharacter: MonoBehaviour
             TriggerInvincible ();
 
 
-            ISBack = true;
+            isBack = true;
             BackStartTime = Time.time;
             rd.AddForce (backvector,ForceMode2D.Impulse);
             TimeManager.Instance.SlowTime ();
@@ -159,7 +161,7 @@ public class PlayerCharacter: MonoBehaviour
     {
         if (Time.time >= BackStartTime + BackDuration)
         {
-            ISBack = false;
+            isBack = false;
         }
     }
 
@@ -223,7 +225,7 @@ public class PlayerCharacter: MonoBehaviour
 
     IEnumerator ShieldHurt ()
     {
-        shield.SetActive (true);
+        //shield.SetActive (true);
         shield.GetComponent<SpriteRenderer> ().color = Color.red;
         yield return new WaitForSeconds (0.1f);
         shield.GetComponent<SpriteRenderer> ().color = Color.white;
