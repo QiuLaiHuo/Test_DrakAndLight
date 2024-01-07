@@ -1,0 +1,2349 @@
+fileFormatVersion: 2
+guid: 1db5699f3b9099b45bb4458e750fc7eb
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_0
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 1871
+        width: 280
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6096bded67c6ada45a927ce41465f865
+      internalID: 1276813464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2017
+        width: 115
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 785105b529f6e594688b2a887fcd826e
+      internalID: -804676640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_2
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 1865
+        width: 249
+        height: 178
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b72990b951d2caa478b5e15f0164494d
+      internalID: -1011190159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_3
+      rect:
+        serializedVersion: 2
+        x: 1077
+        y: 1864
+        width: 168
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a38f92bf4031265418a0c61e4b0d4745
+      internalID: 606287047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_4
+      rect:
+        serializedVersion: 2
+        x: 1371
+        y: 1972
+        width: 158
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03b994fef921f3d47a2693ce4f3ce6ae
+      internalID: 882360000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_5
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 1819
+        width: 135
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8391df911d9133a4fb49df1c7adbec6c
+      internalID: 1528804453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_6
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 1714
+        width: 183
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b340a448f0b3aef44a79a50d3f353686
+      internalID: -2120679689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_7
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 1832
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcbc327dfb1575f4eb217741eae2ef48
+      internalID: -323400168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_8
+      rect:
+        serializedVersion: 2
+        x: 1574
+        y: 1853
+        width: 28
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ae00b2f47c8fe64ba0deeb0afd390e0
+      internalID: 926560648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_9
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 1810
+        width: 36
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83362eac3755da047bf84621a5732915
+      internalID: 707749602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_10
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 1789
+        width: 65
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84c27854460bffb4ebd797450fd514b7
+      internalID: -1675046518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_11
+      rect:
+        serializedVersion: 2
+        x: 1331
+        y: 1755
+        width: 102
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc6827054acbfca4689759be7a21f63a
+      internalID: -65414367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_12
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 1822
+        width: 29
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ab32fbfe2aa17542824c150c0724737
+      internalID: -538219027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_13
+      rect:
+        serializedVersion: 2
+        x: 1588
+        y: 1831
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 761f123312304494393dd3d63e85d663
+      internalID: 927045166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_14
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 1725
+        width: 221
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5172df349b976044b571eb7428ac129
+      internalID: 471447128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_15
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1795
+        width: 36
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95a651a5047610c4e954a94fb2b8d8d9
+      internalID: 1402708664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_16
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 1693
+        width: 74
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da164aa02a956044ab577ac6d4c1c1b0
+      internalID: 1720185628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_17
+      rect:
+        serializedVersion: 2
+        x: 1296
+        y: 1710
+        width: 44
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62f023d6ddde4e444be947716c80504d
+      internalID: -343703295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_18
+      rect:
+        serializedVersion: 2
+        x: 1433
+        y: 1688
+        width: 93
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acd2df7a504b6de4fb4d24e7ce048043
+      internalID: 1799706296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_19
+      rect:
+        serializedVersion: 2
+        x: 1526
+        y: 1742
+        width: 84
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13e5daf33607f2d4d884ce75ed559513
+      internalID: 733326417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_20
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 1536
+        width: 458
+        height: 189
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3054b42a3d91fbe44bdda8f035000078
+      internalID: 1877497411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_21
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 1689
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acba2ca21e7db0946ba06ac96fbaba68
+      internalID: 1530379211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_22
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 1707
+        width: 59
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d6064725b673044ab88057f33d599ca
+      internalID: 1557688680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_23
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 1521
+        width: 279
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c4959c5dd1c80f4591e8d3be0d91bf3
+      internalID: 66732402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_24
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 1615
+        width: 78
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0026c4d5eccff98409734f104aaaf964
+      internalID: 1190427658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_25
+      rect:
+        serializedVersion: 2
+        x: 1526
+        y: 1613
+        width: 89
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9658121544043a4bbd423d534099db1
+      internalID: 2101551635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_26
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 1385
+        width: 428
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66de257b64c916d4d99a8db51f0cc677
+      internalID: -1768357984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_27
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 1401
+        width: 55
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4059f320624c8ae4d93d5520c1ba2f29
+      internalID: 1301180055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_28
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 1516
+        width: 98
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88f65239e3f46e748968ab77de6aac6f
+      internalID: 1538739555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_29
+      rect:
+        serializedVersion: 2
+        x: 1484
+        y: 1515
+        width: 29
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a67a065965564494cb0ac49051b7dc5c
+      internalID: -471915475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_30
+      rect:
+        serializedVersion: 2
+        x: 1517
+        y: 1500
+        width: 44
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b718c6600ca1db548a8a5fef79c45b9d
+      internalID: 1609076360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 749
+        width: 234
+        height: 693
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22d17e4d71e205744beabcec0d704cb5
+      internalID: -1534556535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_32
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 1439
+        width: 131
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f01621ef8f9891945a80c64f2ae4639d
+      internalID: -1525503184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_33
+      rect:
+        serializedVersion: 2
+        x: 1401
+        y: 1336
+        width: 157
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9da8493371588844b9bea59f655f45ad
+      internalID: -998172949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_34
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 1312
+        width: 473
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e43620292e6b10e41a836e0d518a5a0c
+      internalID: 1132778484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_35
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 1349
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 902fdd8edd6eb9b4d82795989b0c34d9
+      internalID: 1261650936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_36
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 1264
+        width: 430
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd11914894e05e14fa4f0748d2396119
+      internalID: 2121323163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_37
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 1336
+        width: 100
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82a4335cc66b587479e958cb6c9279c6
+      internalID: -1359884319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_38
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 760
+        width: 139
+        height: 552
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d4cdf9afc21c5b43b0473721e52f3bd
+      internalID: -1065565063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_39
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 1199
+        width: 532
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9258afecce0112d449c8f129d3d594df
+      internalID: 863173568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_40
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 1154
+        width: 212
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d040a4a3c2f9fb4fb1b15dcfa0db0d3
+      internalID: 2021495995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_41
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1254
+        width: 148
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 277e30c97f0f10d4ea1f71cec815fe81
+      internalID: 1119281351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_42
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 1254
+        width: 152
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9be6c8b633223d144b6d8f99b521fd61
+      internalID: 1596736825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_43
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 1136
+        width: 137
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efd54d3558c9cdd4da4de719bd3203b5
+      internalID: 1145893881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_44
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 1227
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b87cb7070d0f2b479cf7ff78f5447e5
+      internalID: 305560158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_45
+      rect:
+        serializedVersion: 2
+        x: 1321
+        y: 1196
+        width: 89
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d10e37d938140d040a0c68c8e45097ba
+      internalID: -952363740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_46
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 995
+        width: 149
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b5717e20fff82f458ae36611ee9b108
+      internalID: -983638584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_47
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 995
+        width: 149
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 438212ab004f6a942aacccd072fcf2b5
+      internalID: -106372519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_48
+      rect:
+        serializedVersion: 2
+        x: 1265
+        y: 1130
+        width: 23
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f59eb00fc9a83c4391add731466485b
+      internalID: 232910625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_49
+      rect:
+        serializedVersion: 2
+        x: 1302
+        y: 1157
+        width: 21
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9742910dd88ccf44cbf6eadca1d35f97
+      internalID: 735111230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_50
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 951
+        width: 315
+        height: 206
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a0ebf7b24497bd40a06811c74110b62
+      internalID: 1867682528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_51
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 968
+        width: 84
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07153a9be506d4c43a67700534bc5508
+      internalID: -1745292558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_52
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 968
+        width: 83
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aea36a1a1a163b24e80807bfe7e8c38a
+      internalID: 529050795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_53
+      rect:
+        serializedVersion: 2
+        x: 1239
+        y: 1106
+        width: 18
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43afe59d00cd67047ad31da9b61e2dec
+      internalID: 1026817212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_54
+      rect:
+        serializedVersion: 2
+        x: 1331
+        y: 1082
+        width: 19
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee1381e15f178e54fab53a9b929d0cd3
+      internalID: 105174433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_55
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 1014
+        width: 7
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e183f50172e19e478ebf974da73a407
+      internalID: 920815191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_56
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 963
+        width: 107
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd3e51ae7dcfd14d916a4af76fb82ba
+      internalID: -1470900681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_57
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 738
+        width: 168
+        height: 257
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9698b3747a6bdf54e98ff2c5778e1379
+      internalID: -1936618701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_58
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 905
+        width: 244
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d43c890d5dd063d42be99a7b3100d30f
+      internalID: 1263555637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_59
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 935
+        width: 31
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9724c8e016bfa2347a0d5a73c4538286
+      internalID: 294233339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_60
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 892
+        width: 59
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dae796f1b4cb3ce46b4537f744e8771b
+      internalID: -1409851912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_61
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 876
+        width: 163
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a326b9d4c085a54890412ad7361650b
+      internalID: -1648456893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_62
+      rect:
+        serializedVersion: 2
+        x: 1106
+        y: 871
+        width: 149
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1207c5710ebd62448e7ba40472ad106
+      internalID: -1725727901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_63
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 726
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64215da93d296f44fad51ddc04e4d616
+      internalID: -2038815778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_64
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 682
+        width: 29
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2f7b9e99ba96134490eb2a322e8bf4f
+      internalID: 1092263158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_65
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 544
+        width: 206
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95d7ae06339d21b47a45c525e9234dbe
+      internalID: -751881893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_66
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 704
+        width: 547
+        height: 201
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1690df2ebc04821479e44a21d35028d0
+      internalID: -724923112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_67
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 704
+        width: 87
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba2a30c43240748469e9d29f5180e557
+      internalID: 178695831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_68
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 688
+        width: 19
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c286a43da2a55084a9a23fbaf16ab0e2
+      internalID: -256030549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_69
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 654
+        width: 52
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79c9f878a82db6746997abb69545ec36
+      internalID: -1287402714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_70
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 701
+        width: 91
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb25a3fed60ce9a4b9677d59dbff8a9c
+      internalID: 152809216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_71
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 657
+        width: 105
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b11f5685f892b14fbc6ddb1bc7b49ea
+      internalID: -276450272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_72
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 594
+        width: 176
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12837b8496384434c97e8dd5d227b220
+      internalID: 1317787621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_73
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 692
+        width: 37
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb82f702dc28fe940aa9f9280bc93c33
+      internalID: -378995394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_74
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 241
+        height: 666
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f216180bfa734604ebc5122feec053d4
+      internalID: 1371554324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_75
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 629
+        width: 44
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9786a4f829a58ae40a7685d29d0f0e77
+      internalID: -1142491722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_76
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 655
+        width: 21
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 829aa6783448e22418e16700bbfd120a
+      internalID: 139744205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_77
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 645
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 184caabc4d6abce49b5940970cfe8a33
+      internalID: 1721714636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_78
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 414
+        width: 326
+        height: 275
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 354e30db675e3d545a79ed2c886f8b75
+      internalID: 1453108288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_79
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 594
+        width: 145
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd3c2de98055e8d4b9d6d03da7a19771
+      internalID: -1910800903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_80
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 619
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fd98f0f7fc6ae042865d298a584ed84
+      internalID: -734271663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_81
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 620
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 266303be7bcb7e148813d8494154befe
+      internalID: -1865813767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_82
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 602
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfdcba8184515514089362aa3c5f4c5b
+      internalID: -940182406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_83
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 605
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94aef79fc5e78d44d8c4726ae422a158
+      internalID: -447864522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_84
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 552
+        width: 84
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 493e2f300bdc85744ba549e159da9fd8
+      internalID: -1419231675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_85
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 548
+        width: 35
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 693e4cad5d209f1458f83ac4e2792390
+      internalID: 279155820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_86
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 554
+        width: 84
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe27f428aa58b0f42a0d147b3edb31d3
+      internalID: 1189477640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_87
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 547
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9896a09ec38961489ba8a6e4cff1c5a
+      internalID: -1887922317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_88
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 501
+        width: 186
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbae67322b0ec6c428590171755cf13b
+      internalID: -2066561277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_89
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 272
+        width: 399
+        height: 276
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11257ab885f3be446825906435b312ed
+      internalID: -697382584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_90
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 375
+        width: 80
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4339b461ec323df4fbb9b32a29342415
+      internalID: -608838101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_91
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 411
+        width: 181
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ad301618ddf2a4a9a1f1459f51b157
+      internalID: 457960100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_92
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 0
+        width: 235
+        height: 272
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e361e8a2f748e14f85cf4979f2f5f68
+      internalID: 1602821972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_93
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 219
+        width: 189
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fb6bca5583f2944e875d0e337bc78fc
+      internalID: -561979456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_94
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 213
+        width: 173
+        height: 198
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc3f00550a1ae164b8fc6ac96152ea5a
+      internalID: -1051620688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_95
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 0
+        width: 218
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 444e1ef83b9b36849b879e88651bc097
+      internalID: 861435372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_96
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 13
+        width: 161
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b04a361f4f9db4449a4532c7074c606b
+      internalID: 1522871790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_97
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 0
+        width: 48
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3623e7f58d1858442a03d00b76d3b329
+      internalID: 423752666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_98
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 0
+        width: 236
+        height: 211
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da74406e10fcca24584889b5cd51621a
+      internalID: -1744123627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_99
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 0
+        width: 269
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 367d4ef9cd20a0e44bbec5d90216d3b2
+      internalID: 852039695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Knight Soul spells - atlas0_100
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 1846
+        width: 126
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c06bc9dc0282bf146bb109fc917be0f6
+      internalID: -622113045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      The Knight Soul spells - atlas0_0: 1276813464
+      The Knight Soul spells - atlas0_1: -804676640
+      The Knight Soul spells - atlas0_10: -1675046518
+      The Knight Soul spells - atlas0_100: -622113045
+      The Knight Soul spells - atlas0_11: -65414367
+      The Knight Soul spells - atlas0_12: -538219027
+      The Knight Soul spells - atlas0_13: 927045166
+      The Knight Soul spells - atlas0_14: 471447128
+      The Knight Soul spells - atlas0_15: 1402708664
+      The Knight Soul spells - atlas0_16: 1720185628
+      The Knight Soul spells - atlas0_17: -343703295
+      The Knight Soul spells - atlas0_18: 1799706296
+      The Knight Soul spells - atlas0_19: 733326417
+      The Knight Soul spells - atlas0_2: -1011190159
+      The Knight Soul spells - atlas0_20: 1877497411
+      The Knight Soul spells - atlas0_21: 1530379211
+      The Knight Soul spells - atlas0_22: 1557688680
+      The Knight Soul spells - atlas0_23: 66732402
+      The Knight Soul spells - atlas0_24: 1190427658
+      The Knight Soul spells - atlas0_25: 2101551635
+      The Knight Soul spells - atlas0_26: -1768357984
+      The Knight Soul spells - atlas0_27: 1301180055
+      The Knight Soul spells - atlas0_28: 1538739555
+      The Knight Soul spells - atlas0_29: -471915475
+      The Knight Soul spells - atlas0_3: 606287047
+      The Knight Soul spells - atlas0_30: 1609076360
+      The Knight Soul spells - atlas0_31: -1534556535
+      The Knight Soul spells - atlas0_32: -1525503184
+      The Knight Soul spells - atlas0_33: -998172949
+      The Knight Soul spells - atlas0_34: 1132778484
+      The Knight Soul spells - atlas0_35: 1261650936
+      The Knight Soul spells - atlas0_36: 2121323163
+      The Knight Soul spells - atlas0_37: -1359884319
+      The Knight Soul spells - atlas0_38: -1065565063
+      The Knight Soul spells - atlas0_39: 863173568
+      The Knight Soul spells - atlas0_4: 882360000
+      The Knight Soul spells - atlas0_40: 2021495995
+      The Knight Soul spells - atlas0_41: 1119281351
+      The Knight Soul spells - atlas0_42: 1596736825
+      The Knight Soul spells - atlas0_43: 1145893881
+      The Knight Soul spells - atlas0_44: 305560158
+      The Knight Soul spells - atlas0_45: -952363740
+      The Knight Soul spells - atlas0_46: -983638584
+      The Knight Soul spells - atlas0_47: -106372519
+      The Knight Soul spells - atlas0_48: 232910625
+      The Knight Soul spells - atlas0_49: 735111230
+      The Knight Soul spells - atlas0_5: 1528804453
+      The Knight Soul spells - atlas0_50: 1867682528
+      The Knight Soul spells - atlas0_51: -1745292558
+      The Knight Soul spells - atlas0_52: 529050795
+      The Knight Soul spells - atlas0_53: 1026817212
+      The Knight Soul spells - atlas0_54: 105174433
+      The Knight Soul spells - atlas0_55: 920815191
+      The Knight Soul spells - atlas0_56: -1470900681
+      The Knight Soul spells - atlas0_57: -1936618701
+      The Knight Soul spells - atlas0_58: 1263555637
+      The Knight Soul spells - atlas0_59: 294233339
+      The Knight Soul spells - atlas0_6: -2120679689
+      The Knight Soul spells - atlas0_60: -1409851912
+      The Knight Soul spells - atlas0_61: -1648456893
+      The Knight Soul spells - atlas0_62: -1725727901
+      The Knight Soul spells - atlas0_63: -2038815778
+      The Knight Soul spells - atlas0_64: 1092263158
+      The Knight Soul spells - atlas0_65: -751881893
+      The Knight Soul spells - atlas0_66: -724923112
+      The Knight Soul spells - atlas0_67: 178695831
+      The Knight Soul spells - atlas0_68: -256030549
+      The Knight Soul spells - atlas0_69: -1287402714
+      The Knight Soul spells - atlas0_7: -323400168
+      The Knight Soul spells - atlas0_70: 152809216
+      The Knight Soul spells - atlas0_71: -276450272
+      The Knight Soul spells - atlas0_72: 1317787621
+      The Knight Soul spells - atlas0_73: -378995394
+      The Knight Soul spells - atlas0_74: 1371554324
+      The Knight Soul spells - atlas0_75: -1142491722
+      The Knight Soul spells - atlas0_76: 139744205
+      The Knight Soul spells - atlas0_77: 1721714636
+      The Knight Soul spells - atlas0_78: 1453108288
+      The Knight Soul spells - atlas0_79: -1910800903
+      The Knight Soul spells - atlas0_8: 926560648
+      The Knight Soul spells - atlas0_80: -734271663
+      The Knight Soul spells - atlas0_81: -1865813767
+      The Knight Soul spells - atlas0_82: -940182406
+      The Knight Soul spells - atlas0_83: -447864522
+      The Knight Soul spells - atlas0_84: -1419231675
+      The Knight Soul spells - atlas0_85: 279155820
+      The Knight Soul spells - atlas0_86: 1189477640
+      The Knight Soul spells - atlas0_87: -1887922317
+      The Knight Soul spells - atlas0_88: -2066561277
+      The Knight Soul spells - atlas0_89: -697382584
+      The Knight Soul spells - atlas0_9: 707749602
+      The Knight Soul spells - atlas0_90: -608838101
+      The Knight Soul spells - atlas0_91: 457960100
+      The Knight Soul spells - atlas0_92: 1602821972
+      The Knight Soul spells - atlas0_93: -561979456
+      The Knight Soul spells - atlas0_94: -1051620688
+      The Knight Soul spells - atlas0_95: 861435372
+      The Knight Soul spells - atlas0_96: 1522871790
+      The Knight Soul spells - atlas0_97: 423752666
+      The Knight Soul spells - atlas0_98: -1744123627
+      The Knight Soul spells - atlas0_99: 852039695
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
