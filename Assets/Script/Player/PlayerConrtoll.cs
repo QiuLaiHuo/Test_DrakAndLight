@@ -15,6 +15,8 @@ namespace Script.Player
     
         public GameObject WingAnimator;
         public GameObject WeaponAnimator;
+
+        [SerializeField] private ParticleSystem hurt;
         // public Transform AttackPosition;
 
         [Header ("行动参数")]
@@ -47,6 +49,7 @@ namespace Script.Player
         public bool IsPorfect = false;
         public bool IsDodge = false;
         public bool IsDodgeCD = false;
+       
 
 
     
@@ -73,17 +76,26 @@ namespace Script.Player
             inputs.GamePlay.Defence.performed += Defence;
             inputs.GamePlay.Defence.canceled += DefenceOver;
             inputs.GamePlay.Dodge.started += DodgeToReady;
+            inputs.GamePlay.PorfectDefence.canceled += DefenceOver;
         
             GameManager.Instance.InputEnable += InputEnable;
             GameManager.Instance.InputDisable += InputDisable;
+            PlayerCharacter.Instance.OnDamage += Hurt;
 
         }
 
 
+        private void Hurt()
+        {
+            planim.Hurt();
+            hurt.Play();
+            GameManager.Instance.BlackScreen();
+        }
 
         private void DefenceOver (InputAction.CallbackContext context)
         {
             IsDefence = false;
+            IsPorfect = false;
             PlayerCharacter.Instance.state = State.Default;
         
             PlayerCharacter.Instance.shield.SetActive (false);
@@ -179,8 +191,15 @@ namespace Script.Player
         
             yield return new WaitForSeconds (0.2f);
             IsPorfect = false;
-       
-            PlayerCharacter.Instance.state = State.Defence;
+            if (IsDefence)
+            {
+                PlayerCharacter.Instance.state = State.Defence;
+            }
+            else
+            {
+                PlayerCharacter.Instance.state = State.Default;
+            }
+            
         }
 
 

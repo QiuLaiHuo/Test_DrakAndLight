@@ -18,6 +18,7 @@ public class EnemyController: MonoBehaviour
     
     [SerializeField] private float CheckRange;
     [SerializeField] private LayerMask CheckWhat;
+    [SerializeField] private ParticleSystem Parry;
 
     private Collider2D CheckCol;
 
@@ -48,8 +49,7 @@ public class EnemyController: MonoBehaviour
     {
         tree?.SendEvent ("Onporfect");
         ProfectDefence?.Invoke (ShieldDamage,backDirection);
-        
-       
+       Parry?.Play();
     }
 
     // public void PassivityAnim()

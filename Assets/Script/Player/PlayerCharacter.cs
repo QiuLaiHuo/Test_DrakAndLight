@@ -31,11 +31,11 @@ public class PlayerCharacter: MonoBehaviour
     public State state;
 
     [SerializeField] private CharacterData characterData;
-    [SerializeField] private ParticleSystem ProfectDefence;
+   // [SerializeField] private ParticleSystem ProfectDefence;
 
-    public UnityEvent OnDamage;
-    public UnityEvent Ondeath;
-    public UnityEvent OnBreak;
+    public UnityAction OnDamage;
+    // public UnityEvent Ondeath;
+    // public UnityEvent OnBreak;
 
 
 
@@ -116,7 +116,7 @@ public class PlayerCharacter: MonoBehaviour
             case State.Porfect:
 
             TriggerInvincible ();
-            ProfectDefence.Play();
+            //ProfectDefence.Play();
              TimeManager.Instance.SlowTime ();
 
             backvector.Set(damage.beatForce.x * -damage.TargetSide,damage.beatForce.y);
@@ -186,6 +186,7 @@ public class PlayerCharacter: MonoBehaviour
     {
         if (!Isinvincible)
         {
+            
             if (CurrentHealth - Damage > 0)
             {
                 CurrentHealth -= Damage;
@@ -196,7 +197,7 @@ public class PlayerCharacter: MonoBehaviour
 
                 CurrentHealth = 0;
                 IsDeath = true;
-                Ondeath?.Invoke ();
+                //Ondeath?.Invoke ();
             }
         }
     }
@@ -209,7 +210,7 @@ public class PlayerCharacter: MonoBehaviour
         if (CurrentShield - damage <= 0)
         {
             //todo:进入Break，包括动画
-            OnBreak?.Invoke ();
+           // OnBreak?.Invoke ();
             CurrentShield = 0;
             CurrentRecoverTime = characterData.RecoverTime;
             IsBreak = true;
