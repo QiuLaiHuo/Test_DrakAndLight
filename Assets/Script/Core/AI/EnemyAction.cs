@@ -6,6 +6,7 @@ using BehaviorDesigner.Runtime.Tasks;
 using BehaviorDesigner.Runtime;
 using UnityEngine;
 using Cinemachine;
+using DG.Tweening;
 
 namespace Core.AI
 {
@@ -17,6 +18,7 @@ namespace Core.AI
         protected Animator anim;
         protected EnemyCharacter character;
         public SharedGameObject Target;
+      
 
         public SharedCharacterData CharacterData;
         //protected SpriteRenderer sprit;

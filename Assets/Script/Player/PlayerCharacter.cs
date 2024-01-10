@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 
-public enum State { Porfect, Defence, Default }
+public enum State { Porfect, Defence, Default ,Attack}
 public class PlayerCharacter: MonoBehaviour
 {
     [Header ("基础属性")]
@@ -22,7 +22,7 @@ public class PlayerCharacter: MonoBehaviour
     private float BackStartTime;
     private float BackDuration;
     private Vector2 backvector;
-    //todo:受伤时被击的黑影特效
+    
 
     private Rigidbody2D rd;
 
@@ -137,7 +137,7 @@ public class PlayerCharacter: MonoBehaviour
             rd.AddForce (backvector,ForceMode2D.Impulse);
             TimeManager.Instance.SlowTime ();
             break;
-            case State.Default:
+            default:
             //受伤函数
             if (IsBreak)
                 Damage (damage.Damage * damage.DamageMultiply);
@@ -151,8 +151,6 @@ public class PlayerCharacter: MonoBehaviour
             BackStartTime = Time.time;
             rd.AddForce (backvector,ForceMode2D.Impulse);
             TimeManager.Instance.SlowTime ();
-
-
             break;
         }
     }

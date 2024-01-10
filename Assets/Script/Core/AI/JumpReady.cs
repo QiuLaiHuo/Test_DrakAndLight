@@ -14,15 +14,14 @@ public class JumpReady : EnemyAction
    // public float HorizontalForce = 5.0f;
     public float JumpForce = 10f;
     public float ReadyTime;
-    
+    private Tween _tween;
 
     public string AnimName;
-    private Tween tween;
-
+    
     public override void  OnStart()
     {
         //Debug.Log(anim.name);
-        tween=  DOVirtual.DelayedCall (ReadyTime,JumpToReady,false);
+        _tween=  DOVirtual.DelayedCall (ReadyTime,JumpToReady,false);
         anim.SetTrigger (AnimName);
     }
 
@@ -45,7 +44,7 @@ public class JumpReady : EnemyAction
 
     public override void OnEnd ()
     {
-        tween?.Kill ();
+        _tween?.Kill ();
     }
 }
 

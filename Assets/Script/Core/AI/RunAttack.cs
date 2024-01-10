@@ -14,12 +14,12 @@ public class RunAttack : EnemyAction
     public float AnimaOverTime;
     public float Force;
     private bool Over = false;
-    private Tween Tween;
+    private Tween _tween;
 
     public override void OnStart ()
     {
         anim.SetTrigger (AnimaName);
-        Tween = DOVirtual.DelayedCall (AnimaOverTime,() => {
+        _tween = DOVirtual.DelayedCall (AnimaOverTime,() => {
             var dir = Target.Value.transform.position.x < transform.position.x ? -1 : 1;
             rd.AddForce (new Vector2 (dir * Force,0),ForceMode2D.Impulse);
             Over = true;
@@ -41,7 +41,7 @@ public class RunAttack : EnemyAction
 
     public override void OnEnd ()
     { Over = false;
-        Tween?.Kill ();
+        _tween?.Kill ();
     }
 
 

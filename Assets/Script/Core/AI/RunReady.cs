@@ -12,12 +12,12 @@ public class RunReady : EnemyAction
     public string AnimaName;
     public float AttackOverTime;
     private bool Over = false;
-    private Tween Tween;
+    private Tween _tween;
     public override void OnStart ()
     {
         anim.SetTrigger (AnimaName);
 
-        Tween = DOVirtual.DelayedCall (AttackOverTime,() =>
+        _tween = DOVirtual.DelayedCall (AttackOverTime,() =>
         {
             Over = true;
         }
@@ -41,7 +41,7 @@ public class RunReady : EnemyAction
     public override void OnEnd ()
     {
         Over = false;
-        Tween?.Kill ();
+        _tween?.Kill ();
     }
 
 }

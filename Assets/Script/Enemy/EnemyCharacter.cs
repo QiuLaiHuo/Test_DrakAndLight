@@ -35,7 +35,7 @@ public class EnemyCharacter: MonoBehaviour
      [SerializeField] protected GameObject Shieldeffects;
     
     protected Rigidbody2D rd;
-    protected EnemieState state;
+    public EnemieState state;
     protected BehaviorTree tree;
     protected Vector2 BackVector;
 

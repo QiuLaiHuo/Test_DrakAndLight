@@ -5,11 +5,11 @@ namespace Script.Universal
 {
     public class AttackHit: MonoBehaviour
     {
-        public enum AttacksWhat { Enemy, Player };
+        private enum AttacksWhat { Enemy, Player };
         [SerializeField] private AttacksWhat attacksWhat;
         [SerializeField] private int TargetSide;
         [SerializeField] private GameObject OBBase;
-
+        [SerializeField] private bool IsShootAttack;
 
         //AttackData 用于数据分离，DamageData 用于传递伤害参数
         public AttackData attackData;
@@ -25,7 +25,7 @@ namespace Script.Universal
 
         private void OnTriggerStay2D (Collider2D col)
         {
-            Debug.Log (3);
+            Debug.Log (col.name);
             if (col.transform.position.x < OBBase.transform.position.x)
             {
                 TargetSide = -1;
@@ -49,6 +49,9 @@ namespace Script.Universal
                 {
                     PlayerCharacter.Instance.GetHurt (damageData);
                     //如果有自杀型敌人，则此处应该调用自杀函数
+                    if(IsShootAttack)
+                        Destroy(gameObject);
+                    
                 }
             }
             else if (attacksWhat == AttacksWhat.Enemy && col.GetComponent<EnemyCharacter> () != null)

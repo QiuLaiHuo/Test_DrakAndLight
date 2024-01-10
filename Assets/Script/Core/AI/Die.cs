@@ -12,12 +12,11 @@ public class Die : EnemyAction
 
     public float Over;
     private bool TimeOver=false;
-    private Tween tween;
-
+    private Tween _tween;
     public override void OnStart ()
     {
         anim.SetTrigger (AnimaName);
-        tween = DOVirtual.DelayedCall (Over,() => { 
+        _tween = DOVirtual.DelayedCall (Over,() => { 
         
             TimeOver = true;    
         
@@ -36,7 +35,7 @@ public class Die : EnemyAction
     {
         TimeOver=false;
 
-        tween?.Kill ();
+        _tween?.Kill ();
     }
 
 }

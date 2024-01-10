@@ -1,4 +1,5 @@
 using System.Collections;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,7 +12,7 @@ namespace Script.Player
         private Animator anim;
     
         private PlayerAnimation planim;
-
+        private CinemachineImpulseSource cinema;
     
         public GameObject WingAnimator;
         public GameObject WeaponAnimator;
@@ -64,6 +65,7 @@ namespace Script.Player
             rd = GetComponent<Rigidbody2D> ();
             anim = GetComponent<Animator> ();
             planim = GetComponent<PlayerAnimation> ();
+            cinema = GetComponent<CinemachineImpulseSource>();
 
         }
         void Start ()
@@ -84,11 +86,18 @@ namespace Script.Player
 
         }
 
-
+        //摄像机震动方法
+        public void OnImpulseSource ()
+        {
+            cinema.GenerateImpulse (new Vector3 (Random.Range (-0.3f,0.3f),0f,0f));
+        }
+        
+        
         private void Hurt()
         {
             planim.Hurt();
             hurt.Play();
+            OnImpulseSource();
             GameManager.Instance.BlackScreen();
         }
 
@@ -236,6 +245,7 @@ namespace Script.Player
                 CurrentAttack = AttackCD;
                 rd.velocity = new Vector2 (0,rd.velocity.y);
                 IsAttack = true;
+               PlayerCharacter.Instance.state =  State.Attack;
                 planim.Attack ();
             }
            
@@ -344,6 +354,7 @@ namespace Script.Player
                 if (CurrentAttack <= 0)
                 {
                     CurrentAttack = 0;
+                    PlayerCharacter.Instance.state = State.Default;
                     IsAttack = false;
                 }
             }

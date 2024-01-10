@@ -17,13 +17,13 @@ public class JumpAttack: EnemyAction
     public float JumpDownTime;
     public string AnimName;
     // public string AttackOverName;
-
-    private Tween tween;
+    private Tween _tween;
+   
     public override void OnStart ()
     {
         
 
-        tween = DOVirtual.DelayedCall (JumpDownTime,() =>
+        _tween = DOVirtual.DelayedCall (JumpDownTime,() =>
                 {
 
                     anim.SetTrigger (AnimName);
@@ -47,7 +47,7 @@ public class JumpAttack: EnemyAction
     {
         var dir = Target.Value.transform.position.x < transform.position.x ? -1 : 1;
         rd.AddForce (new Vector2 (dir * Force,0),ForceMode2D.Impulse);
-        tween?.Kill ();
+        _tween?.Kill ();
         IsGound = false;
 
     }

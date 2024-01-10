@@ -11,10 +11,10 @@ namespace Core.AI
     public class Break : EnemyAction
     {
         public string AnimaName;
-        private Tween tween;
+        
         public float OverTime;
         private bool Over;
-       
+        private Tween _tween;
         public override void OnStart()
         {
 
@@ -23,7 +23,7 @@ namespace Core.AI
             TimeManager.Instance.SlowTime ();
             anim.SetTrigger (AnimaName);
            
-            tween = DOVirtual.DelayedCall(OverTime, () =>
+            _tween = DOVirtual.DelayedCall(OverTime, () =>
                 {
                     Over = true;
                 }, false
@@ -42,7 +42,7 @@ namespace Core.AI
         public override void OnEnd()
         {
             Over = false;
-            tween?.Kill();
+            _tween?.Kill();
         }
     }
 }
