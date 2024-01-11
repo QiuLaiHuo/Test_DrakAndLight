@@ -31,9 +31,14 @@ public class EnemyCharacter: MonoBehaviour
     
     [SerializeField] protected CharacterData CharacterData;
     [SerializeField] protected GameObject shield;
-     [SerializeField] protected GameObject ShildAudio;
-     [SerializeField] protected GameObject Shieldeffects;
-    
+     [SerializeField] protected AudioSource ShildAudio;
+     [SerializeField] protected ParticleSystem Shieldeffects;
+     [SerializeField] protected AudioSource HurtAudio;
+     [SerializeField] protected ParticleSystem HurtEffects;
+      
+     
+     
+     
     protected Rigidbody2D rd;
     public EnemieState state;
     protected BehaviorTree tree;
@@ -44,7 +49,7 @@ public class EnemyCharacter: MonoBehaviour
     
 
 
-    //public UnityEvent OnDamage;
+    public static UnityAction OnShake;
     //public UnityEvent Ondeath;
     //public UnityEvent OnBreak;
 
@@ -88,6 +93,7 @@ public class EnemyCharacter: MonoBehaviour
             return;
         
         BackVector.Set(damage.beatForce.x * damage.TargetSide,damage.beatForce.y);
+       
 
         switch (state)
         {
@@ -128,11 +134,15 @@ public class EnemyCharacter: MonoBehaviour
     {
         if (!Isinvincible)
         {
+          
+            
             if (CurrentHealth - Damage > 0)
             {
                 CurrentHealth -= Damage;
-                //OnDamage?.Invoke ();
-                //todo:Hurt特效
+                StartCoroutine(HeathHurt());
+                  OnShake?.Invoke ();
+                  HurtAudio.Play();
+                  HurtEffects.Play();
             }
             else
             {
@@ -151,7 +161,7 @@ public class EnemyCharacter: MonoBehaviour
     {
         if (IsBreak)
         {
-            //todo:延迟关闭sheild
+           
             shield.SetActive (false);
             CurrentRecoverTime -= Time.deltaTime;
             if (CurrentRecoverTime <= 0  )
@@ -186,13 +196,13 @@ public class EnemyCharacter: MonoBehaviour
     {
         if (CurrentShield - damage <= 0)
         {
-           
+            OnShake?.Invoke ();
             tree?.SendEvent ("OnBreak");
-         Shieldeffects.GetComponent<ParticleSystem>().Play();
+             Shieldeffects.Play();
          
          
             TimeManager.Instance.SlowTime ();
-            ShildAudio.GetComponent<AudioSource>()?.Play();
+            ShildAudio.Play();
             
             rd.AddForce (BackVector,ForceMode2D.Impulse);
             CurrentRecoverTime = CharacterData.RecoverTime;
@@ -212,10 +222,10 @@ public class EnemyCharacter: MonoBehaviour
         
         if (CurrentShield - damage <= 0)
         {
-          
+            OnShake?.Invoke ();
             tree?.SendEvent ("OnBreak");   
-             Shieldeffects.GetComponent<ParticleSystem>().Play();
-            ShildAudio.GetComponent<AudioSource>()?.Play();
+             Shieldeffects.Play();
+            ShildAudio.Play();
           
            
             rd.AddForce (backirection,ForceMode2D.Impulse);
@@ -238,14 +248,34 @@ public class EnemyCharacter: MonoBehaviour
 
     IEnumerator ShieldHurt ()
     {
-       
-        shield.GetComponent<SpriteRenderer> ().color = Color.red;
+        SpriteRenderer sp = shield.GetComponent<SpriteRenderer>();
+
+        if (sp == null)
+            yield break; 
+        sp.color = Color.red;
         yield return new WaitForSeconds (0.1f);
-        shield.GetComponent<SpriteRenderer> ().color = Color.white;
+        sp.color = Color.white;
         yield return new WaitForSeconds (0.1f);
-        shield.GetComponent<SpriteRenderer> ().color = Color.red;
+        sp.color = Color.red;
         yield return new WaitForSeconds (0.1f);
-        shield.GetComponent<SpriteRenderer> ().color = Color.white;
+        sp.color = Color.white;
     }
 
+    IEnumerator HeathHurt()
+    {
+        SpriteRenderer sp = GetComponent<SpriteRenderer>();
+        Color color = new Color(245f/255f,181f/255f,98f/255f,1f);
+        if (sp == null)
+            yield break;
+        sp.color = color;
+        yield return new WaitForSeconds (0.1f);
+        sp.color = Color.white;
+        yield return new WaitForSeconds (0.1f);
+        sp.color = color;
+        yield return new WaitForSeconds (0.1f);
+        sp.color = Color.white;
+        
+    }
+    
+    
 }

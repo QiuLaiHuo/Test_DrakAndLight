@@ -25,7 +25,7 @@ namespace Script.Universal
 
         private void OnTriggerStay2D (Collider2D col)
         {
-            Debug.Log (col.name);
+           // Debug.Log (col.name);
             if (col.transform.position.x < OBBase.transform.position.x)
             {
                 TargetSide = -1;

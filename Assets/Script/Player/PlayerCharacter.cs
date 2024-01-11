@@ -146,7 +146,7 @@ public class PlayerCharacter: MonoBehaviour
                 Damage (damage.Damage);
             TriggerInvincible ();
 
-
+        
             isBack = true;
             BackStartTime = Time.time;
             rd.AddForce (backvector,ForceMode2D.Impulse);

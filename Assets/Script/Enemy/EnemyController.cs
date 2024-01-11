@@ -38,11 +38,18 @@ public class EnemyController: MonoBehaviour
         tree = GetComponent<BehaviorTree> ();
         anim = GetComponent<Animator> ();
         cinema = GetComponent<CinemachineImpulseSource> ();
+        
+    }
+
+    private void Start()
+    {
+        EnemyCharacter.OnShake += OnImpulseSource;
     }
 
     private void FixedUpdate ()
     {
         CheckPlayer ();
+        
     }
 
     
