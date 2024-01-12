@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 
 using BehaviorDesigner.Runtime;
 
@@ -15,6 +13,7 @@ public class BossStartTrigger : MonoBehaviour
         if(col.CompareTag("Player")&&Boss!=null)
         {
             Boss.GetComponent<BehaviorTree> ().enabled = true;
+            AudioManager.Instance.AudioPlay(audioType:AudioType.BGM1);
             Destroy (gameObject,0.3f);
         }
     }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 
 using UnityEngine;
@@ -16,6 +17,10 @@ public class TimeManager: MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
 
     [Range (0f,1f)] public float SlowDuration;
 

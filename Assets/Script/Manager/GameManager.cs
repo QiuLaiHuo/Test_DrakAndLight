@@ -42,10 +42,10 @@ public class GameManager : MonoBehaviour
             
         }, false);
     }
-    //private void OnEnable ()
-    //{
-    //    DontDestroyOnLoad (gameObject);
-    //}
+    private void Awake ()
+    {
+        DontDestroyOnLoad (gameObject);
+    }
 
     //[SerializeField] private PlayerConrtoll playerConrtoll;
 
