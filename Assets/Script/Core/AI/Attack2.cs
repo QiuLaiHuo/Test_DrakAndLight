@@ -10,14 +10,16 @@ public class Attack2 : EnemyAction
 {
     public string AnimaName;
     public float AttackOverTime;
+    public float AudioTime;
     public float Force;
     private bool Over = false;
     private Tween _tween;
+    private Tween _tween1;
     public override void OnStart ()
     {
         anim.SetTrigger (AnimaName);
-
-      _tween=  DOVirtual.DelayedCall (AttackOverTime,() =>
+        _tween1 = DOVirtual.DelayedCall (AudioTime,() => { AudioManager.Instance.AudioPlay (AudioType.Boss_Borther_Attack); },false);
+        _tween =  DOVirtual.DelayedCall (AttackOverTime,() =>
         {
             var dir = Target.Value.transform.position.x < transform.position.x ? -1 : 1;
             rd.AddForce (new Vector2 (dir * Force,0),ForceMode2D.Impulse);
@@ -43,6 +45,7 @@ public class Attack2 : EnemyAction
     {
         Over = false;
         _tween?.Kill ();
+        _tween1?.Kill ();
     }
 
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 
 using DG.Tweening;
@@ -34,6 +35,7 @@ public class PlayerCharacter: MonoBehaviour
    // [SerializeField] private ParticleSystem ProfectDefence;
 
     public UnityAction OnDamage;
+    public UnityAction Ondeath;
     // public UnityEvent Ondeath;
     // public UnityEvent OnBreak;
 
@@ -60,7 +62,12 @@ public class PlayerCharacter: MonoBehaviour
         BackDuration = characterData.backDurationTime;
         CurrentRecoverTime = 0;
         state = State.Default;
+        Player_UI.ShieldChange += ShieldChange;
+    }
 
+    private float ShieldChange ()
+    {
+        return CurrentShield;
     }
 
     private void Update ()
@@ -195,7 +202,7 @@ public class PlayerCharacter: MonoBehaviour
 
                 CurrentHealth = 0;
                 IsDeath = true;
-                //Ondeath?.Invoke ();
+                Ondeath?.Invoke ();
             }
         }
     }
@@ -216,6 +223,7 @@ public class PlayerCharacter: MonoBehaviour
         }
         else
         {
+            AudioManager.Instance.AudioPlay (AudioType.PlayerDefence);
             CurrentShield -= damage;
             StartCoroutine (ShieldHurt ());
         }

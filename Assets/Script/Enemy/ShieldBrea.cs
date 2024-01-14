@@ -5,18 +5,23 @@ using UnityEngine.Rendering.Universal;
 
 using static UnityEngine.UIElements.UxmlAttributeDescription;
 
-public class Shield: MonoBehaviour
+
+
+/// <summary>
+/// »¤¶ÜºôÎüµÆ
+/// </summary>
+public class ShieldBrea: MonoBehaviour
 {
 
 
-    private Light2D sprite;
+    private Light2D lightobj;
     private bool ToDoOver = false;
     [SerializeField] float BreatheTime = 1.5f;
     private bool Check1=false, Check2=false;
     void Start ()
     {
         DOTween.Init (true,true,LogBehaviour.Verbose).SetCapacity (1000,200);
-        sprite = GetComponent<Light2D> ();
+        lightobj = GetComponent<Light2D> ();
     }
 
 
@@ -34,7 +39,7 @@ public class Shield: MonoBehaviour
     private void ShieldBreatheTopointfive ()
     {
         Check1 = true;
-      DOTween.To (() => sprite.intensity,x => sprite.intensity = x,0f,BreatheTime);
+      DOTween.To (() => lightobj.intensity,x => lightobj.intensity = x,0f,BreatheTime);
        
        DOVirtual.DelayedCall ( BreatheTime,()=>
         {
@@ -48,7 +53,7 @@ public class Shield: MonoBehaviour
     private void ShieldBreatheToOne ()
     {
         Check2 = true;
-       DOTween.To (() => sprite.intensity,x => sprite.intensity = x,5f,BreatheTime);
+       DOTween.To (() => lightobj.intensity,x => lightobj.intensity = x,5f,BreatheTime);
        DOVirtual.DelayedCall (BreatheTime,() =>
         {
             ToDoOver = false;

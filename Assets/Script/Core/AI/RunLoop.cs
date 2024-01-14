@@ -18,6 +18,7 @@ public class RunLoop : EnemyAction
     public override void OnStart ()
     {
         anim.SetTrigger (AnimaName);
+        AudioManager.Instance.AudioPlay (AudioType.Boss_Borther_RunMove);
     }
     public override TaskStatus OnUpdate ()
     {

@@ -10,12 +10,16 @@ public class Attack1: EnemyAction
 {
     public string AnimaName;
     public float AttackOverTime;
+    public float AudioTime;
     public float Force;
     protected bool Over = false;
-    private Tween _tween;
+    private Tween _tween; 
+    private Tween _tween1;
+
     public override void OnStart ()
     {
         anim.SetTrigger (AnimaName);
+      _tween1=  DOVirtual.DelayedCall (AudioTime,() => { AudioManager.Instance.AudioPlay (AudioType.Boss_Borther_Attack); },false);
 
         _tween = DOVirtual.DelayedCall (AttackOverTime,() =>
           {
@@ -43,6 +47,7 @@ public class Attack1: EnemyAction
     {
         Over = false;
         _tween?.Kill ();
+        _tween1?.Kill ();
     }
 
 }

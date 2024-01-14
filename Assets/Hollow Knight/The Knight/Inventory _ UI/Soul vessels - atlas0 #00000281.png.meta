@@ -1,0 +1,699 @@
+fileFormatVersion: 2
+guid: 0ad06629f5382304eab2d456450eef75
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_0
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 867
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d33d575216dd8df48938a4ce1c725dfb
+      internalID: -1472395071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_1
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 908
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1664bca245c5cea4e91c2e7327954145
+      internalID: -561489075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_2
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 810
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a45c5a4ea4e7094449b6fd9f1f1dc652
+      internalID: -1462287939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_3
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 825
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 376bb56ddc7ca7948a64ff478698311f
+      internalID: -1215547046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_4
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 825
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61e3722fe81eb154ba3c1e5135652f41
+      internalID: -467433876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_5
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 855
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f92e855290a86814b9be6212e50454e1
+      internalID: -804618133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_6
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 855
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e076bba17ae59b34c902551ce2b6d2b0
+      internalID: 870690915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_7
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 875
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da652295279493f41a95a43fa8324465
+      internalID: -483937076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_8
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 908
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5875155c4e779c749ab6867b6b144704
+      internalID: -1397771234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_9
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 867
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8e972ef9e5be9e4badafda8ad9bea06
+      internalID: -79624011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_10
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 834
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b1bf168aa193d44c8ff814c81596d99
+      internalID: -1001566954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_11
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 814
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33826aa579faeae48987b5d875dc87a3
+      internalID: -1551638929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_12
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 814
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6e5a7c60b54d647b8d3adb30018349
+      internalID: 479308461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_13
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 773
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34f81e8b644a6474fa57696b72a1c007
+      internalID: 1616351037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_14
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 773
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32c7377fa6678474d946d4900cfff5a6
+      internalID: -572418940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_15
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 793
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ab6c75788b790644a4b6985cbc4b617
+      internalID: 2057143045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_16
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 752
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4b51dbc4d581244cb773c6669e53463
+      internalID: -825061294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_17
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 711
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 065c6062a702f1e41b04641b317f40fd
+      internalID: -424207468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_18
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 670
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fe44de4afc3e574d8931498564b8c1c
+      internalID: 953887722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_19
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 790
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cbcb6a8258afb646b689cc2a8a7f368
+      internalID: -1030846585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_20
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 789
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32a2b1b10d23c8144b76d18a674d9880
+      internalID: -1761185307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_21
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 756
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ca88d365dacb8145bb00bc471ca2f90
+      internalID: -16565073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_22
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 728
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b64f77f6ea3701b4ea5153b87051302f
+      internalID: 853726592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_23
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 725
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef90b331026ca264d860ed21342f05a3
+      internalID: -758675868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_24
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 538
+        width: 58
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c1468d91c6c1c142a63dfbd60b4eea6
+      internalID: -732371215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul vessels - atlas0 #00000281_25
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 460
+        width: 63
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d2b46e05cbfc6246a69d4b4f6c22426
+      internalID: -1664422208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Soul vessels - atlas0 #00000281_0: -1472395071
+      Soul vessels - atlas0 #00000281_1: -561489075
+      Soul vessels - atlas0 #00000281_10: -1001566954
+      Soul vessels - atlas0 #00000281_11: -1551638929
+      Soul vessels - atlas0 #00000281_12: 479308461
+      Soul vessels - atlas0 #00000281_13: 1616351037
+      Soul vessels - atlas0 #00000281_14: -572418940
+      Soul vessels - atlas0 #00000281_15: 2057143045
+      Soul vessels - atlas0 #00000281_16: -825061294
+      Soul vessels - atlas0 #00000281_17: -424207468
+      Soul vessels - atlas0 #00000281_18: 953887722
+      Soul vessels - atlas0 #00000281_19: -1030846585
+      Soul vessels - atlas0 #00000281_2: -1462287939
+      Soul vessels - atlas0 #00000281_20: -1761185307
+      Soul vessels - atlas0 #00000281_21: -16565073
+      Soul vessels - atlas0 #00000281_22: 853726592
+      Soul vessels - atlas0 #00000281_23: -758675868
+      Soul vessels - atlas0 #00000281_24: -732371215
+      Soul vessels - atlas0 #00000281_25: -1664422208
+      Soul vessels - atlas0 #00000281_3: -1215547046
+      Soul vessels - atlas0 #00000281_4: -467433876
+      Soul vessels - atlas0 #00000281_5: -804618133
+      Soul vessels - atlas0 #00000281_6: 870690915
+      Soul vessels - atlas0 #00000281_7: -483937076
+      Soul vessels - atlas0 #00000281_8: -1397771234
+      Soul vessels - atlas0 #00000281_9: -79624011
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

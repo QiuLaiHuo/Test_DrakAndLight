@@ -83,6 +83,7 @@ namespace Script.Player
             GameManager.Instance.InputEnable += InputEnable;
             GameManager.Instance.InputDisable += InputDisable;
             PlayerCharacter.Instance.OnDamage += Hurt;
+            PlayerCharacter.Instance.Ondeath += Death;
 
         }
 
@@ -98,6 +99,7 @@ namespace Script.Player
             planim.Hurt();
             hurt.Play();
             OnImpulseSource();
+            AudioManager.Instance.AudioPlay (AudioType.PlayerHurt);
             GameManager.Instance.BlackScreen();
         }
 
@@ -147,6 +149,7 @@ namespace Script.Player
             IsDodgeCD = true;
             CurrentDodgeTime = DodgeCD;
             DodgeLife = DodgeTime;
+            AudioManager.Instance.AudioPlay (AudioType.PlayerDodge);
         }
 
         private void Dodge ()
@@ -155,6 +158,7 @@ namespace Script.Player
             {
                 if (DodgeLife > 0)
                 {
+                  
                     PlayerCharacter.Instance.DodgeInvincible (DodgeTime);
                     if (facingDirection == 1)
                     {
@@ -220,13 +224,14 @@ namespace Script.Player
             {
                 IsJump = true;
                 rd.AddForce (Vector2.up * JumpForce,ForceMode2D.Impulse);
-            
+                AudioManager.Instance.AudioPlay (AudioType.PlayerJump);
             }
             else if (!IsGround && !IsDoubleJump)
             {
                 IsJump = true;
                 IsDoubleJump = true;
                 rd.velocity = new Vector2 (rd.velocity.x,0);
+                AudioManager.Instance.AudioPlay (AudioType.PlayerDoubleJump);
                 anim.SetTrigger ("DoubleJump");
                 WingAnimator.GetComponent<Animator> ().SetTrigger ("Wing");
 
@@ -242,6 +247,7 @@ namespace Script.Player
         {
             if (!IsDefence && !IsAttack)
             {
+                AudioManager.Instance.AudioPlay (AudioType.PlayerAttck);
                 CurrentAttack = AttackCD;
                 rd.velocity = new Vector2 (0,rd.velocity.y);
                 IsAttack = true;
@@ -260,8 +266,14 @@ namespace Script.Player
 
             rd.velocity = new Vector2 (SpeedValue.x * MoveSpeed,rd.velocity.y);
             anim.SetFloat ("Move",Mathf.Abs (SpeedValue.x));
+            //todo:MOVE音效需要时间调节函数
 
+        }
 
+        public void Death ()
+        {
+            AudioManager.Instance.AudioPlay (AudioType.PlayerDie);
+            InputDisable ();
         }
         #endregion
 
@@ -323,11 +335,7 @@ namespace Script.Player
         }
 
 
-        public void Death ()
-        {
-
-            InputDisable ();
-        }
+        
 
 
 

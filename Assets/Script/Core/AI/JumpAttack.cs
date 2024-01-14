@@ -27,6 +27,7 @@ public class JumpAttack: EnemyAction
                 {
 
                     anim.SetTrigger (AnimName);
+                    AudioManager.Instance.AudioPlay (AudioType.Boss_Borther_Attack);
                     rd.AddForce (new Vector2 (rd.velocity.x,rd.velocity.y * DownForce),ForceMode2D.Impulse);
                     //IsGound = true;
                     camera.GenerateImpulse ();

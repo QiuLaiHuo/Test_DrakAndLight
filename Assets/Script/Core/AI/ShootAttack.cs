@@ -12,7 +12,7 @@ namespace Core.AI
         public override void OnStart()
         {
             base.OnStart();
-            
+           
         }
 
         public override TaskStatus OnUpdate()

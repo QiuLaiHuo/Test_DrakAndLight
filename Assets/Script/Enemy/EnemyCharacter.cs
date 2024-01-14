@@ -30,10 +30,8 @@ public class EnemyCharacter: MonoBehaviour
     
     
     [SerializeField] protected CharacterData CharacterData;
-    [SerializeField] protected GameObject shield;
-     [SerializeField] protected AudioSource ShildAudio;
+    [SerializeField] protected GameObject shield;  
      [SerializeField] protected ParticleSystem Shieldeffects;
-     [SerializeField] protected AudioSource HurtAudio;
      [SerializeField] protected ParticleSystem HurtEffects;
       
      
@@ -134,14 +132,14 @@ public class EnemyCharacter: MonoBehaviour
     {
         if (!Isinvincible)
         {
-          
-            
+
+            AudioManager.Instance.AudioPlay (AudioType.Boss_Borther_Hurt);
             if (CurrentHealth - Damage > 0)
             {
                 CurrentHealth -= Damage;
                 StartCoroutine(HeathHurt());
                   OnShake?.Invoke ();
-                  HurtAudio.Play();
+               
                   HurtEffects.Play();
             }
             else
@@ -199,10 +197,10 @@ public class EnemyCharacter: MonoBehaviour
             OnShake?.Invoke ();
             tree?.SendEvent ("OnBreak");
              Shieldeffects.Play();
-         
-         
+
+            AudioManager.Instance.AudioPlay (AudioType.Boss_Borther_Break);
             TimeManager.Instance.SlowTime ();
-            ShildAudio.Play();
+           
             
             rd.AddForce (BackVector,ForceMode2D.Impulse);
             CurrentRecoverTime = CharacterData.RecoverTime;
@@ -212,6 +210,7 @@ public class EnemyCharacter: MonoBehaviour
         else
         {
             CurrentShield -= damage;
+            AudioManager.Instance.AudioPlay (AudioType.Boss_Borther_Defence);
             StartCoroutine (ShieldHurt ());
         }
     }
@@ -225,9 +224,9 @@ public class EnemyCharacter: MonoBehaviour
             OnShake?.Invoke ();
             tree?.SendEvent ("OnBreak");   
              Shieldeffects.Play();
-            ShildAudio.Play();
-          
-           
+            AudioManager.Instance.AudioPlay (AudioType.Boss_Borther_Break);
+
+
             rd.AddForce (backirection,ForceMode2D.Impulse);
             CurrentRecoverTime = CharacterData.RecoverTime;
             CurrentShield = 0;
@@ -236,6 +235,7 @@ public class EnemyCharacter: MonoBehaviour
         else
         {
             CurrentShield -= damage;
+            AudioManager.Instance.AudioPlay (AudioType.Boss_Borther_Defence);
             StartCoroutine (ShieldHurt ());
         }
     }

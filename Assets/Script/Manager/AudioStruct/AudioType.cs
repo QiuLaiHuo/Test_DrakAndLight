@@ -10,6 +10,7 @@ public enum AudioType
     PlayerDodge,
     PlayerHurt,
     PlayerDie,
+    PlayerDefence,
     Boss_Borther_Attack,
     Boss_Borther_Defence,
     Boss_Borther_Hurt,
@@ -18,6 +19,5 @@ public enum AudioType
     Boss_Borther_Roar,
     Boss_Borther_RunReady,
     Boss_Borther_RunMove,
-    
-    
+      
 }

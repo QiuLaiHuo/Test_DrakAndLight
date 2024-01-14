@@ -73,6 +73,7 @@ public class EnemyController: MonoBehaviour
     public void PassivityToTreeEvent (int ShieldDamage,Vector2 backDirection)
     {
         tree?.SendEvent ("Onporfect");
+        AudioManager.Instance.AudioPlay (AudioType.Boss_Borther_Parry);
         ProfectDefence?.Invoke (ShieldDamage,backDirection);
        Parry?.Play();
     }

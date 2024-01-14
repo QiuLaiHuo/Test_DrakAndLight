@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186a71fa6f56c394b951806a4502f809, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  Health: 1000
-  Shield: 20
+  Health: 5
+  Shield: 5
   RecoverTime: 2
   InvincibleTime: 0.4
   backDurationTime: 0.2
