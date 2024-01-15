@@ -6,27 +6,31 @@ using Unity.VisualScripting;
 
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Player_UI : MonoBehaviour
 {
-    [SerializeField]private Animator anim;
+     [SerializeField]private Animator Shieldanim;
+     [SerializeField] private Animator Lifeanima;
 
-    public static Func<float> ShieldChange;
+    public static Func<float> OnShieldChange;
+    public static Func<float> OnLifeChange;
+   
 
-
-    public static void Register()
+    private void Start()
     {
-
+        PlayerCharacter.Instance.OnShieldChange += PlayerShieldUI;
+        PlayerCharacter.Instance.OnLifeChange += PlayerLifeUI;
     }
 
-    public static void OutRegister()
+    private void PlayerShieldUI()
     {
-
+        Shieldanim.SetFloat ("Blend",OnShieldChange.Invoke ());
     }
 
-    private void Update ()
+    private void PlayerLifeUI()
     {
-        anim.SetFloat ("Blend",ShieldChange.Invoke ());
+        Lifeanima.SetFloat("Blend",OnLifeChange.Invoke());
     }
 }

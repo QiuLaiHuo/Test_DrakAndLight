@@ -5,6 +5,7 @@ using Cinemachine;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Timeline;
 using Random = UnityEngine.Random;
 
 public class EnemyController: MonoBehaviour
@@ -15,6 +16,7 @@ public class EnemyController: MonoBehaviour
     private CinemachineImpulseSource cinema;
     private Animator anim;
     private Rigidbody2D rd;
+    private bool IsTargetDie=false;
     public int facingDirection = -1;
    // private int curretfacing;
     
@@ -44,11 +46,21 @@ public class EnemyController: MonoBehaviour
     private void Start()
     {
         EnemyCharacter.OnShake += OnImpulseSource;
+        PlayerCharacter.Instance.Ondeath += TargetDie;
     }
 
+    //todo:使用GameManager来统一调用
+    void TargetDie()
+    {
+        IsTargetDie = true;
+        tree?.SendEvent("OnDie");
+        
+    }
+    
     private void FixedUpdate ()
     {
-        CheckPlayer ();
+        if(!IsTargetDie)
+            CheckPlayer ();
         
     }
 

@@ -1,4 +1,4 @@
-using System;
+
 using System.Collections;
 
 using DG.Tweening;
@@ -36,8 +36,8 @@ public class PlayerCharacter: MonoBehaviour
 
     public UnityAction OnDamage;
     public UnityAction Ondeath;
-    // public UnityEvent Ondeath;
-    // public UnityEvent OnBreak;
+    public UnityAction OnShieldChange;
+    public UnityAction OnLifeChange;
 
 
 
@@ -62,14 +62,13 @@ public class PlayerCharacter: MonoBehaviour
         BackDuration = characterData.backDurationTime;
         CurrentRecoverTime = 0;
         state = State.Default;
-        Player_UI.ShieldChange += ShieldChange;
+        Player_UI.OnShieldChange += () => CurrentShield;
+        Player_UI.OnLifeChange += () => CurrentHealth;
+        OnShieldChange.Invoke();
+        OnLifeChange.Invoke();
     }
 
-    private float ShieldChange ()
-    {
-        return CurrentShield;
-    }
-
+  
     private void Update ()
     {
         CheckInvincibleTime ();
@@ -95,7 +94,7 @@ public class PlayerCharacter: MonoBehaviour
     //恢复计时器
     private void CheckRecoverTime ()
     {
-        if (IsBreak)
+        if (IsBreak&&!IsDeath)
         {
 
             CurrentRecoverTime -= Time.deltaTime;
@@ -104,12 +103,23 @@ public class PlayerCharacter: MonoBehaviour
                 CurrentRecoverTime = 0;
                 IsBreak = false;
                 CurrentShield = characterData.Shield;
+                OnShieldChange.Invoke();
             }
 
         }
 
     }
 
+    private void PorfectShield()
+    {
+        if (CurrentShield < characterData.Shield)
+        {
+            CurrentShield++;
+            OnShieldChange.Invoke();
+        }
+        
+    }
+    
     //新受伤函数
     public void GetHurt (DamageData damage)
     {
@@ -123,7 +133,7 @@ public class PlayerCharacter: MonoBehaviour
             case State.Porfect:
 
             TriggerInvincible ();
-            //ProfectDefence.Play();
+            PorfectShield();
              TimeManager.Instance.SlowTime ();
 
             backvector.Set(damage.beatForce.x * -damage.TargetSide,damage.beatForce.y);
@@ -196,6 +206,7 @@ public class PlayerCharacter: MonoBehaviour
             {
                 CurrentHealth -= Damage;
                 OnDamage?.Invoke ();
+                
             }
             else
             {
@@ -204,6 +215,7 @@ public class PlayerCharacter: MonoBehaviour
                 IsDeath = true;
                 Ondeath?.Invoke ();
             }
+            OnLifeChange.Invoke();
         }
     }
 
@@ -217,6 +229,7 @@ public class PlayerCharacter: MonoBehaviour
             //todo:进入Break，包括动画
            // OnBreak?.Invoke ();
             CurrentShield = 0;
+           
             CurrentRecoverTime = characterData.RecoverTime;
             IsBreak = true;
 
@@ -227,6 +240,7 @@ public class PlayerCharacter: MonoBehaviour
             CurrentShield -= damage;
             StartCoroutine (ShieldHurt ());
         }
+        OnShieldChange.Invoke();
 
     }
 

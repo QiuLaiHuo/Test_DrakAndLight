@@ -5,15 +5,16 @@ using UnityEngine.Events;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
 
     [SerializeField] private Volume globalVolume;
-    //[SerializeField]private float s;
-    private Vignette dof;
    
+    private Vignette dof;
+    private Tween _tween;
     public static GameManager Instance
     {
         get
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
     public void BlackScreen()
     {
        dof?.smoothness.SetValue(new FloatParameter(1f));
-        DOVirtual.DelayedCall(0.2f, () =>
+     _tween =   DOVirtual.DelayedCall(0.2f, () =>
         {
            dof?.smoothness.SetValue(new FloatParameter(0.1f));
             
@@ -47,8 +48,20 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad (gameObject);
     }
 
-    //[SerializeField] private PlayerConrtoll playerConrtoll;
+    public void GameOver()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+    }
 
+
+    public void ReStartGame()
+    {
+        SceneManager.LoadSceneAsync("Scenes/Hollow Knight");
+    }
     
 
 }
