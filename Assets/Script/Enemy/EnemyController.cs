@@ -5,7 +5,7 @@ using Cinemachine;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Timeline;
+
 using Random = UnityEngine.Random;
 
 public class EnemyController: MonoBehaviour

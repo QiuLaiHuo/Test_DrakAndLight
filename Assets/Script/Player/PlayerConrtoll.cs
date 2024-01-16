@@ -71,7 +71,7 @@ namespace Script.Player
         void Start ()
         {
             facingDirection = 1;
-       
+              InputEnable();
             inputs.GamePlay.Attack.started += Attack;
             inputs.GamePlay.Jump.started += Jump;
             inputs.GamePlay.PorfectDefence.started += PorfectBlock;
@@ -79,9 +79,9 @@ namespace Script.Player
             inputs.GamePlay.Defence.canceled += DefenceOver;
             inputs.GamePlay.Dodge.started += DodgeToReady;
             inputs.GamePlay.PorfectDefence.canceled += DefenceOver;
-        
-            GameManager.Instance.InputEnable += InputEnable;
-            GameManager.Instance.InputDisable += InputDisable;
+            //
+            // GameManager.Instance.InputEnable += InputEnable;
+            // GameManager.Instance.InputDisable += InputDisable;
             PlayerCharacter.Instance.OnDamage += Hurt;
             PlayerCharacter.Instance.Ondeath += Death;
 

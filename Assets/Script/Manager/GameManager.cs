@@ -15,25 +15,27 @@ public class GameManager : MonoBehaviour
    
     private Vignette dof;
     private Tween _tween;
-    public static GameManager Instance
-    {
-        get
-        {
-            if (instance == null)
-                instance = GameObject.FindAnyObjectByType<GameManager> ();
-            return instance;
-        }
-    }
+    public static GameManager Instance => instance;
 
-    public UnityAction InputEnable;
-    public UnityAction InputDisable;
 
+    public UnityAction UIEnable;
+    public UnityAction UIDisable;
+
+    
+    
     private void Start()
     {
         globalVolume.profile.TryGet<Vignette>(out dof);
-      
+        PlayerCharacter.Instance.Ondeath += PlayerDie;
+        UIDisable.Invoke();
     }
 
+    private void PlayerDie()
+    {
+        UIEnable.Invoke();
+        AudioManager.Instance.BGMStop();
+    }
+    
     public void BlackScreen()
     {
        dof?.smoothness.SetValue(new FloatParameter(1f));
@@ -45,11 +47,19 @@ public class GameManager : MonoBehaviour
     }
     private void Awake ()
     {
-        DontDestroyOnLoad (gameObject);
+       
+        if(instance!=null)
+            Destroy(gameObject);
+        else if (instance==null)
+        {instance = this;
+            DontDestroyOnLoad (this);
+        }
+        
     }
 
     public void GameOver()
     {
+        
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -60,7 +70,8 @@ public class GameManager : MonoBehaviour
 
     public void ReStartGame()
     {
-        SceneManager.LoadSceneAsync("Scenes/Hollow Knight");
+        
+        SceneManager.LoadSceneAsync("Scenes/Hollow Knight",LoadSceneMode.Single);
     }
     
 

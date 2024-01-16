@@ -5,7 +5,7 @@ using BehaviorDesigner.Runtime;
 
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
+
 
 public enum EnemieState { Defence, Default }
 public class EnemyCharacter: MonoBehaviour

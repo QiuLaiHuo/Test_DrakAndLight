@@ -1,7 +1,7 @@
 
-using System;
+
 using UnityEngine;
-using UnityEngine.Rendering;
+
 using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
@@ -12,12 +12,15 @@ public class GameUI : MonoBehaviour
 
    private void Start()
    {
-      panel.SetActive(false);
+    // panel.SetActive(false);
       ContinueBut.onClick.AddListener(() => { GameManager.Instance.ReStartGame(); });
       
       QuitBut.onClick.AddListener(() => { GameManager.Instance.GameOver(); });
-     
+      
+      
 
+      GameManager.Instance.UIEnable += PlayerDie;
+      GameManager.Instance.UIDisable += PlayerSurvival;
    }
 
    public void PlayerDie()
