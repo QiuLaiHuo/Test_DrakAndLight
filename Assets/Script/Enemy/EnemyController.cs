@@ -36,17 +36,17 @@ public class EnemyController: MonoBehaviour
     
     private void Awake ()
     {
-        rd = GetComponent<Rigidbody2D> ();
-        tree = GetComponent<BehaviorTree> ();
-        anim = GetComponent<Animator> ();
-        cinema = GetComponent<CinemachineImpulseSource> ();
-        
+       
+        EnemyCharacter.OnShake += OnImpulseSource;
+        PlayerCharacter.Instance.Ondeath += TargetDie;
     }
 
     private void Start()
     {
-        EnemyCharacter.OnShake += OnImpulseSource;
-        PlayerCharacter.Instance.Ondeath += TargetDie;
+         rd = GetComponent<Rigidbody2D> ();
+        tree = GetComponent<BehaviorTree> ();
+        anim = GetComponent<Animator> ();
+        cinema = GetComponent<CinemachineImpulseSource> ();
     }
 
     //todo:使用GameManager来统一调用
@@ -86,8 +86,8 @@ public class EnemyController: MonoBehaviour
     {
         tree?.SendEvent ("Onporfect");
         AudioManager.Instance.AudioPlay (AudioType.Boss_Borther_Parry);
-        ProfectDefence?.Invoke (ShieldDamage,backDirection);
-       Parry?.Play();
+        ProfectDefence.Invoke (ShieldDamage,backDirection);
+       Parry.Play();
     }
     
     
@@ -125,5 +125,21 @@ public class EnemyController: MonoBehaviour
     }
     //private void Update () { }
 
+    protected void OnDestroy ()
+    {
+        Delegate[] d = ProfectDefence.GetInvocationList ();
+        foreach (var item in d)
+        {
+            ProfectDefence -= item as UnityAction<int,Vector2>;
+        }
+        Delegate[] s = CurrentFacing.GetInvocationList ();
+        foreach (var item in s)
+        {
+            CurrentFacing -= item as UnityAction<int>;
+        }
+
+        //EnemyCharacter.OnShake -= OnImpulseSource;
+        //PlayerCharacter.Instance.Ondeath -= TargetDie;
+    }
    
 }

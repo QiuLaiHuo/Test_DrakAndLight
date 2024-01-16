@@ -2,12 +2,12 @@
 using System.Collections;
 
 using DG.Tweening;
-
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 
-public enum State { Porfect, Defence, Default ,Attack}
+public enum State { Porfect, Defence, Default, Attack }
 public class PlayerCharacter: MonoBehaviour
 {
     [Header ("基础属性")]
@@ -18,12 +18,12 @@ public class PlayerCharacter: MonoBehaviour
     public bool Isinvincible;
     public bool IsBreak;
     public bool IsDeath;
-    [FormerlySerializedAs("ISBack")] public bool isBack;
+    [FormerlySerializedAs ("ISBack")] public bool isBack;
 
     private float BackStartTime;
     private float BackDuration;
     private Vector2 backvector;
-    
+
 
     private Rigidbody2D rd;
 
@@ -32,14 +32,43 @@ public class PlayerCharacter: MonoBehaviour
     public State state;
 
     [SerializeField] private CharacterData characterData;
-   // [SerializeField] private ParticleSystem ProfectDefence;
+    // [SerializeField] private ParticleSystem ProfectDefence;
 
     public UnityAction OnDamage;
     public UnityAction Ondeath;
     public UnityAction OnShieldChange;
     public UnityAction OnLifeChange;
 
+private void OnDestroy()
+    {
+        tween?.Kill ();
+        Delegate[] d = OnDamage.GetInvocationList ();
+        foreach (var item in d)
+        {
+            OnDamage -= item as UnityAction;
+        }
+        Delegate[] a = Ondeath.GetInvocationList ();
+        foreach (var item in a)
+        {
+            Ondeath -= item as UnityAction;
+        }
+        Delegate[] s = OnShieldChange.GetInvocationList ();
+        foreach (var item in s)
+        {
+            OnShieldChange -= item as UnityAction;
+        }
+        Delegate[] w = OnLifeChange.GetInvocationList ();
+        foreach (var item in w)
+        {
+            OnLifeChange -= item as UnityAction;
+        }
 
+
+
+        //Player_UI.OnShieldChange -= () => CurrentShield;
+        //Player_UI.OnLifeChange -= () => CurrentHealth;
+
+    }
 
     private static PlayerCharacter instance;
     public static PlayerCharacter Instance
@@ -53,22 +82,30 @@ public class PlayerCharacter: MonoBehaviour
         }
     }
 
-    private void Start ()
+    private void Awake ()
     {
         rd = GetComponent<Rigidbody2D> ();
+        Player_UI.OnShieldChange += () => CurrentShield;
+        Player_UI.OnLifeChange += () => CurrentHealth;
+    }
+
+
+    
+    private void Start ()
+    {
+
 
         CurrentHealth = characterData.Health;
         CurrentShield = characterData.Shield;
         BackDuration = characterData.backDurationTime;
         CurrentRecoverTime = 0;
         state = State.Default;
-        Player_UI.OnShieldChange += () => CurrentShield;
-        Player_UI.OnLifeChange += () => CurrentHealth;
-        OnShieldChange.Invoke();
-        OnLifeChange.Invoke();
+
+        OnShieldChange.Invoke ();
+        OnLifeChange.Invoke ();
     }
 
-  
+
     private void Update ()
     {
         CheckInvincibleTime ();
@@ -94,7 +131,7 @@ public class PlayerCharacter: MonoBehaviour
     //恢复计时器
     private void CheckRecoverTime ()
     {
-        if (IsBreak&&!IsDeath)
+        if (IsBreak && !IsDeath)
         {
 
             CurrentRecoverTime -= Time.deltaTime;
@@ -103,23 +140,23 @@ public class PlayerCharacter: MonoBehaviour
                 CurrentRecoverTime = 0;
                 IsBreak = false;
                 CurrentShield = characterData.Shield;
-                OnShieldChange.Invoke();
+                OnShieldChange.Invoke ();
             }
 
         }
 
     }
 
-    private void PorfectShield()
+    private void PorfectShield ()
     {
         if (CurrentShield < characterData.Shield)
         {
             CurrentShield++;
-            OnShieldChange.Invoke();
+            OnShieldChange.Invoke ();
         }
-        
+
     }
-    
+
     //新受伤函数
     public void GetHurt (DamageData damage)
     {
@@ -133,14 +170,14 @@ public class PlayerCharacter: MonoBehaviour
             case State.Porfect:
 
             TriggerInvincible ();
-            PorfectShield();
-             TimeManager.Instance.SlowTime ();
+            PorfectShield ();
+            TimeManager.Instance.SlowTime ();
 
-            backvector.Set(damage.beatForce.x * -damage.TargetSide,damage.beatForce.y);
-            damage.WhoIsAttacker.GetComponent<EnemyController>()?.PassivityToTreeEvent(
+            backvector.Set (damage.beatForce.x * -damage.TargetSide,damage.beatForce.y);
+            damage.WhoIsAttacker.GetComponent<EnemyController> ()?.PassivityToTreeEvent (
                 damage.ShieldDamage * damage.DamageMultiply,
                 backvector);
-           
+
             break;
 
 
@@ -163,7 +200,7 @@ public class PlayerCharacter: MonoBehaviour
                 Damage (damage.Damage);
             TriggerInvincible ();
 
-        
+
             isBack = true;
             BackStartTime = Time.time;
             rd.AddForce (backvector,ForceMode2D.Impulse);
@@ -201,12 +238,12 @@ public class PlayerCharacter: MonoBehaviour
     {
         if (!Isinvincible)
         {
-            
+
             if (CurrentHealth - Damage > 0)
             {
                 CurrentHealth -= Damage;
                 OnDamage?.Invoke ();
-                
+
             }
             else
             {
@@ -215,7 +252,7 @@ public class PlayerCharacter: MonoBehaviour
                 IsDeath = true;
                 Ondeath?.Invoke ();
             }
-            OnLifeChange.Invoke();
+            OnLifeChange.Invoke ();
         }
     }
 
@@ -227,9 +264,9 @@ public class PlayerCharacter: MonoBehaviour
         if (CurrentShield - damage <= 0)
         {
             //todo:进入Break，包括动画
-           // OnBreak?.Invoke ();
+            // OnBreak?.Invoke ();
             CurrentShield = 0;
-           
+
             CurrentRecoverTime = characterData.RecoverTime;
             IsBreak = true;
 
@@ -240,7 +277,7 @@ public class PlayerCharacter: MonoBehaviour
             CurrentShield -= damage;
             StartCoroutine (ShieldHurt ());
         }
-        OnShieldChange.Invoke();
+        OnShieldChange.Invoke ();
 
     }
 
@@ -257,10 +294,7 @@ public class PlayerCharacter: MonoBehaviour
     }
 
 
-    private void OnDisable ()
-    {
-        tween?.Kill ();
-    }
+   
 
 
 

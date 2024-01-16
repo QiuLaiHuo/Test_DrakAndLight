@@ -17,8 +17,22 @@ public class Player_UI : MonoBehaviour
     public static Func<float> OnShieldChange;
     public static Func<float> OnLifeChange;
    
-
-    private void Start()
+private void OnDestroy ()
+    {
+        Delegate[] s = OnShieldChange.GetInvocationList ();
+        foreach (var item in s)
+        {
+            OnShieldChange -= item as Func<float>;
+        }
+        Delegate[] a = OnLifeChange.GetInvocationList ();
+        foreach (var item in a)
+        {
+            OnLifeChange -= item as Func<float>;
+        }
+        //PlayerCharacter.Instance.OnShieldChange -= PlayerShieldUI;
+        //PlayerCharacter.Instance.OnLifeChange -= PlayerLifeUI;
+    }
+    private void Awake()
     {
         PlayerCharacter.Instance.OnShieldChange += PlayerShieldUI;
         PlayerCharacter.Instance.OnLifeChange += PlayerLifeUI;
@@ -33,4 +47,6 @@ public class Player_UI : MonoBehaviour
     {
         Lifeanima.SetFloat("Blend",OnLifeChange.Invoke());
     }
+
+    
 }

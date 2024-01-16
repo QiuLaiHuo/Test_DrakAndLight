@@ -11,7 +11,16 @@ public class AudioManager: MonoBehaviour
     #region  单例函数
 
     private static AudioManager instance;
-    public static AudioManager Instance => instance;
+    public static AudioManager Instance
+    {
+        get
+        {
+            if (instance == null)
+                instance = GameObject.FindAnyObjectByType<AudioManager> ();
+
+            return instance;
+        }
+    }
 
     #endregion
 
@@ -50,12 +59,7 @@ public class AudioManager: MonoBehaviour
 
     private void Awake ()
     {
-        if(instance!=null)
-            Destroy(gameObject);
-        else if (instance==null)
-        {instance = this;
-            DontDestroyOnLoad (this);
-        }
+      
 
         AudioDic ??= new Dictionary<AudioType,AudioSource> ();
     }

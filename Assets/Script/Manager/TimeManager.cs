@@ -7,18 +7,18 @@ public class TimeManager: MonoBehaviour
 {
 
     private static TimeManager instance;
-    public static TimeManager Instance => instance;
-
-    private void Awake()
+    public static TimeManager Instance
     {
-        if(instance!=null)
-            Destroy(gameObject);
-        else if (instance==null)
-        {instance = this;
-            DontDestroyOnLoad (this);
-        }
+        get
+        {
+            if (instance == null)
+                instance = GameObject.FindAnyObjectByType<TimeManager> ();
 
+            return instance;
+        }
     }
+
+   
 
     [Range (0f,1f)] public float SlowDuration;
 

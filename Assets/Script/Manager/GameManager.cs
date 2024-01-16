@@ -6,6 +6,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,19 +16,50 @@ public class GameManager : MonoBehaviour
    
     private Vignette dof;
     private Tween _tween;
-    public static GameManager Instance => instance;
+    private int CurrentSceneIndex;
+    public static GameManager Instance
+    {
+        get
+        {
+            if (instance == null)
+                instance = GameObject.FindAnyObjectByType<GameManager> ();
+
+            return instance;
+        }
+    }
 
 
     public UnityAction UIEnable;
     public UnityAction UIDisable;
+    //public UnityAction<int> SceneLoad;
 
+    private void Awake ()
+    {
+         PlayerCharacter.Instance.Ondeath += PlayerDie;
+    }
+
+    private void OnDestroy ()
+    {
+       Delegate[] d = UIEnable.GetInvocationList ();
+        foreach(var a in d)
+        {
+            UIEnable -= a as UnityAction;
+        }
+        Delegate[] s = UIDisable.GetInvocationList ();
+        foreach(var a in s )
+        {
+            UIDisable -= a as UnityAction;
+        }
+
+    }
     
-    
+
     private void Start()
     {
         globalVolume.profile.TryGet<Vignette>(out dof);
-        PlayerCharacter.Instance.Ondeath += PlayerDie;
-        UIDisable.Invoke();
+       
+       // UIDisable.Invoke();
+        
     }
 
     private void PlayerDie()
@@ -45,17 +77,7 @@ public class GameManager : MonoBehaviour
             
         }, false);
     }
-    private void Awake ()
-    {
-       
-        if(instance!=null)
-            Destroy(gameObject);
-        else if (instance==null)
-        {instance = this;
-            DontDestroyOnLoad (this);
-        }
-        
-    }
+  
 
     public void GameOver()
     {
@@ -70,8 +92,8 @@ public class GameManager : MonoBehaviour
 
     public void ReStartGame()
     {
-        
-        SceneManager.LoadSceneAsync("Scenes/Hollow Knight",LoadSceneMode.Single);
+        CurrentSceneIndex = SceneManager.GetActiveScene ().buildIndex;
+        ScenMonitoring.ChangeScene (CurrentSceneIndex);
     }
     
 

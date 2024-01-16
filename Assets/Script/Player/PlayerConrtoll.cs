@@ -61,11 +61,14 @@ namespace Script.Player
 
         private void Awake ()
         {
-            inputs = new PlayerInput ();
+            if (inputs == null)
+                inputs = new PlayerInput ();
             rd = GetComponent<Rigidbody2D> ();
             anim = GetComponent<Animator> ();
             planim = GetComponent<PlayerAnimation> ();
             cinema = GetComponent<CinemachineImpulseSource>();
+            PlayerCharacter.Instance.OnDamage += Hurt;
+            PlayerCharacter.Instance.Ondeath += Death;
 
         }
         void Start ()
@@ -82,8 +85,7 @@ namespace Script.Player
             //
             // GameManager.Instance.InputEnable += InputEnable;
             // GameManager.Instance.InputDisable += InputDisable;
-            PlayerCharacter.Instance.OnDamage += Hurt;
-            PlayerCharacter.Instance.Ondeath += Death;
+            
 
         }
 
@@ -315,15 +317,17 @@ namespace Script.Player
         #endregion
 
         #region 启用和禁用方法调用
-        private void OnEnable ()
-        {
-            inputs.GamePlay.Enable ();
-        }
+        //private void OnEnable ()
+        //{
+        //    inputs.GamePlay.Enable ();
+        //}
 
-        private void OnDisable ()
+        private void OnDestroy ()
         {
-            inputs.GamePlay.Disable ();
-       
+            InputDisable ();
+            //PlayerCharacter.Instance.OnDamage -= Hurt;
+            //PlayerCharacter.Instance.Ondeath -= Death;
+
         }
 
         #endregion

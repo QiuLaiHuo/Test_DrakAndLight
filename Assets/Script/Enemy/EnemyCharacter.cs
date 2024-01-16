@@ -5,6 +5,7 @@ using BehaviorDesigner.Runtime;
 
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 
 public enum EnemieState { Defence, Default }
@@ -41,30 +42,36 @@ public class EnemyCharacter: MonoBehaviour
     public EnemieState state;
     protected BehaviorTree tree;
     protected Vector2 BackVector;
+    protected SpriteRenderer sp;
+    protected SpriteRenderer Hurtsp;
 
 
 
-    
 
 
     public static UnityAction OnShake;
     //public UnityEvent Ondeath;
     //public UnityEvent OnBreak;
 
-
+    protected virtual void Awake()
+    {
+         EnemyController.ProfectDefence += DamageShield;
+        EnemyController.CurrentFacing += FacingEvent;
+    }
 
     protected virtual void Start ()
     {
         tree = GetComponent<BehaviorTree> ();
         rd = GetComponent<Rigidbody2D> ();
+         sp = shield.GetComponent<SpriteRenderer> ();
+        Hurtsp = GetComponent<SpriteRenderer> ();
         CurrentHealth = CharacterData.Health;
         CurrentShield = CharacterData.Shield;
         BackDuration = CharacterData.backDurationTime;
         CurrentRecoverTime = 0;
         state = EnemieState.Default;
        
-        EnemyController.ProfectDefence += DamageShield;
-        EnemyController.CurrentFacing += FacingEvent;
+       
     }
 
     protected virtual void Update ()
@@ -240,16 +247,21 @@ public class EnemyCharacter: MonoBehaviour
         }
     }
 
-    // IEnumerator ShieldDisappear()
-    // {
-    //     //
-    //     shield.SetActive (true);
-    // }
+    protected void OnDisable ()
+    {
+        Delegate[] d = OnShake.GetInvocationList ();
+        foreach (var item in d)
+        {
+            OnShake -= item as UnityAction;
+        }
+
+        //EnemyController.ProfectDefence -= DamageShield;
+        //EnemyController.CurrentFacing -= FacingEvent;
+    }
 
     IEnumerator ShieldHurt ()
     {
-        SpriteRenderer sp = shield.GetComponent<SpriteRenderer>();
-
+        
         if (sp == null)
             yield break; 
         sp.color = Color.red;
@@ -263,17 +275,17 @@ public class EnemyCharacter: MonoBehaviour
 
     IEnumerator HeathHurt()
     {
-        SpriteRenderer sp = GetComponent<SpriteRenderer>();
+       
         Color color = new Color(245f/255f,181f/255f,98f/255f,1f);
-        if (sp == null)
+        if (Hurtsp == null)
             yield break;
-        sp.color = color;
+        Hurtsp.color = color;
         yield return new WaitForSeconds (0.1f);
-        sp.color = Color.white;
+        Hurtsp.color = Color.white;
         yield return new WaitForSeconds (0.1f);
-        sp.color = color;
+        Hurtsp.color = color;
         yield return new WaitForSeconds (0.1f);
-        sp.color = Color.white;
+        Hurtsp.color = Color.white;
         
     }
     

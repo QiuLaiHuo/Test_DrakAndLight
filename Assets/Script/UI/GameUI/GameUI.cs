@@ -12,27 +12,34 @@ public class GameUI : MonoBehaviour
 
    private void Start()
    {
-    // panel.SetActive(false);
+     
       ContinueBut.onClick.AddListener(() => { GameManager.Instance.ReStartGame(); });
       
       QuitBut.onClick.AddListener(() => { GameManager.Instance.GameOver(); });
       
       
 
-      GameManager.Instance.UIEnable += PlayerDie;
-      GameManager.Instance.UIDisable += PlayerSurvival;
+      GameManager.Instance.UIEnable += UIenble;
+      GameManager.Instance.UIDisable += UIdisable;
+panel.SetActive(false);
    }
 
-   public void PlayerDie()
+   public void UIenble()
    {
       panel.SetActive(true);
    }
 
-   public void PlayerSurvival()
+   public void UIdisable()
    {
       panel.SetActive(false);
    }
-   
-   
-   
+
+    private void OnDestroy ()
+    {
+        ContinueBut.onClick.RemoveAllListeners ();
+        QuitBut.onClick.RemoveAllListeners ();
+       
+    }
+    
+
 }
